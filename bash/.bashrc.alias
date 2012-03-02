@@ -1,25 +1,25 @@
 # git
+alias gap='git add -p'
 alias gd='git diff'
 alias gst='git status'
-alias gap='git add -p'
 
 # system admin
 alias c=clear
-alias unhitch='hitch -u'
-alias hist="history | grep $1"
-alias psack="ps aux | ack"
-alias vimhosts="sudo vim /etc/hosts"
-alias kill_screenshare="killall NetAuthAgent"
+alias ducks='du -cks * | sort -rn'
 alias flushdns="dscacheutil -flushcache"
+alias hist="history | grep $1"
+alias kill_screenshare="killall NetAuthAgent"
+alias psack="ps aux | ack"
+alias unhitch='hitch -u'
+alias vimhosts="sudo vim /etc/hosts"
 
 # ruby dev stuff:
 alias be="bundle exec"
-alias rubies='rvm list'
-alias ducks='du -cks * | sort -rn'
-alias pizza='be slice -Da thin'
 alias brake="be rake"
-alias saucey="cucumber -p sauce_f"
+alias pizza='be slice -Da thin'
 alias rervm="cd ../ && cd -"
+alias rubies='rvm list'
+alias saucey="cucumber -p sauce_f"
 
 # nginx, db's, etc.
 alias start_nginx='sudo /usr/local/nginx/sbin/nginx'
@@ -27,10 +27,10 @@ alias start_postgres="pg_ctl -D $HOME/Developer/var/postgres -l $HOME/Developer/
 alias stop_postgres="pg_ctl -D $HOME/Developer/var/postgres stop -s -m fast"
 
 # emacs
-alias emacs="$HOME/Developer/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
 alias e="$HOME/Developer/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
+alias emacs="$HOME/Developer/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
 
 # Lulz
-alias lolk="say lollllllllllllllllllllllllllllllllllllllllllnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnggggggggggggggggggggkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
 alias asdf="say 'are you bored'"
 alias lol="say 'that is not funny'"
+alias lolk="say lollllllllllllllllllllllllllllllllllllllllllnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnggggggggggggggggggggkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
