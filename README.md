@@ -11,11 +11,12 @@ Organization
 ### bash/
 
 Inside `bash/` is a my bash config scripts:
- * `.bashrc` is initially loaded, and loads other config files.
- * `.bashrc.alias` is a set of aliases that I care about.
- * `.bashrc.local` is for local system config, and is omitted.
- * `.bashrc.prompt` exists purely to set up the bash prompt.
- * `.bashrc.completion` is loaded last and sets up all bash completion features and some RVM features.
+
+* `.bashrc` is initially loaded, and loads other config files.
+* `.bashrc.alias` is a set of aliases that I care about.
+* `.bashrc.local` is for local system config, and is omitted.
+* `.bashrc.prompt` exists purely to set up the bash prompt.
+* `.bashrc.completion` is loaded last and sets up all bash completion features and some RVM features.
 
 ### git/
 
@@ -28,10 +29,11 @@ Contains a .tmux.conf file that sets up tmux. Very basic config at this point. H
 ### vim/
 
 Inside `vim/` you'll find files to set up vim, naturally:
- * `.vim/` directory containing pathogen.vim, which loads everything else into vim.
- * `.vimrc` is the main vim config file. It mostly serves to get pathogen going.
- * Pathogen loads everything in the `~/.vimbundles` dir in the users directory.
- * `.vimrc.local` is for local vim config and is omitted.
+
+* `.vim/` directory containing pathogen.vim, which loads everything else into vim.
+* `.vimrc` is the main vim config file. It mostly serves to get pathogen going.
+* Pathogen loads everything in the `~/.vimbundles` dir in the users directory.
+* `.vimrc.local` is for local vim config and is omitted.
 
 To Use
 ------
