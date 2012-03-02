@@ -16,3 +16,6 @@ Inside `bash/` is a my bash config scripts:
  * `.bashrc.completion` is loaded last and sets up all bash completion features and some RVM features.
 
 The only file in `git/` is the `.gitconfig` file which prepares some of my git aliases and sets my git user.
+
+Inside `vim/` you'll find files to set up vim, naturally:
+ * `.vim/` directory containing pathogen.vim, which loads everything else into vim.
