@@ -9,9 +9,10 @@ Organization
 ------------
 
 Inside `bash/` is a my bash config scripts:
- * `.bashrc` is initially loaded
+ * `.bashrc` is initially loaded, and loads other config files.
  * `.bashrc.alias` is a set of aliases that I care about.
- * `.bashrc.local` is for local system config
+ * `.bashrc.local` is for local system config, and is omitted.
  * `.bashrc.prompt` exists purely to set up the bash prompt.
+ * `.bashrc.completion` is loaded last and sets up all bash completion features and some RVM features.
 
 The only file in `git/` is the `.gitconfig` file which prepares some of my git aliases and sets my git user.

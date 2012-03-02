@@ -24,4 +24,7 @@ bind '"\ep": history-search-backward'
 bind '"\en": history-search-forward'
 bind '"\C-w": backward-kill-word'
 
+[ ! -f "$HOME/.bashrc.alias" ] || . "$HOME/.bashrc.alias"
 [ ! -f "$HOME/.bashrc.local" ] || . "$HOME/.bashrc.local"
+[ ! -f "$HOME/.bashrc.prompt" ] || . "$HOME/.bashrc.prompt"
+[ ! -f "$HOME/.bashrc.completion" ] || . "$HOME/.bashrc.completion"
