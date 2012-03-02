@@ -19,3 +19,5 @@ The only file in `git/` is the `.gitconfig` file which prepares some of my git a
 
 Inside `vim/` you'll find files to set up vim, naturally:
  * `.vim/` directory containing pathogen.vim, which loads everything else into vim.
+ * `.vimrc` is the main vim config file. It mostly serves to get pathogen going.
+ * Pathogen loads everything in the `~/.vimbundles` dir in the users directory.
