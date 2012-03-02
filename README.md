@@ -17,6 +17,12 @@ Inside `bash/` is a my bash config scripts:
 
 The only file in `git/` is the `.gitconfig` file which prepares some of my git aliases and sets my git user.
 
+### tmux/
+
+Contains a .tmux.conf file that sets up tmux. Very basic config at this point. Hoping to improve that once I read [Brian Hogan's new book](http://pragprog.com/book/bhtmux/tmux).
+
+### vim/
+
 Inside `vim/` you'll find files to set up vim, naturally:
  * `.vim/` directory containing pathogen.vim, which loads everything else into vim.
  * `.vimrc` is the main vim config file. It mostly serves to get pathogen going.
