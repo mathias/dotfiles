@@ -12,3 +12,5 @@ Inside `bash/` is a my bash config scripts.
  * `.bashrc` is initially loaded
  * `.bashrc.alias` is a set of aliases that I care about.
  * `.bashrc.local` is for local system config
+
+The only file in `git/` is the `.gitconfig` file which prepares some of my git aliases and sets my git user.

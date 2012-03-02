@@ -1,0 +1,17 @@
+[color]
+	ui = true
+[alias]
+	ci = commit
+	co = checkout
+	df = diff -w
+	br = branch
+	st = status
+	last = log -1 HEAD
+	me = merge --no-ff
+	lol = log --graph --oneline --decorate
+
+[user]
+	name = Matt Gauger
+	email = matt.gauger@gmail.com
+[merge]
+	summary = true
