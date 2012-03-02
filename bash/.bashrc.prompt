@@ -1,0 +1,30 @@
+# Colors
+RED="\[\033[0;31m\]"
+YELLOW="\[\033[0;33m\]"
+GREEN="\[\033[0;32m\]"
+BLUE="\[\033[0;34m\]"
+LIGHT_RED="\[\033[1;31m\]"
+LIGHT_GREEN="\[\033[1;32m\]"
+WHITE="\[\033[1;37m\]"
+LIGHT_GRAY="\[\033[0;37m\]"
+COLOR_NONE="\[\e[0m\]"
+GRAY="\[\033[1;30m\]"
+
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+# export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUPSTREAM="auto"
+
+#sets what the prompt should be
+function prompt_func() {
+  previous_return_value=$?;
+  prompt="$(__git_ps1)${COLOR_NONE}"
+  if test $previous_return_value -eq 0
+  then
+    PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]${prompt}${GREEN}\$${COLOR_NONE} "
+  else
+    PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]${prompt}${RED}\$${COLOR_NONE} "
+  fi
+}
+
+PROMPT_COMMAND=prompt_func
