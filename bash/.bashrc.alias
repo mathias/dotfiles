@@ -1,0 +1,36 @@
+# git
+alias gd='git diff'
+alias gst='git status'
+alias gap='git add -p'
+
+# system admin
+alias c=clear
+alias unhitch='hitch -u'
+alias hist="history | grep $1"
+alias psack="ps aux | ack"
+alias vimhosts="sudo vim /etc/hosts"
+alias kill_screenshare="killall NetAuthAgent"
+alias flushdns="dscacheutil -flushcache"
+
+# ruby dev stuff:
+alias be="bundle exec"
+alias rubies='rvm list'
+alias ducks='du -cks * | sort -rn'
+alias pizza='be slice -Da thin'
+alias brake="be rake"
+alias saucey="cucumber -p sauce_f"
+alias rervm="cd ../ && cd -"
+
+# nginx, db's, etc.
+alias start_nginx='sudo /usr/local/nginx/sbin/nginx'
+alias start_postgres="pg_ctl -D $HOME/Developer/var/postgres -l $HOME/Developer/var/postgres/server.log start"
+alias stop_postgres="pg_ctl -D $HOME/Developer/var/postgres stop -s -m fast"
+
+# emacs
+alias emacs="$HOME/Developer/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
+alias e="$HOME/Developer/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
+
+# Lulz
+alias lolk="say lollllllllllllllllllllllllllllllllllllllllllnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnggggggggggggggggggggkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
+alias asdf="say 'are you bored'"
+alias lol="say 'that is not funny'"
