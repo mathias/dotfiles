@@ -12,6 +12,7 @@ alias kill_screenshare="killall NetAuthAgent"
 alias psack="ps aux | ack"
 alias unhitch='hitch -u'
 alias vimhosts="sudo vim /etc/hosts"
+alias vim="mvim -v"
 
 # ruby dev stuff:
 alias be="bundle exec"
