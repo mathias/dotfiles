@@ -63,7 +63,7 @@ if authors.any?
 
   initials = ARGV.join('/')
 
-  pair_email = pair_email_username + '+' + ARGV.join('+') + '@' + pair_email_domain
+  pair_email = pair_email_username + '+' + ARGV.sort.join('+') + '@' + pair_email_domain
 
   `git config user.name '#{authors}'`
   `git config user.initials '#{initials}'`
