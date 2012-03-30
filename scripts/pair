@@ -36,6 +36,10 @@ AUTHORS = {
   # Getty folks:
   'jcarley' => 'Jeff Carley',
 
+  # Murfie folks:
+  'angelic' => 'Angel N. Sciortino',
+  'glynnis' => 'Glynnis Ritchie',
+
   # Relevance folks:
   'jdpace' => 'Jared Pace'
 }
