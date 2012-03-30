@@ -2,8 +2,13 @@
 
 # Configures the git author to a list of developers when pair programming
 #
-# Usage: pair lm bh (Sets the author to 'Luke Melia and Bryan Helmkamp')
-#        pair       (Unsets the author so the git global config takes effect)
+# Updated by Matt Gauger to work more like hitch.
+#
+# Usage: pair mathias devn (Sets the author to 'Devin Walters and Matt Gauger')
+#        pair              (Unsets the author so the git global config takes effect)
+#
+# You may also set more than two users in the pair:
+#        pair bigtiger devn mathias (Sets the author to 'Jim Remsik, Devin Walters and Matt Gauger')
 #
 # Author: Bryan Helmkamp (http://brynary.com)
 # http://www.brynary.com/2008/9/1/setting-the-git-commit-author-to-pair-programmers-names
@@ -43,7 +48,9 @@ unless File.exists?(".git")
   exit 1
 end
 
-authors = ARGV.map do |initials|
+args = ARGV.sort
+
+authors = args.map do |initials|
   if AUTHORS[initials.downcase]
     AUTHORS[initials.downcase]
   else
@@ -61,9 +68,9 @@ if authors.any?
     authors = authors[0..-2].join(", ") + " and " + authors.last
   end
 
-  initials = ARGV.join('/')
+  initials = args.join('/')
 
-  pair_email = pair_email_username + '+' + ARGV.sort.join('+') + '@' + pair_email_domain
+  pair_email = pair_email_username + '+' + args.join('+') + '@' + pair_email_domain
 
   `git config user.name '#{authors}'`
   `git config user.initials '#{initials}'`
