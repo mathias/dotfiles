@@ -11,7 +11,8 @@
 #######################################################################
 ## Configuration
 
-PAIR_EMAIL = "dev@bendyworks.com"
+pair_email_username = 'dev'
+pair_email_domain = 'bendyworks.com'
 
 AUTHORS = {
 
@@ -62,13 +63,15 @@ if authors.any?
 
   initials = ARGV.join('/')
 
+  pair_email = pair_email_username + '+' + ARGV.join('+') + '@' + pair_email_domain
+
   `git config user.name '#{authors}'`
   `git config user.initials '#{initials}'`
-  `git config user.email '#{PAIR_EMAIL}'`
+  `git config user.email '#{pair_email}'`
 
   puts "user.name = #{authors}"
   puts "user.initials = #{initials}"
-  puts "user.email = #{PAIR_EMAIL}"
+  puts "user.email = #{pair_email}"
 else
   `git config --unset user.name`
   `git config --unset user.initials`
@@ -76,4 +79,3 @@ else
 
   puts "Unset user.name, user.initials, and user.email"
 end
-
