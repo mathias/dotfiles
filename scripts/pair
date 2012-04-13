@@ -72,7 +72,7 @@ if authors.any?
 
   initials = args.join('/')
 
-  pair_email = pair_email_username + '+' + args.join('+') + '@' + pair_email_domain
+  pair_email = "#{pair_email_username}+#{args.join '+'}@#{pair_email_domain}"
 
   `git config user.name '#{names}'`
   `git config user.initials '#{initials}'`
