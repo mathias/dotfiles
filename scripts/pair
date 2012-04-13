@@ -54,11 +54,11 @@ end
 
 args = ARGV.sort
 
-authors = args.map do |initials|
-  if AUTHORS[initials.downcase]
-    AUTHORS[initials.downcase]
+authors = args.map do |username|
+  if AUTHORS[username.downcase]
+    AUTHORS[username.downcase]
   else
-    puts "Couldn't find author name for Github username: #{initials}"
+    puts "Couldn't find author name for Github username: #{username}"
     exit 1
   end
 end
