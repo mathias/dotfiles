@@ -55,12 +55,8 @@ end
 usernames = ARGV.sort
 
 authors = usernames.map do |username|
-  if AUTHORS[username.downcase]
-    AUTHORS[username.downcase]
-  else
-    puts "Couldn't find author name for Github username: #{username}"
-    exit 1
-  end
+  AUTHORS[username.downcase] ||
+    (puts "Couldn't find author name for Github username: #{username}"; exit 1)
 end
 
 if authors.any?
