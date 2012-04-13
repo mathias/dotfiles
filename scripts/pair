@@ -64,12 +64,10 @@ authors = args.map do |username|
 end
 
 if authors.any?
-  if authors.size == 1
-    authors = authors.first
-  elsif authors.size == 2
-    authors = authors.join(" and ")
+  if authors.size > 2
+    authors = "#{authors[0..-2].join(", ")} and #{authors.last}"
   else
-    authors = authors[0..-2].join(", ") + " and " + authors.last
+    authors = authors.join(' and ')
   end
 
   initials = args.join('/')
