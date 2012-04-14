@@ -66,7 +66,7 @@ if authors.any?
     names = authors.join(' and ')
   end
 
-  initials = authors.map { |name| name.gsub(/[a-z. ]/, '') }.join('/')
+  initials = authors.map { |name| name.gsub(/[^A-Z]/, '') }.join('/')
 
   usernames.unshift pair_email_username
   pair_email = "#{usernames.join '+'}@#{pair_email_domain}"
