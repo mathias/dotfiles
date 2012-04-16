@@ -54,10 +54,9 @@ usernames=`printf "%s\n" $@ | tr [A-Z] [a-z] | sort`
 
 if [ ${#usernames} == 0 ]; then
   `git config --unset user.name`
-  `git config --unset user.initials`
   `git config --unset user.email`
 
-  echo 'Unset user.name, user.initials, and user.email'
+  echo 'Unset user.name and user.email'
   exit 0
 fi
 
