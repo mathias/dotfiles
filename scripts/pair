@@ -44,7 +44,8 @@ jdpace='Jared Pace'
 ## END CONFIGURATION
 #######################################################################
 
-if [ ! -d .git ]; then
+git=`git status 2> /dev/null`
+if [ $? != 0 ]; then
   echo "This doesn't look like a git repository."
   exit 1
 fi
