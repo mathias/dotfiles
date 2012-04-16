@@ -1,4 +1,4 @@
-# pair
+# pear
 Configures the git author to a list of developers when pair programming
 
 ## Usage:
