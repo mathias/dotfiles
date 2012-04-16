@@ -61,26 +61,24 @@ if [[ ${#usernames} == 0 ]]; then
 fi
 
 pair_email=$PAIR_EMAIL_USERNAME
-i=1
-for name in $usernames
+for user in $usernames
 do
-  fullname=${!name}
-  if [ -z "$fullname" ]; then
-    echo "Couldn't find author name for Github username: $name"
+  name=${!user}
+  if [ -z "$name" ]; then
+    echo "Couldn't find author name for Github username: $user"
     exit 1
   fi
-  fullnames[$i]=$fullname
-  pair_email=$pair_email+$name
-  let i++
+  names[${#names[@]}]=$name
+  pair_email=$pair_email+$user
 done
 
 pair_email=$pair_email@$PAIR_EMAIL_DOMAIN
 
 if [[ $# > 2 ]]; then
-  pair_name=$(printf "%s, " "${fullnames[@]:0:$#-1}")
-  pair_name="${pair_name}and ${fullnames[$#]}"
+  pair_name=$(printf "%s, " "${names[@]:0:$#-1}")
+  pair_name="${pair_name}and ${names[$#-1]}"
 else
-  pair_name=$(printf "%s and " "${fullnames[@]}")
+  pair_name=$(printf "%s and " "${names[@]}")
   pair_name=$(echo $pair_name | sed 's/ and$//')
 fi
 
