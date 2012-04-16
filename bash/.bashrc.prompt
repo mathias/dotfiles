@@ -10,6 +10,8 @@ LIGHT_GRAY="\[\033[0;37m\]"
 COLOR_NONE="\[\e[0m\]"
 GRAY="\[\033[1;30m\]"
 
+[ ! -f "$HOME/.git-completion.bash" ] || . $HOME/.git-completion.bash
+
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 # export GIT_PS1_SHOWSTASHSTATE=1
