@@ -85,5 +85,5 @@ fi
 `git config user.name "$pair_name"`
 `git config user.email "$pair_email"`
 
-echo "user.name = ${pair_name}"
-echo "user.email = ${pair_email}"
+echo "user.name = $pair_name"
+echo "user.email = $pair_email"
