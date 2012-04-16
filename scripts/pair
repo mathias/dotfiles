@@ -57,7 +57,7 @@ if [[ ${#usernames} == 0 ]]; then
   `git config --unset user.email`
 
   echo 'Unset user.name, user.initials, and user.email'
-  exit 1
+  exit 0
 fi
 
 for user in $usernames
