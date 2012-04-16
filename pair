@@ -60,8 +60,6 @@ if [[ ${#usernames} == 0 ]]; then
   exit 1
 fi
 
-pair_email=$PAIR_EMAIL_USERNAME
-
 for user in $usernames
 do
   name=${!user}
@@ -73,7 +71,7 @@ do
   pair_email=$pair_email+$user
 done
 
-pair_email=$pair_email@$PAIR_EMAIL_DOMAIN
+pair_email=$PAIR_EMAIL_USERNAME$pair_email@$PAIR_EMAIL_DOMAIN
 
 if [[ $# > 2 ]]; then
   pair_name=$(printf "%s, " "${names[@]:0:$#-1}")
