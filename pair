@@ -20,26 +20,26 @@ PAIR_EMAIL_USERNAME='dev'
 PAIR_EMAIL_DOMAIN='bendyworks.com'
 
 # Bendyworkers:
-AUTHOR_begriffs='Joe Nelson'
-AUTHOR_bendycode='Stephen Anderson'
-AUTHOR_bigtiger='Jim Remsik'
-AUTHOR_devn='Devin Walters'
-AUTHOR_jaym3s='Jaymes Waters'
-AUTHOR_listrophy='Bradley Grzesiak'
-AUTHOR_mathias='Matt Gauger'
-AUTHOR_randland='Nick Karpenske'
-AUTHOR_ryalnd='Ryland Herrick'
-AUTHOR_twopoint718='Chris Wilson'
+begriffs='Joe Nelson'
+bendycode='Stephen Anderson'
+bigtiger='Jim Remsik'
+devn='Devin Walters'
+jaym3s='Jaymes Waters'
+listrophy='Bradley Grzesiak'
+mathias='Matt Gauger'
+randland='Nick Karpenske'
+ryalnd='Ryland Herrick'
+twopoint718='Chris Wilson'
 
 # Getty folks:
-AUTHOR_jcarley='Jeff Carley'
+jcarley='Jeff Carley'
 
 # Murfie folks:
-AUTHOR_angelic='Angel N. Sciortino'
-AUTHOR_glynnis='Glynnis Ritchie'
+angelic='Angel N. Sciortino'
+glynnis='Glynnis Ritchie'
 
 # Relevance folks:
-AUTHOR_jdpace='Jared Pace'
+jdpace='Jared Pace'
 
 ## END CONFIGURATION
 #######################################################################
@@ -64,8 +64,7 @@ pair_email=$PAIR_EMAIL_USERNAME
 i=1
 for name in $usernames
 do
-  username=AUTHOR_$name
-  fullname=${!username}
+  fullname=${!name}
   if [ -z "$fullname" ]; then
     echo "Couldn't find author name for Github username: $name"
     exit 1
