@@ -61,6 +61,7 @@ if [[ ${#usernames} == 0 ]]; then
 fi
 
 pair_email=$PAIR_EMAIL_USERNAME
+
 for user in $usernames
 do
   name=${!user}
