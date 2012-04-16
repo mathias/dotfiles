@@ -50,6 +50,16 @@ if [ ! -d .git ]; then
 fi
 
 usernames=$(printf "%s\n" $@ | tr [A-Z] [a-z] | sort)
+
+if [[ ${#usernames} == 0 ]]; then
+  `git config --unset user.name`
+  `git config --unset user.initials`
+  `git config --unset user.email`
+
+  echo 'Unset user.name, user.initials, and user.email'
+  exit 1
+fi
+
 pair_email=$PAIR_EMAIL_USERNAME
 i=1
 for name in $usernames
@@ -66,42 +76,17 @@ do
 done
 
 pair_email=$pair_email@$PAIR_EMAIL_DOMAIN
-echo $pair_email
 
-pair_name=$(printf "%s, " "${fullnames[@]}")
-pair_name=$(echo $pair_name | sed 's/,$//')
-# pair_name=$(echo $pair_name | perl -p -i -e 's/,(?=,)/ and/')
-echo $pair_name
-# usernames = ARGV.sort
+if [[ $# > 2 ]]; then
+  pair_name=$(printf "%s, " "${fullnames[@]:0:$#-1}")
+  pair_name="${pair_name}and ${fullnames[$#]}"
+else
+  pair_name=$(printf "%s and " "${fullnames[@]}")
+  pair_name=$(echo $pair_name | sed 's/ and$//')
+fi
 
-# authors = usernames.map do |username|
-#   AUTHORS[username.downcase] ||
-#     (puts "Couldn't find author name for Github username: #{username}"; exit 1)
-# end
+`git config user.name "$pair_name"`
+`git config user.email "$pair_email"`
 
-# if authors.any?
-#   if authors.size > 2
-#     names = "#{authors[0..-2].join(", ")} and #{authors.last}"
-#   else
-#     names = authors.join(' and ')
-#   end
-
-#   initials = authors.map { |name| name.gsub(/[^A-Z]/, '') }.join('/')
-
-#   usernames.unshift pair_email_username
-#   pair_email = "#{usernames.join '+'}@#{pair_email_domain}"
-
-#   `git config user.name '#{names}'`
-#   `git config user.initials '#{initials}'`
-#   `git config user.email '#{pair_email}'`
-
-#   puts "user.name = #{names}"
-#   puts "user.initials = #{initials}"
-#   puts "user.email = #{pair_email}"
-# else
-#   `git config --unset user.name`
-#   `git config --unset user.initials`
-#   `git config --unset user.email`
-
-#   puts "Unset user.name, user.initials, and user.email"
-# end
+echo "user.name = ${pair_name}"
+echo "user.email = ${pair_email}"
