@@ -60,7 +60,6 @@ if [[ $1 == '-u' ]]; then
   `git config --unset user.name`
   `git config --unset user.email`
 
-  echo 'Unset user.name and user.email'
   print_config
   exit 0
 fi
