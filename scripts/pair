@@ -45,6 +45,11 @@ jdpace='Jared Pace'
 ## END CONFIGURATION
 #######################################################################
 
+print_config() {
+  printf "user.name  = %s\n" "`git config user.name`"
+  printf "user.email = %s\n" "`git config user.email`"
+}
+
 git=`git status 2> /dev/null`
 if [ $? != 0 ]; then
   echo "This doesn't look like a git repository."
@@ -56,15 +61,14 @@ if [[ $1 == '-u' ]]; then
   `git config --unset user.email`
 
   echo 'Unset user.name and user.email'
+  print_config
   exit 0
 fi
 
 usernames=`printf "%s\n" $@ | tr [A-Z] [a-z] | sort`
 
 if [ ${#usernames} == 0 ]; then
-  printf "user.name  = %s\n" "`git config user.name`"
-  printf "user.email = %s\n" "`git config user.email`"
-
+  print_config
   exit 0
 fi
 
@@ -92,5 +96,4 @@ fi
 `git config user.name "$pair_name"`
 `git config user.email "$pair_email"`
 
-echo "user.name  = $pair_name"
-echo "user.email = $pair_email"
+print_config
