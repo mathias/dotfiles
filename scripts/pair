@@ -62,7 +62,7 @@ fi
 usernames=`printf "%s\n" $@ | tr [A-Z] [a-z] | sort`
 
 if [ ${#usernames} == 0 ]; then
-  printf "user.name = %s\n" "`git config user.name`"
+  printf "user.name  = %s\n" "`git config user.name`"
   printf "user.email = %s\n" "`git config user.email`"
 
   exit 0
@@ -92,5 +92,5 @@ fi
 `git config user.name "$pair_name"`
 `git config user.email "$pair_email"`
 
-echo "user.name = $pair_name"
+echo "user.name  = $pair_name"
 echo "user.email = $pair_email"
