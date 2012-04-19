@@ -5,17 +5,23 @@ A collection of scripts and commands that I use every day.
 
 ###scripts/pair
 
-Configures the git author to a list of developers when pair programming
+Configures the local git author/email for multiple developers when pair programming
 
 #### Usage:
 
 ```bash
 $ pair ryalnd mathias   # Sets the author to 'Matt Gauger and Ryland Herrick'
-$ pair                  # Unsets the author so the git global config takes effect
+$ pair -u               # Unsets the local author/email
 ```
 
-You may also set more than two users in the pair:
+You can also set more than two users:
 
 ```bash
 $ pair bigtiger devn mathias   # Sets the author to 'Jim Remsik, Devin Walters and Matt Gauger'
+```
+
+And check your current configuration:
+
+```bash
+$ pair -u               # Lists the current author/email
 ```
