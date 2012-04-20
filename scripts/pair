@@ -46,8 +46,10 @@ jdpace='Jared Pace'
 #######################################################################
 
 print_config() {
-  printf "user.name  = %s\n" "`git config user.name`"
-  printf "user.email = %s\n" "`git config user.email`"
+  [ -n "$GIT_AUTHOR_NAME" ] && name_var="$GIT_AUTHOR_NAME" || name_var=`git config user.name`
+  [ -n "$GIT_AUTHOR_EMAIL" ] && email_var="$GIT_AUTHOR_EMAIL" || email_var=`git config user.email`
+  printf "user.name  = %s\n" "$name_var"
+  printf "user.email = %s\n" "$email_var"
 }
 
 git=`git status 2> /dev/null`
