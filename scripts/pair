@@ -46,6 +46,7 @@ jdpace='Jared Pace'
 #######################################################################
 
 print_config() {
+  local name_var email_var
   [ -n "$GIT_AUTHOR_NAME" ] && name_var="$GIT_AUTHOR_NAME" || name_var=`git config user.name`
   [ -n "$GIT_AUTHOR_EMAIL" ] && email_var="$GIT_AUTHOR_EMAIL" || email_var=`git config user.email`
   printf "user.name  = %s\n" "$name_var"
@@ -94,7 +95,6 @@ fi
 
 export GIT_AUTHOR_NAME="$pair_name" GIT_AUTHOR_EMAIL="$pair_email"
 
-# Environmental cleanup!
-unset pair_email pair_name name names usernames user name_var email_var PAIR_EMAIL_USERNAME PAIR_EMAIL_DOMAIN
-
+# var cleanup
+unset pair_email pair_name name names usernames user PAIR_EMAIL_USERNAME PAIR_EMAIL_DOMAIN
 print_config
