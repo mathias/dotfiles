@@ -55,22 +55,20 @@ print_config() {
 git=`git status 2> /dev/null`
 if [ $? != 0 ]; then
   echo "This doesn't look like a git repository."
-  exit 1
+  return 1
 fi
 
 if [[ $1 == '-u' ]]; then
-  `git config --unset user.name`
-  `git config --unset user.email`
-
+  unset GIT_AUTHOR_NAME GIT_AUTHOR_EMAIL
   print_config
-  exit 0
+  return 0
 fi
 
 usernames=`printf "%s\n" $@ | tr [A-Z] [a-z] | sort`
 
 if [ ${#usernames} == 0 ]; then
   print_config
-  exit 0
+  return 0
 fi
 
 for user in $usernames
@@ -78,7 +76,7 @@ do
   name=${!user}
   if [ -z "$name" ]; then
     echo "Couldn't find author name for Github username: $user"
-    exit 1
+    return 1
   fi
   names[${#names[@]}]=$name
   pair_email=$pair_email+$user
@@ -94,7 +92,9 @@ else
   pair_name=`echo $pair_name | sed 's/ and$//'`
 fi
 
-`git config user.name "$pair_name"`
-`git config user.email "$pair_email"`
+export GIT_AUTHOR_NAME="$pair_name" GIT_AUTHOR_EMAIL="$pair_email"
+
+# Environmental cleanup!
+unset pair_email pair_name name names usernames user name_var email_var PAIR_EMAIL_USERNAME PAIR_EMAIL_DOMAIN
 
 print_config
