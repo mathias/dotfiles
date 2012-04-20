@@ -17,84 +17,85 @@
 #######################################################################
 ## CONFIGURATION
 
-PAIR_EMAIL_USERNAME='dev'
-PAIR_EMAIL_DOMAIN='bendyworks.com'
+fun() {
+  PAIR_EMAIL_USERNAME='dev'
+  PAIR_EMAIL_DOMAIN='bendyworks.com'
 
-# Bendyworkers:
-begriffs='Joe Nelson'
-bendycode='Stephen Anderson'
-bigtiger='Jim Remsik'
-devn='Devin Walters'
-jaym3s='Jaymes Waters'
-listrophy='Bradley Grzesiak'
-mathias='Matt Gauger'
-randland='Nick Karpenske'
-ryalnd='Ryland Herrick'
-twopoint718='Chris Wilson'
+  # Bendyworkers:
+  begriffs='Joe Nelson'
+  bendycode='Stephen Anderson'
+  bigtiger='Jim Remsik'
+  devn='Devin Walters'
+  jaym3s='Jaymes Waters'
+  listrophy='Bradley Grzesiak'
+  mathias='Matt Gauger'
+  randland='Nick Karpenske'
+  ryalnd='Ryland Herrick'
+  twopoint718='Chris Wilson'
 
-# Getty folks:
-jcarley='Jeff Carley'
+  # Getty folks:
+  jcarley='Jeff Carley'
 
-# Murfie folks:
-angelic='Angel N. Sciortino'
-glynnis='Glynnis Ritchie'
+  # Murfie folks:
+  angelic='Angel N. Sciortino'
+  glynnis='Glynnis Ritchie'
 
-# Relevance folks:
-jdpace='Jared Pace'
+  # Relevance folks:
+  jdpace='Jared Pace'
 
-## END CONFIGURATION
-#######################################################################
+  ## END CONFIGURATION
+  #######################################################################
 
-print_config() {
-  local name_var email_var
-  [ -n "$GIT_AUTHOR_NAME" ] && name_var="$GIT_AUTHOR_NAME" || name_var=`git config user.name`
-  [ -n "$GIT_AUTHOR_EMAIL" ] && email_var="$GIT_AUTHOR_EMAIL" || email_var=`git config user.email`
-  printf "user.name  = %s\n" "$name_var"
-  printf "user.email = %s\n" "$email_var"
-}
+  print_config() {
+    [ ! -f "$HOME/.pairrc" ] || source "$HOME/.pairrc"
+    [ -n "$GIT_AUTHOR_NAME" ] && name_var="$GIT_AUTHOR_NAME" || name_var=`git config user.name`
+    [ -n "$GIT_AUTHOR_EMAIL" ] && email_var="$GIT_AUTHOR_EMAIL" || email_var=`git config user.email`
+    printf "user.name  = %s\n" "$name_var"
+    printf "user.email = %s\n" "$email_var"
+  }
 
-git=`git status 2> /dev/null`
-if [ $? != 0 ]; then
-  echo "This doesn't look like a git repository."
-  return 1
-fi
-
-if [[ $1 == '-u' ]]; then
-  unset GIT_AUTHOR_NAME GIT_AUTHOR_EMAIL
-  print_config
-  return 0
-fi
-
-usernames=`printf "%s\n" $@ | tr A-Z a-z | sort`
-
-if [ ${#usernames} == 0 ]; then
-  print_config
-  return 0
-fi
-
-for user in $usernames
-do
-  name=${!user}
-  if [ -z "$name" ]; then
-    echo "Couldn't find author name for Github username: $user"
+  git=`git status 2> /dev/null`
+  if [ $? != 0 ]; then
+    echo "This doesn't look like a git repository."
     return 1
   fi
-  names[${#names[@]}]=$name
-  pair_email=$pair_email+$user
-done
 
-pair_email=$PAIR_EMAIL_USERNAME$pair_email@$PAIR_EMAIL_DOMAIN
+  if [[ $1 == '-u' ]]; then
+    echo "unset GIT_AUTHOR_NAME GIT_AUTHOR_EMAIL" > "$HOME/.pairrc"
+    print_config
+    return 0
+  fi
 
-if [[ $# > 2 ]]; then
-  pair_name=`printf "%s, " "${names[@]:0:$#-1}"`
-  pair_name="${pair_name}and ${names[$#-1]}"
-else
-  pair_name=`printf "%s and " "${names[@]}"`
-  pair_name=`echo $pair_name | sed 's/ and$//'`
-fi
+  usernames=`printf "%s\n" $@ | tr A-Z a-z | sort`
 
-export GIT_AUTHOR_NAME="$pair_name" GIT_AUTHOR_EMAIL="$pair_email"
+  if [ ${#usernames} == 0 ]; then
+    print_config
+    return 0
+  fi
 
-# var cleanup
-unset pair_email pair_name name names usernames user PAIR_EMAIL_USERNAME PAIR_EMAIL_DOMAIN
-print_config
+  for user in $usernames
+  do
+    name=${!user}
+    if [ -z "$name" ]; then
+      echo "Couldn't find author name for Github username: $user"
+      return 1
+    fi
+    names[${#names[@]}]=$name
+    pair_email=$pair_email+$user
+  done
+
+  pair_email=$PAIR_EMAIL_USERNAME$pair_email@$PAIR_EMAIL_DOMAIN
+
+  if [[ $# > 2 ]]; then
+    pair_name=`printf "%s, " "${names[@]:0:$#-1}"`
+    pair_name="${pair_name}and ${names[$#-1]}"
+  else
+    pair_name=`printf "%s and " "${names[@]}"`
+    pair_name=`echo $pair_name | sed 's/ and$//'`
+  fi
+
+  echo "export GIT_AUTHOR_NAME=\"$pair_name\"\nGIT_AUTHOR_EMAIL=\"$pair_email\"" > "$HOME/.pairrc"
+  print_config
+}
+echo "$(fun $@)"
+[ ! -f "$HOME/.pairrc" ] || source "$HOME/.pairrc"
