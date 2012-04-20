@@ -64,7 +64,7 @@ if [[ $1 == '-u' ]]; then
   return 0
 fi
 
-usernames=`printf "%s\n" $@ | tr [A-Z] [a-z] | sort`
+usernames=`printf "%s\n" $@ | tr A-Z a-z | sort`
 
 if [ ${#usernames} == 0 ]; then
   print_config
