@@ -11,6 +11,7 @@ alias hist="history | grep $1"
 alias kill_screenshare="killall NetAuthAgent"
 alias psack="ps aux | ack"
 alias unhitch='hitch -u'
+alias unpair='pair -u'
 alias vimhosts="sudo vim /etc/hosts"
 alias vim="mvim -v"
 
