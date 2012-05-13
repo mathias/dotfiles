@@ -24,6 +24,57 @@ Note: If you're having trouble with the prompt and the __git_ps1 function, read 
 
 The only file in `git/` is the `.gitconfig` file which prepares some of my git aliases and sets my git user.
 
+### scripts/
+
+#### scripts/pair
+
+Configures the git author/email for multiple developers when pair programming
+
+##### Setup
+First, you'll probably want the pair script added to your PATH.  In something like `~/.bash_login` add:
+```bash
+export PATH="$PATH:<path_to_pair_script>"
+```
+
+This will allow you to call `pair`, but you don't want to run `pair` in a subshell.  Instead add this nifty alias:
+```bash
+alias pair='source pair'
+```
+or, if you don't want it on your PATH,
+```bash
+alias pair='source <path_to_pair_script>'
+```
+
+Another helpful alias if you don't like the spacebar:
+```bash
+alias unpair='source pair -u'
+```
+
+Also, if you want to persist the pair between sessions, without having to call `pair`, you can do something like
+```bash
+[ ! -f "$HOME/.pairrc" ] || source "$HOME/.pairrc"
+```
+in your `~/.bashrc`.
+
+##### Usage:
+
+```bash
+$ pair ryalnd mathias   # Sets the author to 'Matt Gauger and Ryland Herrick'
+$ pair -u               # Unsets the author/email
+```
+
+You can also set more than two users:
+
+```bash
+$ pair bigtiger devn mathias   # Sets the author to 'Jim Remsik, Devin Walters and Matt Gauger'
+```
+
+And check your current configuration:
+
+```bash
+$ pair                  # Lists the current author/email
+```
+
 ### tmux/
 
 Contains a .tmux.conf file that sets up tmux. Very basic config at this point. Hoping to improve that once I read [Brian Hogan's new book](http://pragprog.com/book/bhtmux/tmux).
@@ -69,3 +120,4 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
