@@ -19,6 +19,9 @@ export LSCOLORS=gxgxcxdxbxegedabagacad
 
 export CLICOLOR LSCOLORS
 
+export force_color_prompt=yes
+export TERM=xterm-256color
+
 bind 'set bind-tty-special-chars off'
 bind '"\ep": history-search-backward'
 bind '"\en": history-search-forward'
