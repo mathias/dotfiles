@@ -1,12 +1,12 @@
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
+if [ -f /etc/bash_completion ]; then
+  . /etc/bash_completion
 fi
 
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-git_completion='/usr/local/Cellar/git/1.7*/etc/bash_completion.d/git-completion.bash'
+git_completion='/etc/bash_completion.d/git'
 
 if [ -f $git_completion ]; then
   source $git_completion

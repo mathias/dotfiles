@@ -29,7 +29,4 @@ bind '"\C-w": backward-kill-word'
 [ ! -f "$HOME/.bashrc.prompt" ] || . "$HOME/.bashrc.prompt"
 [ ! -f "$HOME/.bashrc.completion" ] || . "$HOME/.bashrc.completion"
 
-# use coreutils over system utils:
-PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

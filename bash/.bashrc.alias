@@ -14,6 +14,7 @@ alias psack="ps aux | ack"
 alias unhitch='hitch -u'
 alias unpair='pair -u'
 alias vimhosts="sudo vim /etc/hosts"
+alias ack='ack-grep'
 
 # ruby dev stuff:
 alias be="bundle exec"
