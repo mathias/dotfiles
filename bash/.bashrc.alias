@@ -12,7 +12,7 @@ alias flushdns="dscacheutil -flushcache"
 alias hist="history | grep $1"
 alias kill_screenshare="killall NetAuthAgent"
 alias psack="ps aux | ack"
-alias unhitch='hitch -u'
+alias pair="source $HOME/bin/pair"
 alias unpair='pair -u'
 alias vimhosts="sudo vim /etc/hosts"
 alias vim="mvim -v"
@@ -31,14 +31,5 @@ alias py='python'
 
 # nginx, db's, etc.
 alias start_nginx='sudo /usr/local/nginx/sbin/nginx'
-alias start_postgres="pg_ctl -D $HOME/Developer/var/postgres -l $HOME/Developer/var/postgres/server.log start"
-alias stop_postgres="pg_ctl -D $HOME/Developer/var/postgres stop -s -m fast"
-
-# emacs
-alias e="$HOME/Developer/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
-alias emacs="$HOME/Developer/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
-
-# Lulz
-alias asdf="say 'are you bored'"
-alias lol="say 'that is not funny'"
-alias lolk="say lollllllllllllllllllllllllllllllllllllllllllnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnggggggggggggggggggggkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
+alias start_postgres="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias stop_postgres="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
