@@ -74,6 +74,9 @@ And check your current configuration:
 ```bash
 $ pair                  # Lists the current author/email
 ```
+#### scripts/vimbundles.sh
+
+This is stolen from the [hashrocket/dotatrix](https://github.com/hashrocket/dotmatrix) repo, and we've been using it for a long time at [Bendyworks](http://bendyworks.com). It was originally written by Tim Pope (@tpope), and is a command to set up the vimbundles mentioned in the `vim/` section below. Run it to install all the vimbundles I normally run with, or edit it as necessary. It's safe to run often; it does git pulls on the repos it already has and is a great way to keep up to date.
 
 ### tmux/
 
