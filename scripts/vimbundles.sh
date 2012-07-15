@@ -18,7 +18,8 @@ get_bundle altercation vim-colors-solarized
 get_bundle duff vim-bufonly
 get_bundle godlygeek tabular
 get_bundle jgdavey vim-blockle
-get_bundle jgdavey turbux
+get_bundle jgdavey tslime.vim
+get_bundle jgdavey vim-turbux
 get_bundle kchmck vim-coffee-script
 get_bundle leshill vim-json
 get_bundle mileszs ack.vim
