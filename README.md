@@ -82,6 +82,8 @@ This is stolen from the [hashrocket/dotatrix](https://github.com/hashrocket/dotm
 
 Contains a .tmux.conf file that sets up tmux. Very basic config at this point. Hoping to improve that once I read [Brian Hogan's new book](http://pragprog.com/book/bhtmux/tmux).
 
+Use [Chris Johnsen's tmux-MacOSX-pasteboard](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard) to get paste support in tmux. Follow the instructions to compile it and place it in `~/bin`. The `.tmux.conf` file will call `reattach-to-user-session` every time it launches.
+
 ### vim/
 
 Inside `vim/` you'll find files to set up vim, naturally:
