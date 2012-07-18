@@ -2,7 +2,7 @@
 alias gap='git add -p'
 alias gd='git diff'
 alias gst='git status'
-alias gca='git commit --amend -C HEAD'
+alias gca='git commit --amend --reset-author -C HEAD'
 
 # system admin
 alias c=clear
