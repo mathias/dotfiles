@@ -47,4 +47,3 @@ get_bundle vim-ruby vim-ruby
 get_bundle vim-scripts VimClojure
 get_bundle vim-scripts bufkill.vim
 get_bundle wgibbs vim-irblack
-get_bundle xaviershay tslime.vim
