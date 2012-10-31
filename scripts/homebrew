@@ -1,0 +1,26 @@
+#!/bin/bash
+
+declare -a to_brew=(ack bash-completion ctags gist imagemagick libksba mongodb nmap phantomjs postgresql redis sqlite tmux tree watch wget)
+
+echo "Checking for homebrew"
+if test ! $(which brew)
+then
+  echo "  x You should probably install Homebrew first:"
+  echo "    https://github.com/mxcl/homebrew/wiki/installation"
+  exit
+else
+  echo "  + Homebrew found."
+fi
+
+echo "This will install the following if they are not installed:"
+for i in ${to_brew[@]}
+do 
+  echo "  * $i"
+done
+
+read -p "Are you sure? It may take a long time! [Y/n]" -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  echo ""
+  brew install ${to_brew[@]}
+fi

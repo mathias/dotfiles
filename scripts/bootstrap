@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# sets up the dotfiles and other common things for a new laptop
+# Check homebrew is installed:
+. scripts/homebrew
+
+
+# Link the dotfiles:
