@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -a to_brew=(ack bash-completion ctags gist imagemagick libksba mongodb nmap phantomjs postgresql redis sqlite tmux tree watch wget)
+declare -a to_brew=(ack bash-completion ctags git imagemagick libksba mongodb nmap phantomjs postgresql redis sqlite tmux tree watch wget)
 
 echo "Checking for homebrew"
 if test ! $(which brew)

@@ -14,4 +14,6 @@
 	name = Matt Gauger
 	email = matt.gauger@gmail.com
 [merge]
-	summary = true
+	summary = false
+[push]
+	default = simple

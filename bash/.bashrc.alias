@@ -20,11 +20,11 @@ alias vim="mvim -v"
 # ruby dev stuff:
 alias be="bundle exec"
 alias brake="be rake"
-alias pizza='be slice -Da thin'
 alias rervm="cd ../ && cd -"
 alias rubies='rvm list'
 alias saucey="cucumber -p sauce_f"
 alias rdtp="rake db:test:prepare"
+alias surplus="gem list | ack ','"
 
 # python:
 alias py='python'
