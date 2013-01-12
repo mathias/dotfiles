@@ -12,6 +12,7 @@ Organization
 
 Inside `bash/` is a my bash config scripts:
 
+* `.bash_profile` is usually loaded first for most interactive shells.
 * `.bashrc` is initially loaded, and loads other config files.
 * `.bashrc.alias` is a set of aliases that I care about.
 * `.bashrc.local` is for local system config, and is omitted.
