@@ -25,6 +25,14 @@ Note: If you're having trouble with the prompt and the __git_ps1 function, read 
 
 The only file in `git/` is the `.gitconfig` file which prepares some of my git aliases and sets my git user.
 
+Update `.gitconfig` with your information:
+
+```
+[user]
+	name = Matt Gauger
+	email = matt.gauger@gmail.com
+```
+
 ### scripts/
 
 #### scripts/pair
