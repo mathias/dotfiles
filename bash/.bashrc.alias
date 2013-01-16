@@ -12,7 +12,6 @@ alias flushdns="dscacheutil -flushcache"
 alias hist="history | grep $1"
 alias kill_screenshare="killall NetAuthAgent"
 alias psack="ps aux | ack"
-alias pair="source $HOME/bin/pair"
 alias unpair='pair -u'
 alias vimhosts="sudo vim /etc/hosts"
 alias vim="mvim -v"

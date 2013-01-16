@@ -30,6 +30,8 @@ bind '"\C-w": backward-kill-word'
 [ ! -f "$HOME/.bashrc.completion" ] || . "$HOME/.bashrc.completion"
 
 # Set up pair script:
-[ ! -f "$HOME/.pairrc" ] || source "$HOME/.pairrc"
+source "$HOME/.pair"
+# quietly set the previous pairing state:
+pair -q
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
