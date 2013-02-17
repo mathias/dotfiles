@@ -10,6 +10,7 @@ alias ducks='du -cks * | sort -rn'
 alias duchs='du -hs * | sort -h'
 alias flushdns="dscacheutil -flushcache"
 alias hist="history | grep $1"
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias kill_screenshare="killall NetAuthAgent"
 alias psack="ps aux | ack"
 alias unpair='pair -u'
