@@ -20,6 +20,7 @@ alias vim="mvim -v"
 # ruby dev stuff:
 alias be="bundle exec"
 alias brake="be rake"
+alias brails="be rails s"
 alias rervm="cd ../ && cd -"
 alias rubies='rvm list'
 alias saucey="cucumber -p sauce_f"
