@@ -13,3 +13,6 @@ Session.vim
 
 # vim history stuffs
 vim/.vim/.netrwhist
+
+# Vim bundles should be cloned, not checked in
+vim/.vim/bundle

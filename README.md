@@ -41,10 +41,6 @@ Use rylnd's pair script: [rylnd/dotfiles](https://github.com/rylnd/dotfiles)
 
 Follow those instructions to install. My own personal fork of the pair script is no longer maintained.
 
-#### scripts/vimbundles.sh
-
-This is stolen from the [hashrocket/dotmatrix](https://github.com/hashrocket/dotmatrix) repo, and we've been using it for a long time at [Bendyworks](http://bendyworks.com). It was originally written by Tim Pope (@tpope), and is a command to set up the vimbundles mentioned in the `vim/` section below. Run it to install all the vimbundles I normally run with, or edit it as necessary. It's safe to run often; it does git pulls on the repos it already has and is a great way to keep up to date.
-
 ### tmux/
 
 Contains a .tmux.conf file that sets up tmux. Very basic config at this point. Hoping to improve that once I read [Brian Hogan's new book](http://pragprog.com/book/bhtmux/tmux).
@@ -55,10 +51,14 @@ Use [Chris Johnsen's tmux-MacOSX-pasteboard](https://github.com/ChrisJohnsen/tmu
 
 Inside `vim/` you'll find files to set up vim, naturally:
 
-* `.vim/` directory containing pathogen.vim, which loads everything else into vim.
-* `.vimrc` is the main vim config file. It mostly serves to get pathogen going.
-* Pathogen loads everything in the `~/.vimbundles` dir in the users directory.
+* `.vimrc` is the main vim config file. I am using Vundle, so all of the vim bundles that I depend on are listed in the 'Vundle' section in `.vimrc`. (I previously was using Pathogen, but I've switched to Vundle.)
 * `.vimrc.local` is for local vim config and is omitted.
+* After symlinking the vim files into place, you must:
+  * Clone the vundle repo into place:
+```
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+```
+  * Install the bundles with `:BundleInstall` in vim after symlinking things into place.
 
 To Use
 ------
