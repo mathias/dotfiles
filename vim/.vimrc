@@ -22,6 +22,7 @@
 "   -> Conversion
 "   -> Abbreviation
 "   -> Rails.vim commands
+"   -> Local Settings
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -380,11 +381,6 @@ map \\ <plug>NERDCommenterInvert
 " Ruby debugger
 iabbrev rdebug require 'ruby-debug'; Debugger.start; Debugger.settings[:autoeval] = 1; Debugger.settings[:autolist] = 1; debugger
 
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Rails.vim commands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -395,3 +391,12 @@ autocmd User Rails Rnavcommand accept spec/acceptance -suffix=.feature
 autocmd User Rails Rnavcommand factory spec/factories -suffix=_factory.rb
 autocmd User Rails Rnavcommand sass app/assets/stylesheets -suffix=.sass,.scss -default=partials/_page
 autocmd User Rails Rnavcommand coffee app/assets/javascripts -suffix=.coffee
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Local Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
