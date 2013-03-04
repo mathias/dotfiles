@@ -21,6 +21,7 @@
 "   -> Commenting
 "   -> Conversion
 "   -> Abbreviation
+"   -> Filetypes
 "   -> Rails.vim commands
 "   -> Local Settings
 
@@ -380,6 +381,17 @@ map \\ <plug>NERDCommenterInvert
 
 " Ruby debugger
 iabbrev rdebug require 'ruby-debug'; Debugger.start; Debugger.settings[:autoeval] = 1; Debugger.settings[:autolist] = 1; debugger
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Filetypes
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Match .md files as Markdown, not Modula-2
+au BufNewFile,BufRead *.md set filetype=markdown
+
+" .scss files are Sass
+au BufNewFile,BufRead *.scss set filetype=sass
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Rails.vim commands
