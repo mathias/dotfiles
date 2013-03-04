@@ -21,6 +21,14 @@ Inside `bash/` is a my bash config scripts:
 
 Note: If you're having trouble with the prompt and the __git_ps1 function, read this excellent blog post to get git-completion working: [http://blog.jasonmeridth.com/2010/05/22/git-ps1.html](http://blog.jasonmeridth.com/2010/05/22/git-ps1.html)
 
+### emacs/
+
+Inside `emacs/` is my emacs config file:
+
+* `.emacs`
+
+It should be symlinked into position.
+
 ### git/
 
 The only file in `git/` is the `.gitconfig` file which prepares some of my git aliases and sets my git user.
@@ -29,8 +37,8 @@ Update `.gitconfig` with your information:
 
 ```
 [user]
-	name = Matt Gauger
-	email = matt.gauger@gmail.com
+  name = Matt Gauger
+  email = matt.gauger@gmail.com
 ```
 
 ### scripts/
