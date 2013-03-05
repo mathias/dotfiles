@@ -41,6 +41,8 @@ Update `.gitconfig` with your information:
   email = matt.gauger@gmail.com
 ```
 
+The installed Git version should be 1.8.0 or newer to take advantage of some settings and bash prompt settings.
+
 ### scripts/
 
 #### scripts/pair
