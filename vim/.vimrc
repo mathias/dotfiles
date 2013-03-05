@@ -54,7 +54,6 @@ Bundle 'gmarik/vundle'
 "
 " original repos on github
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'Raimondi/delimitMate'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'edsono/vim-matchit'
 Bundle 'guns/vim-clojure-static'
