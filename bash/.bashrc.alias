@@ -1,6 +1,7 @@
 # git
 alias gap='git add -p'
 alias gd='git diff'
+alias gp='git push'
 alias gst='git status'
 alias gca='git commit --amend --reset-author -C HEAD'
 
@@ -12,7 +13,8 @@ alias flushdns="dscacheutil -flushcache"
 alias hist="history | grep $1"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias kill_screenshare="killall NetAuthAgent"
-alias psack="ps aux | ack"
+alias psack="ps aux | ag"
+alias psag="ps aux | ag"
 alias unpair='pair -u'
 alias vimhosts="sudo vim /etc/hosts"
 alias vim="mvim -v"
