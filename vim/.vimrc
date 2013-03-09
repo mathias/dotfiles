@@ -162,7 +162,9 @@ set vb t_vb=
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable
+syntax on
+filetype off
+filetype on
 
 colorscheme vividchalk
 set background=dark
@@ -385,6 +387,9 @@ iabbrev rdebug require 'ruby-debug'; Debugger.start; Debugger.settings[:autoeval
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Filetypes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Match .js.coffee files as CoffeeScript
+au BufNewFile,BufRead *.js.coffee set filetype=coffee
 
 " Match .md files as Markdown, not Modula-2
 au BufNewFile,BufRead *.md set filetype=markdown
