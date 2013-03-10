@@ -29,9 +29,4 @@ bind '"\C-w": backward-kill-word'
 [ ! -f "$HOME/.bashrc.prompt" ] || . "$HOME/.bashrc.prompt"
 [ ! -f "$HOME/.bashrc.completion" ] || . "$HOME/.bashrc.completion"
 
-# Set up pair script:
-source "$HOME/.pair"
-# quietly set the previous pairing state:
-pair -q
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
