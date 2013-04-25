@@ -8,6 +8,3 @@ git_completion='/usr/local/Cellar/git/*/etc/bash_completion.d/git-completion.bas
 if [ -f $git_completion ]; then
   source $git_completion
 fi
-
-# This loads RVM into the shell session.
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

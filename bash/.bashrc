@@ -28,5 +28,3 @@ bind '"\C-w": backward-kill-word'
 [ ! -f "$HOME/.bashrc.local" ] || . "$HOME/.bashrc.local"
 [ ! -f "$HOME/.bashrc.prompt" ] || . "$HOME/.bashrc.prompt"
 [ ! -f "$HOME/.bashrc.completion" ] || . "$HOME/.bashrc.completion"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
