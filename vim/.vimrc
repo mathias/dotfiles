@@ -56,6 +56,7 @@ Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'edsono/vim-matchit'
+Bundle 'godlygeek/tabular'
 Bundle 'guns/vim-clojure-static'
 Bundle 'int3/vim-extradite'
 Bundle 'jgdavey/tslime.vim'
@@ -261,6 +262,9 @@ set laststatus=2
 "set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 "let g:Powerline_symbols = 'fancy'
+
+" Allow colored status line in tmux & iTerm:
+set t_Co=256
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
