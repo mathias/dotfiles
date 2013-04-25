@@ -5,6 +5,23 @@ alias gp='git push'
 alias gst='git status'
 alias gca='git commit --amend --reset-author -C HEAD'
 
+function gitcontribs {
+  git log --stat --author $(git config --get user.email) | \
+  awk -F',' '/files? changed/ {
+    files += $1
+    insertions += $2
+    deletions += $3
+    print
+  }
+  END {
+      print "Files Changed: " files
+      print "Insertions: " insertions
+      print "Deletions: " deletions
+      print "Lines changed: " insertions + deletions
+
+  }'
+}
+
 # system admin
 alias c=clear
 alias ducks='du -cks * | sort -rn'
@@ -15,6 +32,7 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias kill_screenshare="killall NetAuthAgent"
 alias psack="ps aux | ag"
 alias psag="ps aux | ag"
+alias ack=ag
 alias unpair='pair -u'
 alias vimhosts="sudo vim /etc/hosts"
 alias vim="mvim -v"
@@ -42,3 +60,6 @@ alias start_mysql="mysql.server start"
 alias stop_mysql="mysql.server stop"
 alias mysqlup="start_mysql"
 alias mysqldown="stop_mysql"
+
+# ios simulator
+alias iphone='open ~/bin/iphone'
