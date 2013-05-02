@@ -1,10 +1,3 @@
-
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
-fi
-
-git_completion='/usr/local/Cellar/git/*/etc/bash_completion.d/git-completion.bash'
-
-if [ -f $git_completion ]; then
-  source $git_completion
 fi
