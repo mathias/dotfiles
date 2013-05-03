@@ -35,7 +35,6 @@ alias psag="ps aux | ag"
 alias ack=ag
 alias unpair='pair -u'
 alias vimhosts="sudo vim /etc/hosts"
-alias vim="mvim -v"
 
 # ruby dev stuff:
 alias be="bundle exec"
