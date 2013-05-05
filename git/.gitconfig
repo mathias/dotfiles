@@ -9,6 +9,7 @@
 	last = log -1 HEAD
 	me = merge --no-ff
 	lol = log --graph --oneline --decorate
+	put = push origin HEAD
 
 [user]
 	name = Matt Gauger
