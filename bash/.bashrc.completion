@@ -1,1 +1,3 @@
-[ ! -f `brew --prefix`/etc/bash_completion ] || . `brew --prefix`/etc/bash_completion
+if which -s brew; then
+  [ ! -f `brew --prefix`/etc/bash_completion ] || . `brew --prefix`/etc/bash_completion
+fi
