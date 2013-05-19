@@ -10,6 +10,8 @@
 	me = merge --no-ff
 	lol = log --graph --oneline --decorate
 	put = push origin HEAD
+  sha = !"git rev-parse HEAD | tr -d \"\n\" | pbcopy"
+  bn = !"git name-rev HEAD --name-only | tr -d \"\n\" | pbcopy"
 
 [user]
 	name = Matt Gauger
