@@ -38,6 +38,7 @@ alias vimhosts="sudo vim /etc/hosts"
 
 # ruby dev stuff:
 alias be="bundle exec"
+alias binstubs="bundle --binstubs --standalone"
 alias brake="be rake"
 alias brails="be rails s"
 alias rervm="cd ../ && cd -"
