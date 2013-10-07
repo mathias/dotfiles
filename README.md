@@ -23,11 +23,17 @@ Note: If you're having trouble with the prompt and the __git_ps1 function, read 
 
 ### emacs/
 
-Inside `emacs/` is my emacs config file:
+I use `emacs-live` now for my base emacs config: https://github.com/overtone/emacs-live
 
-* `.emacs`
+Inside `emacs/` is my emacs-live config file:
 
-It should be symlinked into position.
+* `.emacs/mathiasx-pack`
+
+It should be symlinked into position:
+
+```bash
+ln -s ~/dev/dotfiles/emacs/mathiasx-pack ~/.livepacks/
+```
 
 ### git/
 
