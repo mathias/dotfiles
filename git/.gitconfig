@@ -12,6 +12,7 @@
 	put = push origin HEAD
   sha = !"git rev-parse HEAD | tr -d \"\n\" | pbcopy"
   bn = !"git name-rev HEAD --name-only | tr -d \"\n\" | pbcopy"
+  fml = !"git fetch && git reset --hard origin/master"
 
 [user]
 	name = Matt Gauger
