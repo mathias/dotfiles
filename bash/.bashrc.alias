@@ -1,7 +1,6 @@
 # git
 alias gap='git add -p'
 alias gd='git diff'
-alias gp='git push'
 alias gst='git status'
 alias gca='git commit --amend --reset-author -C HEAD'
 
@@ -20,6 +19,10 @@ function gitcontribs {
       print "Lines changed: " insertions + deletions
 
   }'
+}
+
+function gitparents {
+ git rev-list --parents $1 | ag $2
 }
 
 # system admin

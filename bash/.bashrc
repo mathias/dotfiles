@@ -28,3 +28,6 @@ bind '"\C-w": backward-kill-word'
 [ ! -f "$HOME/.bashrc.local" ] || . "$HOME/.bashrc.local"
 [ ! -f "$HOME/.bashrc.prompt" ] || . "$HOME/.bashrc.prompt"
 [ ! -f "$HOME/.bashrc.completion" ] || . "$HOME/.bashrc.completion"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

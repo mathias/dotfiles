@@ -91,7 +91,6 @@ Bundle 'tpope/vim-vividchalk'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/Gundo'
-Bundle 'xolox/vim-easytags'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
