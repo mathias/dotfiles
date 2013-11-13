@@ -72,6 +72,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
+Bundle 'slim-template/vim-slim'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-endwise'
@@ -400,6 +401,9 @@ au BufNewFile,BufRead *.md set filetype=markdown
 
 " .scss files are Sass
 au BufNewFile,BufRead *.scss set filetype=sass
+
+" .slim files are Slim Templates
+au BufNewFile,BufRead *.slim set filetype=slim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Rails.vim commands
