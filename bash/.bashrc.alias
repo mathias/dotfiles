@@ -70,3 +70,5 @@ alias iphone='open ~/bin/iphone'
 # emacs
 alias es="/usr/local/bin/emacs --daemon"
 alias e="/usr/local/bin/emacsclient -c -n"
+alias e.="e ."
+alias ese="es && e"

@@ -5,5 +5,8 @@
 
 '(text-scale-mode-step 1.2)
 
-;; Load bindings config
+;; Load keybindings config
 (live-load-config-file "bindings.el")
+
+;; Load MobileOrg org mode settings
+(live-load-config-file "orgmode.el")
