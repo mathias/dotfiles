@@ -1,3 +1,6 @@
+;; Where do org mode files live?
+(setq org-agenda-files (quote ("~/dev/org")))
+
 ;; Set up org mode key commands
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cc" 'org-capture)
