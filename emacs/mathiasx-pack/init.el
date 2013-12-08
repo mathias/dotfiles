@@ -14,4 +14,3 @@
 ;; Slamhound for Clojure
 (live-add-pack-lib "slamhound")
 (require 'slamhound)
-;; (live-load-config-file "slamhound.el")
