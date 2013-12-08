@@ -10,3 +10,8 @@
 
 ;; Load MobileOrg org mode settings
 (live-load-config-file "orgmode.el")
+
+;; Slamhound for Clojure
+;; (live-add-pack-lib "slamhound")
+;; (require 'slamhound)
+(live-load-config-file "slamhound.el")
