@@ -1,4 +1,4 @@
 which brew > /dev/null 2>&1
-if [[ $? ]]; then
+if [[ $? -eq 0 ]]; then
   [ ! -f `brew --prefix`/etc/bash_completion ] || . `brew --prefix`/etc/bash_completion
 fi
