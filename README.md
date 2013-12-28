@@ -19,7 +19,7 @@ Inside `bash/` is a my bash config scripts:
 * `.bashrc.prompt` exists purely to set up the bash prompt.
 * `.bashrc.completion` is loaded last and sets up all bash completion features and some RVM features.
 
-Note: If you're having trouble with the prompt and the __git_ps1 function, read this excellent blog post to get git-completion working: [http://blog.jasonmeridth.com/2010/05/22/git-ps1.html](http://blog.jasonmeridth.com/2010/05/22/git-ps1.html)
+<!--Note: If you're having trouble with the prompt and the __git_ps1 function, read this excellent blog post to get git-completion working: [http://blog.jasonmeridth.com/2010/05/22/git-ps1.html](http://blog.jasonmeridth.com/2010/05/22/git-ps1.html)-->
 
 ### emacs/
 
@@ -37,7 +37,7 @@ ln -s ~/dev/dotfiles/emacs/mathiasx-pack ~/.livepacks/
 
 ### git/
 
-The only file in `git/` is the `.gitconfig` file which prepares some of my git aliases and sets my git user.
+The important file in `git/` is the `.gitconfig` file which prepares some of my git aliases and sets my git user.
 
 Update `.gitconfig` with your information:
 
@@ -48,6 +48,8 @@ Update `.gitconfig` with your information:
 ```
 
 The installed Git version should be 1.8.0 or newer to take advantage of some settings and bash prompt settings.
+
+On Linux, you may see errors because bash can't find `__git_ps1` -- especially if you compiled git from scratch. To fix this, I included the `git-prompt.sh` script from the git repo in `git/`. Move it somewhere like `~/bin` and add a line to source it in `.bashrc`
 
 ### scripts/
 
