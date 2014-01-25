@@ -23,3 +23,6 @@
 ;; Slamhound for Clojure
 (live-add-pack-lib "slamhound")
 (require 'slamhound)
+
+;; Prolog dev
+(add-to-list 'auto-mode-alist '("\\.pro\\'" . prolog-mode))
