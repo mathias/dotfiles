@@ -3,10 +3,10 @@
 ;; Use this file to initiate the pack configuration.
 ;; See README for more information.
 
-'(text-scale-mode-step 1.2)
 
 ;; Load keybindings config
 (live-load-config-file "bindings.el")
+(live-load-config-file "fonts.el")
 
 ;; Load MobileOrg org mode settings
 (live-load-config-file "orgmode.el")
