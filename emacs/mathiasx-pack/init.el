@@ -26,3 +26,18 @@
 
 ;; Prolog dev
 (add-to-list 'auto-mode-alist '("\\.pro\\'" . prolog-mode))
+
+;; Hoplon dev
+(add-to-list 'auto-mode-alist '("\\cljs.hl\\'" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\html.hl\\'" . html-mode))
+
+;; Do not save autosave/swap files in current directory
+;; Save all tempfiles in $TMPDIR/emacs$UID/ instead
+(defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory "emacs" (user-uid)))
+
+(setq backup-directory-alist
+      `((".*" . ,emacs-tmp-dir)))
+(setq auto-save-file-name-transforms
+      `((".*" ,emacs-tmp-dir t)))
+(setq auto-save-list-file-prefix
+      emacs-tmp-dir)
