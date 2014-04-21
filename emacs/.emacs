@@ -8,8 +8,8 @@
 ;; No splash screen please
 (setq inhibit-startup-screen t)
 
-;;;; packages
-;; Load packages from Marmalade and Melpa
+
+;;;; Load packages from Marmalade and Melpa
 (require 'package)
 
 (add-to-list 'load-path "~/.emacs.d/")
@@ -34,11 +34,21 @@
 	     nrepl
 	     paredit 
 	     org
-	     org-plus-contrib))
+	     org-plus-contrib
+	     slamhound
+	     slime))
   (when (not (package-installed-p p))
     (package-install p)))
 
-;;;; setup
+;;;; macros
+
+;; (defmacro after (mode &rest body)
+;;   "`eval-after-load' MODE evaluate BODY."
+;;   (declare (indent defun))
+;;   `(eval-after-load ,mode
+;;      '(progn ,@body)))
+
+;;;; setup emacs itself
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
@@ -50,54 +60,34 @@
   '(text-scale-mode-step 1.2)
   '(visible-bell t))
 
+;; Do not save autosave/swap files in current directory
+;; Save all tempfiles in $TMPDIR/emacs$UID/ instead
+(defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory "emacs" (user-uid)))
+
+(setq backup-directory-alist
+      `((".*" . ,emacs-tmp-dir)))
+(setq auto-save-file-name-transforms
+      `((".*" ,emacs-tmp-dir t)))
+(setq auto-save-list-file-prefix
+      emacs-tmp-dir)
 
 (when (eq system-type 'darwin)
-  ;; default Latin font (e.g. Consolas)
   (set-face-attribute 'default nil :family "Monaco")
-  ;; default font size (point * 10)
-  ;;
-  ;; WARNING!  Depending on the default font,
-  ;; if the size is not supported very well, the frame will be clipped
-  ;; so that the beginning of the buffer may not be visible correctly.
-  (set-face-attribute 'default nil :height 200)
-  ;; use specific font for Korean charset.
-  ;; if you want to use different font size for specific charset,
-  ;; add :size POINT-SIZE in the font-spec.
-  ;; (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
-  ;; you may want to add different for other charset in this way.
-)
-
-
-
-;; Be able to zoom font
-(defun zoom-in ()
-  "Increase font size by 10 points"
-  (interactive)
-  (set-face-attribute 'default nil
-                      :height
-                      (+ (face-attribute 'default :height)
-                         10)))
-
-(defun zoom-out ()
-  "Decrease font size by 10 points"
-  (interactive)
-  (set-face-attribute 'default nil
-                      :height
-                      (- (face-attribute 'default :height)
-                         10)))
+  (set-face-attribute 'default nil :height 200))
 
 ;; change font size, interactively
-(global-set-key (kbd "s-+") 'zoom-in)
-(global-set-key (kbd "s-=") 'zoom-in)
-(global-set-key (kbd "s--") 'zoom-out)
+(global-set-key (kbd "s-+") 'text-scale-increase)
+(global-set-key (kbd "s-=") 'text-scale-increase)
+(global-set-key (kbd "s--") 'text-scale-decrease)
 
-;; Use markdown mode for markdown files
+;;;; markdown mode
+
 (autoload 'markdown-mode "markdown-mode"
           "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-;; paredit
+;;;; paredit mode
 (setq paredit-and-eldoc-modes
       '(clojure
          coffee
@@ -121,9 +111,27 @@
               (define-key paredit-mode-map (kbd "M-(")
                           'paredit-wrap-round))))
 
-;; spell checking
+;;;; spell checking
 (setq ispell-program-name "aspell")
 (add-to-list 'exec-path "/usr/local/bin")
 
-;; theme
+;;;; theme
 (load-theme 'cyberpunk t)
+
+;;;; prolog dev
+(add-to-list 'auto-mode-alist '("\\.pro\\'" . prolog-mode))
+
+;;;; Hoplon dev
+(add-to-list 'auto-mode-alist '("\\cljs.hl\\'" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\html.hl\\'" . html-mode))
+
+;;;; Slime for Common Lisp REPL:
+(setq slime-lisp-implementations
+      '((sbcl ("sbcl" "--core" "sbcl.core-for-slime"))))
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
+(add-to-list 'load-path "~/slime")
+(require 'slime)
+(slime-setup)
+
+;;;; Slamhound for Clojure
+(require 'slamhound)
