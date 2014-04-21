@@ -1,22 +1,22 @@
 [color]
-	ui = true
+  ui = true
 [alias]
-	ci = commit
-	co = checkout
-	df = diff -w
-	br = branch
-	st = status
-	last = log -1 HEAD
-	me = merge --no-ff
-	lol = log --graph --oneline --decorate
-	put = push origin HEAD
+  ci = commit
+  co = checkout
+  df = diff -w
+  br = branch
+  st = status
+  last = log -1 HEAD
+  me = merge --no-ff
+  lol = log --graph --oneline --decorate
+  put = push origin HEAD
   sha = !"git rev-parse HEAD | tr -d \"\n\" | pbcopy"
   bn = !"git name-rev HEAD --name-only | tr -d \"\n\" | pbcopy"
   fml = !"git fetch && git reset --hard origin/master"
 
 [user]
-	name = Matt Gauger
-	email = matt.gauger@gmail.com
+  name = Matt Gauger
+  email = matt.gauger@gmail.com
 [merge]
   summary = false
 [push]
