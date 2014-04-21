@@ -39,6 +39,10 @@ alias ack=ag
 alias unpair='pair -u'
 alias vimhosts="sudo vim /etc/hosts"
 
+function dag {
+  ag --no-numbers "$1" /usr/share/dict/words
+}
+
 # ruby dev stuff:
 alias be="bundle exec"
 alias binstubs="bundle --binstubs --standalone"
