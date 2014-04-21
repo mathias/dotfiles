@@ -25,15 +25,7 @@ Inside `bash/` is a my bash config scripts:
 
 ### emacs/
 
-~~I use `emacs-live` now for my base emacs config: https://github.com/overtone/emacs-live
-
-Inside `emacs/` is my emacs-live config file:
-
-* `.emacs/mathiasx-pack`
-
-It should be symlinked into position:~~
-
-I went back to using my own `.emacs` file
+I went back to using my own `.emacs` file:
 
 ```bash
 ln -s ~/dev/dotfiles/emacs/.emacs ~/.emacs
