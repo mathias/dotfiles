@@ -102,14 +102,17 @@
   (add-hook (intern (concat (symbol-name m) "-mode-hook"))
             'turn-on-eldoc-mode))
 
+(defun mathiasx-paredit-mode-maps ()
+  (interactive)
+  (paredit-mode +1)
+  (define-key paredit-mode-map (kbd "M-)")
+    'paredit-forward-slurp-sexp)
+  (define-key paredit-mode-map (kbd "M-(")
+    'paredit-wrap-round))
+
 (dolist (m paredit-and-eldoc-modes)
   (add-hook (intern (concat (symbol-name m) "-mode-hook"))
-            (lambda ()
-              (paredit-mode +1)
-              (define-key paredit-mode-map (kbd "M-)")
-                          'paredit-forward-slurp-sexp)
-              (define-key paredit-mode-map (kbd "M-(")
-                          'paredit-wrap-round))))
+	    'mathiasx-paredit-mode-maps))
 
 ;;;; spell checking
 (setq ispell-program-name "aspell")
