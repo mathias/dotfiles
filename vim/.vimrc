@@ -92,6 +92,7 @@ Bundle 'tpope/vim-vividchalk'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/Gundo'
+Bundle 'reedes/vim-wordy'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -288,7 +289,7 @@ augroup END
 command! -bar -range=% Trim :<line1>,<line2>s/\s\+$//e
 
 " stop complaining about saving with :W
-cmap W w
+"cmap W w
 
 " Yank to end of line
 map Y y$
