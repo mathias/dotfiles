@@ -26,15 +26,19 @@
 
 ;; package list
 (dolist (p '(ag
-	     cyberpunk-theme
 	     clojure-mode
 	     clojurescript-mode
 	     coffee-mode
+	     cider
+	     cyberpunk-theme
 	     ido-better-flex
+	     mic-paren
+	     midje-mode
 	     nrepl
 	     paredit 
 	     org
 	     org-plus-contrib
+	     rainbow-delimiters
 	     slamhound
 	     slime))
   (when (not (package-installed-p p))
@@ -138,3 +142,12 @@
 
 ;;;; Slamhound for Clojure
 (require 'slamhound)
+
+;;;; mic-paren
+(require 'mic-paren)
+(paren-activate)
+
+;;;; rainbow delimiters
+(require 'rainbow-delimiters)
+;(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
