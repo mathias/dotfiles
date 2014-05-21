@@ -60,7 +60,6 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
   ;;'(custom-enabled-themes (quote (cyberpunk-theme)))
-  '(line-number-mode nil)
   '(text-scale-mode-step 1.2)
   '(visible-bell t))
 
@@ -83,6 +82,10 @@
 (global-set-key (kbd "s-+") 'text-scale-increase)
 (global-set-key (kbd "s-=") 'text-scale-increase)
 (global-set-key (kbd "s--") 'text-scale-decrease)
+
+;;;; global buffer settings
+(column-number-mode)
+(line-number-mode)
 
 ;;;; markdown mode
 
