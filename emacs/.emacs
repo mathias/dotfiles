@@ -137,12 +137,13 @@
 (add-to-list 'auto-mode-alist '("\\html.hl\\'" . html-mode))
 
 ;;;; Slime for Common Lisp REPL:
-(setq slime-lisp-implementations
-      '((sbcl ("sbcl" "--core" "sbcl.core-for-slime"))))
+;; (setq slime-lisp-implementations
+;;       '((sbcl ("sbcl" "--core" "sbcl.core-for-slime"))))
+
+(require 'slime-autoloads)
+
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
-(add-to-list 'load-path "~/slime")
-(require 'slime)
-(slime-setup)
+(setq slime-contribs '(slime-fancy))
 
 ;;;; Slamhound for Clojure
 (require 'slamhound)
