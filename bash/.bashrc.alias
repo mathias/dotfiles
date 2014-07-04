@@ -33,13 +33,13 @@ alias flushdns="dscacheutil -flushcache"
 alias hist="history | grep $1"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias kill_screenshare="killall NetAuthAgent"
-alias psack="ps aux | ag"
+alias psack="psag"
 alias psag="ps aux | ag"
 alias ack=ag
 alias unpair='pair -u'
 alias vimhosts="sudo vim /etc/hosts"
 
-function dag {
+function dictag {
   ag --no-numbers "$1" /usr/share/dict/words
 }
 
@@ -50,9 +50,8 @@ alias brake="be rake"
 alias brails="be rails s"
 alias rervm="cd ../ && cd -"
 alias rubies='rvm list'
-alias saucey="cucumber -p sauce_f"
 alias rdtp="rake db:test:prepare"
-alias surplus="gem list | ack ','"
+alias surplus="gem list | ag ','"
 
 # python:
 alias py='python'
@@ -76,3 +75,5 @@ alias es="/usr/local/bin/emacs --daemon"
 alias e="/usr/local/bin/emacsclient -c -n"
 alias e.="e ."
 alias ese="es && e"
+
+alias lk="lein do deps :tree, ancient, ancient :plugins, kibit, midje"
