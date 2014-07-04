@@ -32,6 +32,7 @@
 	     cider
 	     cyberpunk-theme
 	     ido-better-flex
+	     markdown-mode
 	     mic-paren
 	     midje-mode
 	     nrepl
@@ -97,13 +98,13 @@
 ;;;; paredit mode
 (setq paredit-and-eldoc-modes
       '(clojure
-         coffee
-         emacs-lisp
-         ielm
-         lisp
-         lisp-interaction
-         nrepl
-         scheme))
+	coffee
+	emacs-lisp
+	ielm
+	lisp
+	lisp-interaction
+	nrepl
+	scheme))
 
 (dolist (m paredit-and-eldoc-modes)
   (add-hook (intern (concat (symbol-name m) "-mode-hook"))
