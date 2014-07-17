@@ -30,11 +30,9 @@
 	     coffee-mode
 	     cider
 	     cyberpunk-theme
-	     ido-better-flex
 	     markdown-mode
 	     mic-paren
 	     midje-mode
-	     nrepl
 	     paredit 
 	     org
 	     org-plus-contrib
