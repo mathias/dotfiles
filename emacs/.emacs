@@ -27,7 +27,6 @@
 ;; package list
 (dolist (p '(ag
 	     clojure-mode
-	     clojurescript-mode
 	     coffee-mode
 	     cider
 	     cyberpunk-theme
