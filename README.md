@@ -56,6 +56,12 @@ Use rylnd's pair script: [rylnd/dotfiles](https://github.com/rylnd/dotfiles)
 
 Follow those instructions to install. My own personal fork of the pair script is no longer maintained.
 
+### slate/
+
+Config file for [slate](https://github.com/jigish/slate) in JavaScript. Used for window management.
+
+As usual, symlink `.slate.js` into the home directory.
+
 ### tmux/
 
 Contains a .tmux.conf file that sets up tmux. Very basic config at this point. Hoping to improve that once I read [Brian Hogan's new book](http://pragprog.com/book/bhtmux/tmux).
