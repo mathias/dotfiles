@@ -21,8 +21,6 @@ Inside `bash/` is a my bash config scripts:
 * `.bashrc.prompt` exists purely to set up the bash prompt.
 * `.bashrc.completion` is loaded last and sets up all bash completion features and some RVM features.
 
-<!--Note: If you're having trouble with the prompt and the __git_ps1 function, read this excellent blog post to get git-completion working: [http://blog.jasonmeridth.com/2010/05/22/git-ps1.html](http://blog.jasonmeridth.com/2010/05/22/git-ps1.html)-->
-
 ### emacs/
 
 I went back to using my own `.emacs` file:
