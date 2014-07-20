@@ -9,7 +9,6 @@
 "   -> Moving around, tabs and buffers
 "   -> Status line
 "   -> Editing mappings
-"   -> vimgrep searching and cope displaying
 "   -> Misc
 "   -> Helper functions
 "   -> Tslime
@@ -70,9 +69,11 @@ Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'pangloss/vim-javascript'
+Bundle 'reedes/vim-wordy'
 Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 Bundle 'slim-template/vim-slim'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-cucumber'
@@ -93,7 +94,6 @@ Bundle 'tpope/vim-vividchalk'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/Gundo'
-Bundle 'reedes/vim-wordy'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -406,6 +406,9 @@ au BufNewFile,BufRead *.scss set filetype=sass
 
 " .slim files are Slim Templates
 au BufNewFile,BufRead *.slim set filetype=slim
+
+" Set syntastic to passive for html
+let g:syntastic_mode_map = { 'passive_filetypes': ['html'] }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Rails.vim commands
