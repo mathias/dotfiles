@@ -155,3 +155,18 @@
 (require 'rainbow-delimiters)
 ;(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+;;; org mode settings
+
+; borrowed from https://github.com/losingkeys/dotfiles/blob/master/.emacs
+(defun dotemacs/add-hooks-to-modes (modes hooks)
+  "Adds the specified hooks to the specified modes"
+  (dolist (m modes)
+    (let ((mode (intern (concat (symbol-name m) "-mode-hook"))))
+      (dolist (hook hooks)
+        (add-hook mode hook)))))
+
+(dotemacs/add-hooks-to-modes '(org markdown) '((lambda ()
+						 (auto-fill-mode t)
+						 (flyspell-mode t)
+						 (fill-column 80))))
