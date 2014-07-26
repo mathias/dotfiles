@@ -94,14 +94,16 @@
 
 ;;;; paredit mode
 (setq paredit-and-eldoc-modes
-      '(clojure
+      '(cider
+	clojure
 	coffee
 	emacs-lisp
 	ielm
+	kibit-mode
 	lisp
 	lisp-interaction
-	nrepl
-	scheme))
+	scheme
+	smex))
 
 (dolist (m paredit-and-eldoc-modes)
   (add-hook (intern (concat (symbol-name m) "-mode-hook"))
