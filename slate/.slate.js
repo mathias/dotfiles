@@ -75,3 +75,5 @@ slate.bind('r:cmd,ctrl,shift', slate.operation('relaunch'));
 // Experimental Slate app switcher:
 //var switcher = slate.operation('switch');
 //slate.bind('tab:cmd', switcher);
+
+
