@@ -167,6 +167,6 @@
         (add-hook mode hook)))))
 
 (dotemacs/add-hooks-to-modes '(org markdown) '((lambda ()
-						 (auto-fill-mode t)
+						 (visual-line-mode t)
 						 (flyspell-mode t)
 						 (fill-column 80))))
