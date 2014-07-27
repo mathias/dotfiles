@@ -60,15 +60,6 @@ slate.bind('h:cmd', function(win) {
   }));
 });
 
-// Focus Bindings
-// NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
-slate.bindAll({
-  'l:cmd': slate.op('focus', { 'direction': 'right' }),
-  'h:cmd': slate.op('focus', { 'direction': 'left' }),
-  'k:cmd': slate.op('focus', { 'direction': 'up' }),
-  'j:cmd': slate.op('focus', { 'direction': 'down' })
-});
-
 // relaunch slate to reload config
 slate.bind('r:cmd,ctrl,shift', slate.operation('relaunch'));
 
