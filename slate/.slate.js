@@ -52,3 +52,26 @@ slate.bind('c:cmd,ctrl,alt', function(win) {
 slate.bind('m:cmd,ctrl,alt', function(win) {
   win.doOperation(fullscreen);
 });
+
+// Hide current window (fixes broken Chrome keybinding?)
+slate.bind('h:cmd', function(win) {
+  win.doOperation(slate.operation('hide', {
+    'app': ['current']
+  }));
+});
+
+// Focus Bindings
+// NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
+slate.bindAll({
+  'l:cmd': slate.op('focus', { 'direction': 'right' }),
+  'h:cmd': slate.op('focus', { 'direction': 'left' }),
+  'k:cmd': slate.op('focus', { 'direction': 'up' }),
+  'j:cmd': slate.op('focus', { 'direction': 'down' })
+});
+
+// relaunch slate to reload config
+slate.bind('r:cmd,ctrl,shift', slate.operation('relaunch'));
+
+// Experimental Slate app switcher:
+//var switcher = slate.operation('switch');
+//slate.bind('tab:cmd', switcher);
