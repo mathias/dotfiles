@@ -31,6 +31,17 @@ var center = slate.operation('move', {
   'height': 'screenSizeY'
 });
 
+/* Volume ond media pause/play perations */
+var volUp = slate.operation('shell', {
+  'command': '~/bin/vol --up',
+  'wait': false
+});
+
+var volDown = slate.operation('shell', {
+  'command': '~/bin/vol --down',
+  'wait': false
+});
+
 /* Key Bindings */
 
 // Resize window to left half of screen
@@ -60,11 +71,15 @@ slate.bind('h:cmd', function(win) {
   }));
 });
 
+slate.bindAll({
+  'j:cmd,ctrl': volDown,
+  'k:cmd,ctrl': volUp
+});
+
 // relaunch slate to reload config
 slate.bind('r:cmd,ctrl,shift', slate.operation('relaunch'));
 
 // Experimental Slate app switcher:
 //var switcher = slate.operation('switch');
 //slate.bind('tab:cmd', switcher);
-
 
