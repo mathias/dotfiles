@@ -60,6 +60,13 @@ Config file for [slate](https://github.com/jigish/slate) in JavaScript. Used for
 
 As usual, symlink `.slate.js` into the home directory.
 
+To control volume with my Happy Hacking keyboard (and other keyboards lacking media keys), I wrote a [quick Ruby script](https://github.com/mathias/dotfiles/blob/master/slate/vol.rb) that uses AppleScript to turn the volume up or down. To use it, symlink it into your `~/bin/` directory or somewhere else on the path, and set it executable:
+
+```bash
+ln -s ~/dev/dotfiles/slate/vol.rb ~/bin/vol
+chmod +x ~/bin/vol
+```
+
 ### tmux/
 
 Contains a .tmux.conf file that sets up tmux. Very basic config at this point. Hoping to improve that once I read [Brian Hogan's new book](http://pragprog.com/book/bhtmux/tmux).
