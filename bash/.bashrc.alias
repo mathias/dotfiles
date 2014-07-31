@@ -70,6 +70,4 @@ alias mysqldown="stop_mysql"
 # ios simulator
 alias iphone='open ~/bin/iphone'
 
-# emacs
-
-alias lk="lein do deps :tree, ancient, ancient :plugins, kibit, midje | less"
+alias lk='echo "Displaying in less pager..." && lein do deps :tree, ancient, ancient :plugins, kibit, bikeshed | less'
