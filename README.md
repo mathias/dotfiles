@@ -30,6 +30,15 @@ ln -s ~/dev/dotfiles/emacs/.emacs ~/.emacs
 mkdir -p ~/.emacs.d
 ```
 
+I launch emacs with a convenient little script called `e`. Install it with:
+
+```bash
+ln -s ~/dev/dotfiles/emacs/e ~/bin/e
+chmod +x ~/bin/e
+```
+
+The script checks if there is an emacs server running. If there isn't, it starts one up. Then it connects an emacsclient to it with the requested file.
+
 ### git/
 
 The important file in `git/` is the `.gitconfig` file which prepares some of my git aliases and sets my git user.

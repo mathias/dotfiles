@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+SERVICE='Emacs'
+
+if [[ -z $(ps ax | grep -v grep | grep $SERVICE) ]]
+then
+  /usr/local/bin/emacs --daemon
+fi
+
+/usr/local/bin/emacsclient -c -n $1
