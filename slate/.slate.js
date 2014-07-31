@@ -31,55 +31,73 @@ var center = slate.operation('move', {
   'height': 'screenSizeY'
 });
 
+var hideCurrentApp = slate.operation('hide', {
+  'app': ['current']
+});
+
 /* Volume ond media pause/play perations */
+
 var volUp = slate.operation('shell', {
   'command': '~/bin/vol --up',
-  'wait': false
+  'wait': true
 });
 
 var volDown = slate.operation('shell', {
   'command': '~/bin/vol --down',
-  'wait': false
+  'wait': true
+});
+
+/* Media play, pause, next operations with Anyplayer:
+*  https://github.com/sunny/anyplayer
+*/
+
+var playNext = slate.operation('shell', {
+  'command': '~/bin/vol --next',
+  'wait': true
+});
+
+var playPrev = slate.operation('shell', {
+  'command': '~/bin/vol --prev',
+  'wait': true
+});
+
+var playMusic = slate.operation('shell', {
+  'command': '~/bin/vol --play',
+  'wait': true
+});
+
+var pauseMusic = slate.operation('shell', {
+  'command': '~/bin/vol --pause',
+  'wait': true
+});
+
+var darkenDisplay = slate.operation('shell', {
+  'command': '~/bin/vol --darker',
+  'wait': true
+});
+
+var brightenDisplay = slate.operation('shell', {
+  'command': '~/bin/vol --brighter',
+  'wait': true
 });
 
 /* Key Bindings */
 
-// Resize window to left half of screen
-slate.bind('left:cmd,ctrl,alt', function(win) {
-  win.doOperation(pushLeft);
-});
-
-// Resize window to right half of screen
-slate.bind('right:cmd,ctrl,alt', function(win) {
-  win.doOperation(pushRight);
-});
-
-// Make window half screen width, center on screen
-slate.bind('c:cmd,ctrl,alt', function(win) {
-  win.doOperation(center);
-});
-
-// Fullscreen window (maximize)
-slate.bind('m:cmd,ctrl,alt', function(win) {
-  win.doOperation(fullscreen);
-});
-
-// Hide current window (fixes broken Chrome keybinding?)
-slate.bind('h:cmd', function(win) {
-  win.doOperation(slate.operation('hide', {
-    'app': ['current']
-  }));
-});
-
 slate.bindAll({
+  'left:cmd,ctrl,alt': function(win) { win.doOperation(pushLeft); },
+  'right:cmd,ctrl,alt': function(win) { win.doOperation(pushRight); },
+  'c:cmd,ctrl,alt': function(win) { win.doOperation(center); },
+  'm:cmd,ctrl,alt': function(win) { win.doOperation(fullscreen); },
+  'h:cmd': function(win) { win.doOperation(hideCurrentApp); }, // fixes Chrome bug
   'j:cmd,ctrl': volDown,
-  'k:cmd,ctrl': volUp
+  'k:cmd,ctrl': volUp,
+  'l:cmd,ctrl': playNext,
+  'h:cmd,ctrl': playPrev,
+  'm:cmd,ctrl': pauseMusic,
+  'p:cmd,ctrl': playMusic,
+  'r:alt': slate.operation('relaunch'),
+  '1:cmd,ctrl': darkenDisplay,
+  '2:cmd,ctrl': brightenDisplay
 });
 
-// relaunch slate to reload config
-slate.bind('r:cmd,ctrl,shift', slate.operation('relaunch'));
-
-// Experimental Slate app switcher:
-//var switcher = slate.operation('switch');
-//slate.bind('tab:cmd', switcher);
 
