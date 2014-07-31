@@ -377,6 +377,8 @@ function! CommittedFiles()
   call setqflist(qf_list, '')
 endfunction
 
+autocmd FileType gitcommit setlocal spell
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Commenting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
