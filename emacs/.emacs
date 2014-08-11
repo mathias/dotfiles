@@ -175,6 +175,9 @@
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+;;; ag settings
+(setq ag-highlight-search t) ;; color highlights in search
+
 ;;; org mode settings
 
 ; borrowed from https://github.com/losingkeys/dotfiles/blob/master/.emacs
