@@ -30,6 +30,7 @@
 	     coffee-mode
 	     cider
 	     cyberpunk-theme
+	     magit
 	     markdown-mode
 	     mic-paren
 	     midje-mode
@@ -38,7 +39,8 @@
 	     org-plus-contrib
 	     rainbow-delimiters
 	     slamhound
-	     slime))
+	     slime
+	     smex))
   (when (not (package-installed-p p))
     (package-install p)))
 
@@ -121,6 +123,9 @@
   (add-hook (intern (concat (symbol-name m) "-mode-hook"))
 	    'mathiasx-paredit-mode-maps))
 
+;;;; magit mode
+(require 'magit)
+
 ;;;; spell checking
 (setq ispell-program-name "aspell")
 (add-to-list 'exec-path "/usr/local/bin")
@@ -144,6 +149,9 @@
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 (setq slime-contribs '(slime-fancy))
 
+;;;; Clojure dev
+(setq nrepl-hide-special-buffers t) ;; hide special buffers when using Cider
+
 ;;;; Slamhound for Clojure
 (require 'slamhound)
 
@@ -155,6 +163,17 @@
 (require 'rainbow-delimiters)
 ;(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+;;; smex settings
+(require 'smex)
+(smex-initialize) ; Can be omitted. This might cause a (minimal) delay
+                  ; when Smex is auto-initialized on its first run.
+
+;; remap M-x
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;;; org mode settings
 
