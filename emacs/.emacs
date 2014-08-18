@@ -193,4 +193,10 @@
 (dotemacs/add-hooks-to-modes '(org markdown) '((lambda ()
 						 (visual-line-mode t)
 						 (flyspell-mode t)
-						 (fill-column 80))))
+						 )))
+
+(setq org-directory "~/dev/org")
+;; Set to the name of the file where new notes will be stored
+(setq org-mobile-inbox-for-pull "~/dev/org/flagged.org")
+;; Set to <your Dropbox root directory>/MobileOrg.
+(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
