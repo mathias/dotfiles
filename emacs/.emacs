@@ -135,6 +135,9 @@
 ;;;; prolog dev
 (add-to-list 'auto-mode-alist '("\\.pro\\'" . prolog-mode))
 
+;;;; boot dev
+(add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
+
 ;;;; Hoplon dev
 (add-to-list 'auto-mode-alist '("\\cljs.hl\\'" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\html.hl\\'" . html-mode))
