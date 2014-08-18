@@ -33,7 +33,6 @@
 	     magit
 	     markdown-mode
 	     mic-paren
-	     midje-mode
 	     paredit 
 	     org
 	     org-plus-contrib
