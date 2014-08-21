@@ -149,9 +149,6 @@
 (add-to-list 'auto-mode-alist '("\\html.hl\\'" . html-mode))
 
 ;;;; Slime for Common Lisp REPL:
-;; (setq slime-lisp-implementations
-;;       '((sbcl ("sbcl" "--core" "sbcl.core-for-slime"))))
-
 (require 'slime-autoloads)
 
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
