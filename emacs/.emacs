@@ -89,6 +89,16 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;;;; functions
+
+; borrowed from https://github.com/losingkeys/dotfiles/blob/master/.emacs
+(defun add-hooks-to-modes (modes hooks)
+  "Adds the specified hooks to the specified modes"
+  (dolist (m modes)
+    (let ((mode (intern (concat (symbol-name m) "-mode-hook"))))
+      (dolist (hook hooks)
+       (add-hook mode hook)))))
+
 ;;;; markdown mode
 
 (autoload 'markdown-mode "markdown-mode"
@@ -109,10 +119,6 @@
 	scheme
 	smex))
 
-(dolist (m paredit-and-eldoc-modes)
-  (add-hook (intern (concat (symbol-name m) "-mode-hook"))
-	    'turn-on-eldoc-mode))
-
 (defun mathiasx-paredit-mode-maps ()
   (interactive)
   (paredit-mode +1)
@@ -121,9 +127,9 @@
   (define-key paredit-mode-map (kbd "M-(")
     'paredit-wrap-round))
 
-(dolist (m paredit-and-eldoc-modes)
-  (add-hook (intern (concat (symbol-name m) "-mode-hook"))
-	    'mathiasx-paredit-mode-maps))
+(add-hooks-to-modes paredit-and-eldoc-modes '((lambda ()
+						(turn-on-eldoc-mode)
+						(mathiasx-paredit-mode-maps))))
 
 ;;;; magit mode
 (require 'magit)
@@ -181,18 +187,9 @@
 (setq ag-highlight-search t) ;; color highlights in search
 
 ;;; org mode settings
-
-; borrowed from https://github.com/losingkeys/dotfiles/blob/master/.emacs
-(defun dotemacs/add-hooks-to-modes (modes hooks)
-  "Adds the specified hooks to the specified modes"
-  (dolist (m modes)
-    (let ((mode (intern (concat (symbol-name m) "-mode-hook"))))
-      (dolist (hook hooks)
-	(add-hook mode hook)))))
-
-(dotemacs/add-hooks-to-modes '(org markdown) '((lambda ()
-						 (visual-line-mode t)
-						 (flyspell-mode t))))
+(add-hooks-to-modes '(org markdown) '((lambda ()
+					(visual-line-mode t)
+					(flyspell-mode t))))
 
 (setq org-directory "~/dev/org")
 ;; Set to the name of the file where new notes will be stored
