@@ -15,9 +15,9 @@
 (add-to-list 'load-path "~/.emacs.d/")
 
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives
-             '("org" . "http://orgmode.org/elpa/") t)
+	     '("org" . "http://orgmode.org/elpa/") t)
 
 (package-initialize)
 
@@ -33,7 +33,7 @@
 	     magit
 	     markdown-mode
 	     mic-paren
-	     paredit 
+	     paredit
 	     org
 	     org-plus-contrib
 	     rainbow-delimiters
@@ -89,10 +89,13 @@
 (column-number-mode)
 (line-number-mode)
 
+;; Show trailing white spaces
+(setq-default show-trailing-whitespace t)
+
 ;;;; markdown mode
 
 (autoload 'markdown-mode "markdown-mode"
-          "Major mode for editing Markdown files" t)
+	  "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
@@ -111,7 +114,7 @@
 
 (dolist (m paredit-and-eldoc-modes)
   (add-hook (intern (concat (symbol-name m) "-mode-hook"))
-            'turn-on-eldoc-mode))
+	    'turn-on-eldoc-mode))
 
 (defun mathiasx-paredit-mode-maps ()
   (interactive)
@@ -172,7 +175,7 @@
 ;;; smex settings
 (require 'smex)
 (smex-initialize) ; Can be omitted. This might cause a (minimal) delay
-                  ; when Smex is auto-initialized on its first run.
+		  ; when Smex is auto-initialized on its first run.
 
 ;; remap M-x
 (global-set-key (kbd "M-x") 'smex)
@@ -191,7 +194,7 @@
   (dolist (m modes)
     (let ((mode (intern (concat (symbol-name m) "-mode-hook"))))
       (dolist (hook hooks)
-        (add-hook mode hook)))))
+	(add-hook mode hook)))))
 
 (dotemacs/add-hooks-to-modes '(org markdown) '((lambda ()
 						 (visual-line-mode t)
