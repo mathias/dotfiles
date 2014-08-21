@@ -53,6 +53,9 @@
 
 ;;;; setup emacs itself
 
+(setq user-full-name "Matt Gauger")
+(setq user-mail-address "matt.gauger@gmail.com")
+
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -192,11 +195,12 @@
 
 (dotemacs/add-hooks-to-modes '(org markdown) '((lambda ()
 						 (visual-line-mode t)
-						 (flyspell-mode t)
-						 )))
+						 (flyspell-mode t))))
 
 (setq org-directory "~/dev/org")
 ;; Set to the name of the file where new notes will be stored
 (setq org-mobile-inbox-for-pull "~/dev/org/flagged.org")
 ;; Set to <your Dropbox root directory>/MobileOrg.
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+;; bind Org agendas view
+(global-set-key "\C-ca" 'org-agenda)
