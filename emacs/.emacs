@@ -29,6 +29,7 @@
 	     cider
 	     clojure-mode
 	     coffee-mode
+	     company
 	     cyberpunk-theme
 	     magit
 	     markdown-mode
@@ -201,3 +202,8 @@
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 ;; bind Org agendas view
 (global-set-key "\C-ca" 'org-agenda)
+
+;;;; company-mode for autocomplete
+
+;; turn on company mode in all modes:
+(add-hook 'after-init-hook 'global-company-mode)
