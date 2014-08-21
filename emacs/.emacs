@@ -43,14 +43,6 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-;;;; macros
-
-;; (defmacro after (mode &rest body)
-;;   "`eval-after-load' MODE evaluate BODY."
-;;   (declare (indent defun))
-;;   `(eval-after-load ,mode
-;;      '(progn ,@body)))
-
 ;;;; setup emacs itself
 
 (setq user-full-name "Matt Gauger")
