@@ -138,6 +138,9 @@
 (setq ispell-program-name "aspell")
 (add-to-list 'exec-path "/usr/local/bin")
 
+;;;; Whitespace higlighting
+(setq-default show-trailing-whitespace t)
+
 ;;;; theme
 (load-theme 'cyberpunk t)
 
