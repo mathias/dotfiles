@@ -26,16 +26,16 @@
 
 ;; package list
 (dolist (p '(ag
+	     cider
 	     clojure-mode
 	     coffee-mode
-	     cider
 	     cyberpunk-theme
 	     magit
 	     markdown-mode
 	     mic-paren
-	     paredit
 	     org
 	     org-plus-contrib
+	     paredit
 	     rainbow-delimiters
 	     slamhound
 	     slime
