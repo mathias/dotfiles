@@ -58,6 +58,9 @@
   '(text-scale-mode-step 1.2)
   '(visible-bell t))
 
+;; Autorevert files (mandatory if working with VCS like git)
+(global-auto-revert-mode t)
+
 ;; Do not save autosave/swap files in current directory
 ;; Save all tempfiles in $TMPDIR/emacs$UID/ instead
 (defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory "emacs" (user-uid)))
