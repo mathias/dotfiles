@@ -55,6 +55,12 @@ The installed Git version should be 1.8.0 or newer to take advantage of some set
 
 On Linux, you may see errors because bash can't find `__git_ps1` -- especially if you compiled git from scratch. To fix this, I included the `git-prompt.sh` script from the git repo in `git/`. Move it somewhere like `~/bin` and add a line to source it in `.bashrc`
 
+### Phoenix config
+
+On OSX I use [Phoenix](https://github.com/jasonm23/phoenix) for window management. My config file for it is written in ClojureScript, and it can be foudn here with instructions for use:
+
+<https://github.com/mathias/phoenix-config/blob/master/src/phoenix.cljs>
+
 ### scripts/
 
 #### scripts/pair
@@ -62,19 +68,6 @@ On Linux, you may see errors because bash can't find `__git_ps1` -- especially i
 Use rylnd's pair script: [rylnd/dotfiles](https://github.com/rylnd/dotfiles)
 
 Follow those instructions to install. My own personal fork of the pair script is no longer maintained.
-
-### slate/
-
-Config file for [slate](https://github.com/jigish/slate) in JavaScript. Used for window management.
-
-As usual, symlink `.slate.js` into the home directory.
-
-To control volume with my Happy Hacking keyboard (and other keyboards lacking media keys), I wrote a [quick Ruby script](https://github.com/mathias/dotfiles/blob/master/slate/vol.rb) that uses AppleScript to turn the volume up or down. To use it, symlink it into your `~/bin/` directory or somewhere else on the path, and set it executable:
-
-```bash
-ln -s ~/dev/dotfiles/slate/vol.rb ~/bin/vol
-chmod +x ~/bin/vol
-```
 
 ### tmux/
 
