@@ -145,6 +145,9 @@
 ;;;; Whitespace higlighting
 (setq-default show-trailing-whitespace t)
 
+;;;; Whitespace cleanup
+(global-set-key (kbd "C-c w") 'whitespace-cleanup)
+
 ;;;; theme
 (load-theme 'cyberpunk t)
 
