@@ -13,6 +13,7 @@
   sha = !"git rev-parse HEAD | tr -d \"\n\" | pbcopy"
   bn = !"git name-rev HEAD --name-only | tr -d \"\n\" | pbcopy"
   fml = !"git fetch && git reset --hard origin/master"
+  fe = fetch -p
 
 [user]
   name = Matt Gauger
