@@ -289,6 +289,9 @@ command! -bar -range=% Trim :<line1>,<line2>s/\s\+$//e
 " stop complaining about saving with :W
 "cmap W w
 
+" pretty print JSON
+command! -range=% Jsonpp :%!python -m json.tool
+
 " Yank to end of line
 map Y y$
 
