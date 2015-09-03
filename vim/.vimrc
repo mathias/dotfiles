@@ -53,8 +53,11 @@ Bundle 'gmarik/vundle'
 "
 " original repos on github
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'antlypls/vim-colors-codeschool'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'digitaltoad/vim-jade'
 Bundle 'edsono/vim-matchit'
 Bundle 'godlygeek/tabular'
 Bundle 'int3/vim-extradite'
@@ -169,7 +172,7 @@ syntax on
 filetype off
 filetype on
 
-colorscheme vividchalk
+colorscheme codeschool
 set background=dark
 
 augroup vimrc
