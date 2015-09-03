@@ -93,7 +93,6 @@ Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-vividchalk'
-Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/Gundo'
 
@@ -294,6 +293,9 @@ command! -bar -range=% Trim :<line1>,<line2>s/\s\+$//e
 " stop complaining about saving with :W
 "cmap W w
 
+" pretty print JSON
+command! -range=% Jsonpp :%!python -m json.tool
+
 " Yank to end of line
 map Y y$
 
@@ -410,6 +412,9 @@ au BufNewFile,BufRead *.scss set filetype=sass
 
 " .slim files are Slim Templates
 au BufNewFile,BufRead *.slim set filetype=slim
+
+" .hbs files are Handlebars Templates -- treat like HTML
+au BufNewFile,BufRead *.hbs set filetype=html
 
 " Set syntastic to passive for html
 let g:syntastic_mode_map = { 'passive_filetypes': ['html'] }
