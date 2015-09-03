@@ -71,3 +71,6 @@ alias mysqldown="stop_mysql"
 alias iphone='open ~/bin/iphone'
 
 alias lk='echo "Displaying in less pager..." && lein do deps :tree, ancient, ancient :plugins, kibit, bikeshed | less'
+
+# image optimization
+alias imageopt='imageOptim -a -q -d'
