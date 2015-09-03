@@ -19,10 +19,10 @@ export LSCOLORS=gxgxcxdxbxegedabagacad
 
 export CLICOLOR LSCOLORS
 
-bind 'set bind-tty-special-chars off'
-bind '"\ep": history-search-backward'
-bind '"\en": history-search-forward'
-bind '"\C-w": backward-kill-word'
+#bind 'set bind-tty-special-chars off'
+#bind '"\ep": history-search-backward'
+#bind '"\en": history-search-forward'
+#bind '"\C-w": backward-kill-word'
 
 [ ! -f "$HOME/.bashrc.alias" ] || . "$HOME/.bashrc.alias"
 [ ! -f "$HOME/.bashrc.alias.local" ] || . "$HOME/.bashrc.alias.local"
@@ -31,8 +31,9 @@ bind '"\C-w": backward-kill-word'
 [ ! -f "$HOME/.bashrc.completion" ] || . "$HOME/.bashrc.completion"
 [ ! -f "$HOME/.bashrc.gnupg" ] || . "$HOME/.bashrc.gnupg"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 # added by travis gem
 [ -f /Users/mathiasx/.travis/travis.sh ] && source /Users/mathiasx/.travis/travis.sh
+
+# added by NVM setup:
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
