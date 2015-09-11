@@ -44,7 +44,7 @@ The script checks if there is an emacs server running. If there isn't, it starts
 I use homebrew, with some flags, to install Emacs from git:
 
 ```
-brew install emacs --use-git-head --cocoa --with-gnutls
+brew install emacs --use-git-head --with-cocoa --with-gnutls
 ```
 
 #### Tip: Update emacs packages by blowing them away
