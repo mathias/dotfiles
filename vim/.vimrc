@@ -54,12 +54,16 @@ Bundle 'gmarik/vundle'
 " original repos on github
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'edsono/vim-matchit'
 Bundle 'godlygeek/tabular'
 Bundle 'int3/vim-extradite'
 Bundle 'jgdavey/tslime.vim'
 Bundle 'jgdavey/vim-blockle'
 Bundle 'jgdavey/vim-turbux'
+Bundle 'justbrettjones/vim-codeschool'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
@@ -167,7 +171,7 @@ syntax on
 filetype off
 filetype on
 
-colorscheme vividchalk
+colorscheme codeschool
 set background=dark
 
 augroup vimrc

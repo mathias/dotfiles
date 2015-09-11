@@ -15,7 +15,9 @@
 (add-to-list 'load-path "~/.emacs.d/")
 
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+ 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
 (add-to-list 'package-archives
 	     '("org" . "http://orgmode.org/elpa/") t)
 
@@ -24,13 +26,18 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(mic-paren . "melpa") t)
+(add-to-list 'package-pinned-packages '(keyfreq . "melpa") t)
+
 ;; package list
-(dolist (p '(ag
-	     cider
+(dolist (p '(cider
 	     clojure-mode
 	     coffee-mode
 	     company
 	     cyberpunk-theme
+	     highlight-symbol
+	     keyfreq
 	     magit
 	     markdown-mode
 	     mic-paren
@@ -156,10 +163,15 @@
 
 ;;;; boot dev
 (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
+;;;; recognize boot script files using shebang:
+(add-to-list 'magic-mode-alist '(".* boot" . clojure-mode))
 
 ;;;; Hoplon dev
 (add-to-list 'auto-mode-alist '("\\cljs.hl\\'" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\html.hl\\'" . html-mode))
+
+;; .emacs file
+(add-to-list 'auto-mode-alist '("\\\.emacs\\'" . emacs-lisp-mode))
 
 ;;;; Slime for Common Lisp REPL:
 (require 'slime-autoloads)
@@ -175,6 +187,8 @@
 
 ;;;; mic-paren
 (require 'mic-paren)
+(setq paren-highlight-offscreen t)
+(setq paren-match-face 'highlight)
 (paren-activate)
 
 ;;;; rainbow delimiters
@@ -209,7 +223,16 @@
 ;; bind Org agendas view
 (global-set-key "\C-ca" 'org-agenda)
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((lisp . t)))
+
 ;;;; company-mode for autocomplete
 
 ;; turn on company mode in all modes:
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; Set up keyfreq (record key/command frequency)
+(require 'keyfreq)
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)
