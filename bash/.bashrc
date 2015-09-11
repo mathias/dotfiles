@@ -30,9 +30,4 @@ bind '"\C-w": backward-kill-word'
 [ ! -f "$HOME/.bashrc.prompt" ] || . "$HOME/.bashrc.prompt"
 [ ! -f "$HOME/.bashrc.completion" ] || . "$HOME/.bashrc.completion"
 [ ! -f "$HOME/.bashrc.gnupg" ] || . "$HOME/.bashrc.gnupg"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# added by travis gem
-[ -f /Users/mathiasx/.travis/travis.sh ] && source /Users/mathiasx/.travis/travis.sh
+[ ! -f "$HOME/.bashrc.paths" ] || . "$HOME/.bashrc.paths"

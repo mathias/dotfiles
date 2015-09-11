@@ -8,6 +8,7 @@
   st = status
   last = log -1 HEAD
   me = merge --no-ff
+  lg = log --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   lol = log --graph --oneline --decorate
   put = push origin HEAD
   sha = !"git rev-parse HEAD | tr -d \"\n\" | pbcopy"
