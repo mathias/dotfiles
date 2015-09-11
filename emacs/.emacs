@@ -28,6 +28,7 @@
 
 (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(mic-paren . "melpa") t)
+(add-to-list 'package-pinned-packages '(keyfreq . "melpa") t)
 
 ;; package list
 (dolist (p '(cider
@@ -36,6 +37,7 @@
 	     company
 	     cyberpunk-theme
 	     highlight-symbol
+	     keyfreq
 	     magit
 	     markdown-mode
 	     mic-paren
@@ -229,3 +231,8 @@
 
 ;; turn on company mode in all modes:
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; Set up keyfreq (record key/command frequency)
+(require 'keyfreq)
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)
