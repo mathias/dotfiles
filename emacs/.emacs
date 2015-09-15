@@ -233,6 +233,8 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; Set up keyfreq (record key/command frequency)
+(if (not (fboundp 'reduce))
+    (defalias 'reduce 'cl-reduce))
 (require 'keyfreq)
 (keyfreq-mode 1)
 (keyfreq-autosave-mode 1)
