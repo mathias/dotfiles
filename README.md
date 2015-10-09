@@ -39,6 +39,18 @@ chmod +x ~/bin/e
 
 The script checks if there is an emacs server running. If there isn't, it starts one up. Then it connects an emacsclient to it with the requested file.
 
+#### Tip: Install emacs from git head on Mac OSX
+
+I use homebrew, with some flags, to install Emacs from git:
+
+```
+brew install emacs --use-git-head --with-cocoa --with-gnutls
+```
+
+#### Tip: Update emacs packages by blowing them away
+
+Frequently packages in emacs will get out of date or will not be able to be updated from MELPA anymore because the installed version is no longer available. In this case, it should be safe to blow away the directories in `~/.emacs.d/elpa`. The only thing I haven't confirmed is that doing this does not lose `keyfreq`'s history.
+
 ### git/
 
 The important file in `git/` is the `.gitconfig` file which prepares some of my git aliases and sets my git user.

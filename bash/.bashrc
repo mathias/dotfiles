@@ -30,10 +30,4 @@ export CLICOLOR LSCOLORS
 [ ! -f "$HOME/.bashrc.prompt" ] || . "$HOME/.bashrc.prompt"
 [ ! -f "$HOME/.bashrc.completion" ] || . "$HOME/.bashrc.completion"
 [ ! -f "$HOME/.bashrc.gnupg" ] || . "$HOME/.bashrc.gnupg"
-
-# added by travis gem
-[ -f /Users/mathiasx/.travis/travis.sh ] && source /Users/mathiasx/.travis/travis.sh
-
-# added by NVM setup:
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+[ ! -f "$HOME/.bashrc.paths" ] || . "$HOME/.bashrc.paths"
