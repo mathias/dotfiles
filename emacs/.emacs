@@ -17,9 +17,9 @@
       (normal-top-level-add-subdirs-to-load-path)))
 
 (add-to-list 'package-archives
- 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+ 	     '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
-             '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives
 	     '("org" . "http://orgmode.org/elpa/") t)
 
@@ -31,6 +31,7 @@
 (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(mic-paren . "melpa") t)
 (add-to-list 'package-pinned-packages '(keyfreq . "melpa") t)
+(add-to-list 'package-pinned-packages '(git-link . "melpa") t)
 
 ;; package list
 (dolist (p '(cider
@@ -39,6 +40,7 @@
 	     coffee-mode
 	     company
 	     cyberpunk-theme
+	     git-link
 	     highlight-symbol
 	     keyfreq
 	     magit
