@@ -12,7 +12,9 @@
 ;;;; Load packages from Marmalade and Melpa
 (require 'package)
 
-(add-to-list 'load-path "~/.emacs.d/")
+(let ((default-directory "/usr/local/share/emacs/site-lisp/"))
+  (if (file-directory-p default-directory)
+      (normal-top-level-add-subdirs-to-load-path)))
 
 (add-to-list 'package-archives
  	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -32,6 +34,7 @@
 
 ;; package list
 (dolist (p '(cider
+	     cl-lib
 	     clojure-mode
 	     coffee-mode
 	     company
