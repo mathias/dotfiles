@@ -8,7 +8,6 @@
 ;; No splash screen please
 (setq inhibit-startup-screen t)
 
-
 ;;;; Load packages from Marmalade and Melpa
 (require 'package)
 
@@ -143,9 +142,10 @@
   (define-key paredit-mode-map (kbd "M-(")
     'paredit-wrap-round))
 
-(add-hooks-to-modes paredit-and-eldoc-modes '((lambda ()
-						(turn-on-eldoc-mode)
-						(mathiasx-paredit-mode-maps))))
+(add-hooks-to-modes paredit-and-eldoc-modes
+		    '((lambda ()
+			(turn-on-eldoc-mode)
+			(mathiasx-paredit-mode-maps))))
 
 ;;;; magit mode
 (require 'magit)
@@ -216,9 +216,10 @@
 (setq ag-highlight-search t) ;; color highlights in search
 
 ;;; org mode settings
-(add-hooks-to-modes '(org markdown) '((lambda ()
-					(visual-line-mode t)
-					(flyspell-mode t))))
+(add-hooks-to-modes '(org markdown)
+		    '((lambda ()
+			(visual-line-mode t)
+			(flyspell-mode t))))
 
 (setq org-directory "~/dev/org")
 ;; Set to the name of the file where new notes will be stored
