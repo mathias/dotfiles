@@ -244,3 +244,14 @@
 (require 'keyfreq)
 (keyfreq-mode 1)
 (keyfreq-autosave-mode 1)
+
+;; Window movement commands
+;; from: Writing GNU Emacs Extensions by Bob Glickstein
+
+(defun other-window-backward (&optional n)
+  "Select Nth previous window."
+  (interactive "p")
+  (other-window (- (or n 1))))
+
+(global-set-key "\C-x\C-n" `other-window)
+(global-set-key "\C-x\C-p" `other-window-backward)
