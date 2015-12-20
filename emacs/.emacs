@@ -178,6 +178,10 @@
 ;; .emacs file
 (add-to-list 'auto-mode-alist '("\\\.emacs\\'" . emacs-lisp-mode))
 
+;; Octave files
+(add-to-list 'auto-mode-alist '("\\\.m\\'" . octave-mode))
+
+
 ;;;; Slime for Common Lisp REPL:
 (require 'slime-autoloads)
 
@@ -255,3 +259,11 @@
 
 (global-set-key "\C-x\C-n" `other-window)
 (global-set-key "\C-x\C-p" `other-window-backward)
+
+;; Octave mode settings
+(add-hook 'octave-mode-hook
+          (lambda ()
+            (abbrev-mode 1)
+            (auto-fill-mode 1)
+            (if (eq window-system 'x)
+                (font-lock-mode 1))))
