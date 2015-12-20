@@ -1,0 +1,13 @@
+--------------------------------------------
+-- psql configuration file
+--------------------------------------------
+\pset linestyle unicode
+\pset border 2
+
+\set PROMPT1 '%[%033[33;1m%]%x%[%033[0m%]%[%033[1m%]%/%[%033[0m%]%R%# '
+
+\pset pager off
+\timing
+
+\set HISTCONTROL ignoreboth
+\set HISTSIZE 100000
