@@ -61,13 +61,16 @@
 (setq user-mail-address "matt.gauger@gmail.com")
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-  ;;'(custom-enabled-themes (quote (cyberpunk-theme)))
-  '(text-scale-mode-step 1.2)
-  '(visible-bell t))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("8fed5e4b89cf69107d524c4b91b4a4c35bcf1b3563d5f306608f0c48f580fdf8" "40bc0ac47a9bd5b8db7304f8ef628d71e2798135935eb450483db0dbbfff8b11" default)))
+ '(display-battery-mode t)
+ '(text-scale-mode-step 1.2)
+ '(visible-bell t))
 
 ;; Autorevert files (mandatory if working with VCS like git)
 (global-auto-revert-mode t)
