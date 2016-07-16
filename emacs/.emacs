@@ -272,3 +272,6 @@
             (auto-fill-mode 1)
             (if (eq window-system 'x)
                 (font-lock-mode 1))))
+
+;; imenu
+(global-set-key (kbd "M-i") 'imenu)
