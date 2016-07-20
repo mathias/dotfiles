@@ -33,13 +33,15 @@
 (add-to-list 'package-pinned-packages '(git-link . "melpa") t)
 
 ;; package list
-(dolist (p '(cider
+(dolist (p '(ag
+	     cider
 	     cl-lib
 	     clojure-mode
 	     coffee-mode
 	     company
 	     cyberpunk-theme
 	     git-link
+	     helm
 	     highlight-symbol
 	     keyfreq
 	     magit
