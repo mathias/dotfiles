@@ -19,3 +19,6 @@ vim/.vim/bundle
 
 # Emacs Octave tmp files
 emacs/octave-workspace
+
+# Emacs cruft
+.#*
