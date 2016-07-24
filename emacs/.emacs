@@ -265,3 +265,6 @@
 
 ;; imenu
 (global-set-key (kbd "M-i") 'imenu)
+
+;; TRAMP mode config
+(setq tramp-default-method "ssh")
