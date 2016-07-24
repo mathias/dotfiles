@@ -38,10 +38,8 @@
 	     cl-lib
 	     clojure-mode
 	     coffee-mode
-	     company
 	     cyberpunk-theme
 	     git-link
-	     helm
 	     highlight-symbol
 	     keyfreq
 	     magit
