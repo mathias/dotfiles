@@ -232,11 +232,6 @@
  'org-babel-load-languages
  '((lisp . t)))
 
-;;;; company-mode for autocomplete
-
-;; turn on company mode in all modes:
-(add-hook 'after-init-hook 'global-company-mode)
-
 ;; Set up keyfreq (record key/command frequency)
 (if (not (fboundp 'reduce))
     (defalias 'reduce 'cl-reduce))
