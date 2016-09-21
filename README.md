@@ -73,6 +73,8 @@ On OSX I use [Phoenix](https://github.com/jasonm23/phoenix) for window managemen
 
 <https://github.com/mathias/phoenix-config/blob/master/src/phoenix.cljs>
 
+Likely, you'll also want <https://github.com/puffnfresh/toggle-osx-shadows> installed.
+
 ### scripts/
 
 #### scripts/pair
