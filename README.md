@@ -69,7 +69,7 @@ On Linux, you may see errors because bash can't find `__git_ps1` -- especially i
 
 ### Phoenix config
 
-On OSX I use [Phoenix](https://github.com/jasonm23/phoenix) for window management. My config file for it is written in ClojureScript, and it can be foudn here with instructions for use:
+On OSX I use [Phoenix](https://github.com/jasonm23/phoenix) for window management. My config file for it is written in ClojureScript, and it can be found here with instructions for use:
 
 <https://github.com/mathias/phoenix-config/blob/master/src/phoenix.cljs>
 
