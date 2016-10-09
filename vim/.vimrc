@@ -58,6 +58,7 @@ Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'edsono/vim-matchit'
+Bundle 'elixir-lang/vim-elixir'
 Bundle 'godlygeek/tabular'
 Bundle 'int3/vim-extradite'
 Bundle 'jgdavey/tslime.vim'
@@ -417,6 +418,11 @@ au BufNewFile,BufRead *.hbs set filetype=html
 
 " Set syntastic to passive for html
 let g:syntastic_mode_map = { 'passive_filetypes': ['html'] }
+
+" Elixir files
+au BufNewFile,BufRead *.ex set filetype=elixir
+au BufNewFile,BufRead *.exs set filetype=elixir
+au BufNewFile,BufRead mix.lock set filetype=elixir
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Rails.vim commands

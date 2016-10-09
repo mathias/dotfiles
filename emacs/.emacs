@@ -32,6 +32,8 @@
 (add-to-list 'package-pinned-packages '(keyfreq . "melpa") t)
 (add-to-list 'package-pinned-packages '(git-link . "melpa") t)
 
+(add-to-list 'package-pinned-packages '(elm-mode . "melpa-stable") t)
+
 ;; package list
 (dolist (p '(ag
 	     cider
@@ -39,6 +41,8 @@
 	     clojure-mode
 	     coffee-mode
 	     cyberpunk-theme
+	     elixir-mode
+	     elm-mode
 	     git-link
 	     highlight-symbol
 	     keyfreq
