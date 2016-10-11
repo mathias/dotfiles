@@ -52,6 +52,7 @@
 	     org
 	     org-journal
 	     org-plus-contrib
+	     org-pomodoro
 	     paredit
 	     rainbow-delimiters
 	     slamhound
