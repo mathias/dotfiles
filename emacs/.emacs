@@ -240,7 +240,7 @@
 	 :prepend 1)
 	("j" "Journal Entry"
 	 entry (file (get-journal-file-today))
-	 "* Event: %?\n\n  %i\n\n  From: %a"
+	 "* Entry: %?\n\n  %i\n\n  From: %a"
 	 :empty-lines 1)
 	("t" "TODO"
 	 entry (file 'org-default-notes-file)
@@ -281,7 +281,7 @@
 	       "#+TITLE: Journal Entry - %Y-%b-%d (%A)\n\n" datim)))))
 
 (add-hook 'find-file-hook 'auto-insert)
-(add-to-list 'auto-insert-alist '(".*/[0-9]{8}*.org$" . journal-file-insert))
+(add-to-list 'auto-insert-alist '("~/dev/org/journal/[0-9]{8}.org$" . journal-file-insert))
 
 ;; org-babel
 (org-babel-do-load-languages
