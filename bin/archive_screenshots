@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mkdir -p ~/Documents/Screenshots
+mv ~/Desktop/Screen\ Shot*.png ~/Documents/Screenshots
