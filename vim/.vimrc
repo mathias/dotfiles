@@ -61,6 +61,7 @@ Bundle 'edsono/vim-matchit'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'godlygeek/tabular'
 Bundle 'int3/vim-extradite'
+Bundle 'isRuslan/vim-es6'
 Bundle 'jgdavey/tslime.vim'
 Bundle 'jgdavey/vim-blockle'
 Bundle 'jgdavey/vim-turbux'
@@ -404,6 +405,9 @@ iabbrev rdebug require 'ruby-debug'; Debugger.start; Debugger.settings[:autoeval
 " Match .js.coffee files as CoffeeScript
 au BufNewFile,BufRead *.js.coffee set filetype=coffee
 
+" Match .es6 files as JavaScript
+au BufNewFile,BufRead *.es6 set filetype=javascript
+
 " Match .md files as Markdown, not Modula-2
 au BufNewFile,BufRead *.md set filetype=markdown
 
@@ -418,6 +422,7 @@ au BufNewFile,BufRead *.hbs set filetype=html
 
 " Set syntastic to passive for html
 let g:syntastic_mode_map = { 'passive_filetypes': ['html'] }
+"let g:syntastic_javascript_checkers = ['standard'] " Only for CLI plugins
 
 " Elixir files
 au BufNewFile,BufRead *.ex set filetype=elixir
