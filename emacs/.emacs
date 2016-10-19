@@ -270,23 +270,19 @@
 (defun journal-file-insert ()
   "Insert's the journal heading based on the file's name."
   (interactive)
-  (when (string-match "\\(20[0-9][0-9]\\)\\([0-9][0-9]\\)\\([0-9][0-9]\\)"
-                      (buffer-name))
-    (let ((year  (string-to-number (match-string 1 (buffer-name))))
-          (month (string-to-number (match-string 2 (buffer-name))))
-          (day   (string-to-number (match-string 3 (buffer-name))))
-          (datim nil))
-      (setq datim (encode-time 0 0 0 day month year))
-      (insert (format-time-string
-	       "#+TITLE: Journal Entry - %Y-%b-%d (%A)\n\n" datim)))))
+  (insert (format-time-string
+	   "#+TITLE: Journal Entry - %Y-%b-%d (%A)\n\n")))
 
 (add-hook 'find-file-hook 'auto-insert)
-(add-to-list 'auto-insert-alist '("~/dev/org/journal/[0-9]{8}.org$" . journal-file-insert))
+(define-auto-insert "/[0-9]\\{8\\}\\.org$" [journal-file-insert])
 
 ;; org-babel
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((lisp . t)))
+
+;; org-pomodoro settings
+(setq org-pomodoro-play-sounds nil) ;; no sounds
 
 ;; Set up keyfreq (record key/command frequency)
 (if (not (fboundp 'reduce))
