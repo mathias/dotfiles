@@ -326,3 +326,16 @@
 
 ;; dired config
 (require 'dired-x)
+
+;; commenting lines
+;; from http://ergoemacs.org/misc/emacs_comment-line_vs_comment-dwim.html
+(defun my-comment-dwim ()
+  "like `comment-dwim', but toggle comment if cursor is not at end of line."
+  (interactive)
+  (if (region-active-p)
+      (comment-dwim nil)
+    (if (eq (point) (line-end-position))
+        (comment-dwim nil)
+      (comment-region (line-beginning-position) (line-end-position)))))
+
+(global-set-key (kbd "M-;") 'my-comment-dwim)
