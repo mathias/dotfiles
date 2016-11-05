@@ -108,18 +108,18 @@
 
 ;;;; functions
 
-; borrowed from https://github.com/losingkeys/dotfiles/blob/master/.emacs
+;; borrowed from https://github.com/losingkeys/dotfiles/blob/master/.emacs
 (defun add-hooks-to-modes (modes hooks)
   "Adds the specified hooks to the specified modes"
   (dolist (m modes)
     (let ((mode (intern (concat (symbol-name m) "-mode-hook"))))
       (dolist (hook hooks)
-       (add-hook mode hook)))))
+        (add-hook mode hook)))))
 
 ;;;; markdown mode
 
 (autoload 'markdown-mode "markdown-mode"
-	  "Major mode for editing Markdown files" t)
+  "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
@@ -145,9 +145,9 @@
     'paredit-wrap-round))
 
 (add-hooks-to-modes paredit-and-eldoc-modes
-		    '((lambda ()
-			(turn-on-eldoc-mode)
-			(mathiasx-paredit-mode-maps))))
+                    '((lambda ()
+                        (turn-on-eldoc-mode)
+                        (mathiasx-paredit-mode-maps))))
 
 ;;;; magit mode
 (require 'magit)
@@ -204,13 +204,12 @@
 
 ;;;; rainbow delimiters
 (require 'rainbow-delimiters)
-;(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;;; smex settings
 (require 'smex)
-(smex-initialize) ; Can be omitted. This might cause a (minimal) delay
-		  ; when Smex is auto-initialized on its first run.
+;; Can be omitted. This might cause a (minimal) delay when Smex is auto-initialized on its first run:
+(smex-initialize)
 
 ;; remap M-x
 (global-set-key (kbd "M-x") 'smex)
@@ -226,9 +225,9 @@
 
 ;;; org mode settings
 (add-hooks-to-modes '(org markdown)
-		    '((lambda ()
-			(visual-line-mode t)
-			(flyspell-mode t))))
+                    '((lambda ()
+                        (visual-line-mode t)
+                        (flyspell-mode t))))
 
 (setq org-directory "~/dev/org")
 ;; Set to the name of the file where new capture notes will be stored
@@ -237,19 +236,19 @@
 
 (setq org-capture-templates
       '(("n" "Note"
-	 entry (file 'org-default-notes-file)
-	 "* %?\n\n  %i\n\n  From: %a"
-	 :empty-lines 1
-	 :prepend 1)
-	("j" "Journal Entry"
-	 entry (file (get-journal-file-today))
-	 "* Entry: %?\n\n  %i\n\n  From: %a"
-	 :empty-lines 1)
-	("t" "TODO"
-	 entry (file 'org-default-notes-file)
-	 "* TODO %?\n\n %i \n\n From: %a"
-	 :empty-lines 1
-	 :prepend 1)))
+         entry (file 'org-default-notes-file)
+         "* %?\n\n  %i\n\n  From: %a"
+         :empty-lines 1
+         :prepend 1)
+        ("j" "Journal Entry"
+         entry (file (get-journal-file-today))
+         "* Entry: %?\n\n  %i\n\n  From: %a"
+         :empty-lines 1)
+        ("t" "TODO"
+         entry (file 'org-default-notes-file)
+         "* TODO %?\n\n %i \n\n From: %a"
+         :empty-lines 1
+         :prepend 1)))
 
 ;; bind Org agendas view
 (global-set-key "\C-ca" 'org-agenda)
@@ -311,7 +310,7 @@
             (abbrev-mode 1)
             (auto-fill-mode 1)
             (if (eq window-system 'x)
-                (font-lock-mode 1))))
+		(font-lock-mode 1))))
 
 ;; imenu
 (global-set-key (kbd "M-i") 'imenu)
@@ -325,7 +324,7 @@
   (when buffer-file-name
     (find-alternate-file
      (concat "/sudo:root@localhost:"
-             buffer-file-name))))
+	     buffer-file-name))))
 
 ;; dired config
 (require 'dired-x)
@@ -338,7 +337,7 @@
   (if (region-active-p)
       (comment-dwim nil)
     (if (eq (point) (line-end-position))
-        (comment-dwim nil)
+	(comment-dwim nil)
       (comment-region (line-beginning-position) (line-end-position)))))
 
 (global-set-key (kbd "M-;") 'my-comment-dwim)
