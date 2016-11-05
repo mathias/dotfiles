@@ -103,42 +103,9 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-;; set initial frame sizes
-
-;; (defun compute-frame-width-columns ()
-;;   (- (/ (x-display-pixel-width) (frame-char-width))
-;;      ;; one character less than full width
-;;      1))
-
-;; (defun compute-frame-height-pixels ()
-;;   ;; 40 pixels less than full height
-;;   (/ (- (x-display-pixel-height) 40)
-;;      (frame-char-height)))
-
-;; (when window-system
-;;   (progn
-;;     (add-to-list 'default-frame-alist (cons 'width (compute-frame-width-columns)))
-;;     (add-to-list 'initial-frame-alist (cons 'width (compute-frame-width-columns)))
-;;     (add-to-list 'default-frame-alist (cons 'height (compute-frame-height-pixels)))
-;;     (add-to-list 'initial-frame-alist (cons 'height (compute-frame-height-pixels)))))
-
-;; (add-hook 'window-setup-hook 'toggle-frame-maximized t)
-;; (add-hook 'emacs-startup-hook 'toggle-frame-maximized t)
-;; (add-hook 'after-init-hook 'toggle-frame-maximized t)
-
-(defun emacsclient-setup (frame)
-  (progn
-    (select-frame frame)
-    ;; set maximized
-    (interactive)
-    (toggle-frame-maximized)
-    (remove-hook 'after-make-frame-functions 'emacsclient-setup)))
-
-;; (when window-system
-;;   (add-hook 'after-make-frame-functions 'emacsclient-setup)
-;;   (add-hook 'server-switch-hook 'emacsclient-setup))
-
+;; set initial frame size to always be maximized
 (modify-all-frames-parameters '((fullscreen . maximized)))
+
 ;;;; functions
 
 ; borrowed from https://github.com/losingkeys/dotfiles/blob/master/.emacs
