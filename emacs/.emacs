@@ -31,7 +31,6 @@
 (add-to-list 'package-pinned-packages '(mic-paren . "melpa") t)
 (add-to-list 'package-pinned-packages '(keyfreq . "melpa") t)
 (add-to-list 'package-pinned-packages '(git-link . "melpa") t)
-
 (add-to-list 'package-pinned-packages '(elm-mode . "melpa-stable") t)
 
 ;; package list
@@ -248,7 +247,13 @@
          entry (file 'org-default-notes-file)
          "* TODO %?\n\n %i \n\n From: %a"
          :empty-lines 1
-         :prepend 1)))
+         :prepend 1)
+        ("f" "Fact to drill/study - ML plan"
+         entry (file (concat org-directory
+                             "/machine-learning-for-software-engineers"
+                             "/drill.org"))
+         "* Fact: %?        :drill:\n:PROPERTIES:\n:DATE_ADDED: %u\n:FROM: %l\n:END:\n\n%i\n\n"
+         :empty-lines 1)))
 
 ;; bind Org agendas view
 (global-set-key "\C-ca" 'org-agenda)
@@ -285,6 +290,14 @@
 
 ;; org-pomodoro settings
 (setq org-pomodoro-play-sounds nil) ;; no sounds
+
+;; org TODO list items clocking
+(setq org-log-done 'time)
+
+;; org-drill settings
+(require 'org-drill)
+(setq org-drill-maximum-duration 25)
+
 
 ;; Set up keyfreq (record key/command frequency)
 (if (not (fboundp 'reduce))
