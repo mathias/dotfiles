@@ -249,8 +249,8 @@
          :empty-lines 1
          :prepend 1)
         ("f" "Fact to drill/study - ML plan"
-         entry (file (expand-file-name (concat org-directory "/drill.org")))
-         "* Fact: %?        :drill:\n:PROPERTIES:\n:DATE_ADDED: %u\n:FROM: %l\n:END:\n\n%i\n\n"
+         entry (file+headline "~/dev/org/drill.org" "Facts")
+         "** Fact: %?        :drill:\n:PROPERTIES:\n:DATE_ADDED: %u\n:FROM: %l\n:END:\n\n%i\n\n"
          :empty-lines 1)))
 
 ;; bind Org agendas view
@@ -297,6 +297,7 @@
 (require 'org-drill)
 (setq org-drill-maximum-duration 25)
 
+;;;;
 
 ;; Set up keyfreq (record key/command frequency)
 (if (not (fboundp 'reduce))
