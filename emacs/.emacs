@@ -249,9 +249,7 @@
          :empty-lines 1
          :prepend 1)
         ("f" "Fact to drill/study - ML plan"
-         entry (file (concat org-directory
-                             "/machine-learning-for-software-engineers"
-                             "/drill.org"))
+         entry (file (expand-file-name (concat org-directory "/drill.org")))
          "* Fact: %?        :drill:\n:PROPERTIES:\n:DATE_ADDED: %u\n:FROM: %l\n:END:\n\n%i\n\n"
          :empty-lines 1)))
 
@@ -295,6 +293,7 @@
 (setq org-log-done 'time)
 
 ;; org-drill settings
+(require 'cl)
 (require 'org-drill)
 (setq org-drill-maximum-duration 25)
 
