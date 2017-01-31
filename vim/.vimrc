@@ -65,6 +65,7 @@ Bundle 'isRuslan/vim-es6'
 Bundle 'jgdavey/tslime.vim'
 Bundle 'jgdavey/vim-blockle'
 Bundle 'jgdavey/vim-turbux'
+Bundle 'junegunn/vim-easy-align'
 Bundle 'justbrettjones/vim-codeschool'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kchmck/vim-coffee-script'
@@ -79,6 +80,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'slim-template/vim-slim'
+Bundle 'stephpy/vim-yaml'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-endwise'
@@ -220,6 +222,12 @@ set tabstop=2
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -428,6 +436,7 @@ let g:syntastic_mode_map = { 'passive_filetypes': ['html'] }
 au BufNewFile,BufRead *.ex set filetype=elixir
 au BufNewFile,BufRead *.exs set filetype=elixir
 au BufNewFile,BufRead mix.lock set filetype=elixir
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Rails.vim commands
