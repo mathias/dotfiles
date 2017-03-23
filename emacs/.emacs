@@ -16,9 +16,9 @@
       (normal-top-level-add-subdirs-to-load-path)))
 
 (add-to-list 'package-archives
- 	     '("melpa" . "https://melpa.org/packages/") t)
+	     '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives
 	     '("org" . "http://orgmode.org/elpa/") t)
 
@@ -35,29 +35,29 @@
 
 ;; ;; package list
 ;; (dolist (p '(ag
-;; 	     cider
-;; 	     cl-lib
-;; 	     clojure-mode
-;; 	     coffee-mode
-;; 	     cyberpunk-theme
-;; 	     elixir-mode
-;; 	     elm-mode
-;; 	     git-link
-;; 	     highlight-symbol
-;; 	     htmlize
-;; 	     keyfreq
-;; 	     magit
-;; 	     markdown-mode
-;; 	     mic-paren
-;; 	     org
-;; 	     org-journal
-;; 	     org-plus-contrib
-;; 	     org-pomodoro
-;; 	     paredit
-;; 	     rainbow-delimiters
-;; 	     slamhound
-;; 	     slime)
-;; 	   smex)
+;;	     cider
+;;	     cl-lib
+;;	     clojure-mode
+;;	     coffee-mode
+;;	     cyberpunk-theme
+;;	     elixir-mode
+;;	     elm-mode
+;;	     git-link
+;;	     highlight-symbol
+;;	     htmlize
+;;	     keyfreq
+;;	     magit
+;;	     markdown-mode
+;;	     mic-paren
+;;	     org
+;;	     org-journal
+;;	     org-plus-contrib
+;;	     org-pomodoro
+;;	     paredit
+;;	     rainbow-delimiters
+;;	     slamhound
+;;	     slime)
+;;	   smex)
 ;;   (when (not (package-installed-p p))
 ;;     (package-install p)))
 
@@ -167,31 +167,15 @@
 
 (use-package paredit
   :defer t
-  :config
-  (setq paredit-and-eldoc-modes
-	'(cider
-	  clojure
-	  coffee
-	  emacs-lisp
-	  ielm
-	  kibit-mode
-	  lisp
-	  lisp-interaction
-	  scheme
-	  smex))
-
-  (defun paredit-mode-maps ()
-    (interactive)
-    (paredit-mode +1)
-    (define-key paredit-mode-map (kbd "M-)")
-      'paredit-forward-slurp-sexp)
-    (define-key paredit-mode-map (kbd "M-(")
-      'paredit-wrap-round))
-
-  (add-hooks-to-modes paredit-and-eldoc-modes
-		      '((lambda ()
-			  (turn-on-eldoc-mode)
-			  (paredit-mode-maps)))))
+  :init
+  (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+  (add-hook 'clojure-mode-hook          #'enable-paredit-mode)
+  (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+  (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+  (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+  (add-hook 'scheme-mode-hook           #'enable-paredit-mode))
 
 (use-package rainbow-delimiters
   :config
@@ -273,13 +257,6 @@
 
 ;;;; functions
 
-;; borrowed from https://github.com/losingkeys/dotfiles/blob/master/.emacs
-(defun add-hooks-to-modes (modes hooks)
-  "Adds the specified hooks to the specified modes"
-  (dolist (m modes)
-    (let ((mode (intern (concat (symbol-name m) "-mode-hook"))))
-      (dolist (hook hooks)
-        (add-hook mode hook)))))
 
 ;;;; spell checking
 (setq ispell-program-name "aspell")
@@ -313,23 +290,23 @@
 
 (setq org-capture-templates
       '(("n" "Note"
-         entry (file 'org-custom-notes-file)
-         "* %?\n\n  %i\n\n  From: %a"
-         :empty-lines 1
-         :prepend 1)
-        ("j" "Journal Entry"
-         entry (file (lambda () (get-journal-file-today)))
-         "* Entry: %?\n\n  %i\n\n  From: %a"
-         :empty-lines 1)
-        ("t" "TODO"
-         entry (file 'org-custom-notes-file)
-         "* TODO %?\n\n %i \n\n From: %a"
-         :empty-lines 1
-         :prepend 1)
-        ("f" "Fact to drill/study - ML plan"
-         entry (file+headline (lambda () "~/dev/org/drill.org") "Facts")
-         "** Fact:        :drill:\n:PROPERTIES:\n:DATE_ADDED: %u\n:FROM: %l\n:END:\n\n%i%?\n\n"
-         :empty-lines 1)))
+	 entry (file 'org-custom-notes-file)
+	 "* %?\n\n  %i\n\n  From: %a"
+	 :empty-lines 1
+	 :prepend 1)
+	("j" "Journal Entry"
+	 entry (file (lambda () (get-journal-file-today)))
+	 "* Entry: %?\n\n  %i\n\n  From: %a"
+	 :empty-lines 1)
+	("t" "TODO"
+	 entry (file 'org-custom-notes-file)
+	 "* TODO %?\n\n %i \n\n From: %a"
+	 :empty-lines 1
+	 :prepend 1)
+	("f" "Fact to drill/study - ML plan"
+	 entry (file+headline (lambda () "~/dev/org/drill.org") "Facts")
+	 "** Fact:        :drill:\n:PROPERTIES:\n:DATE_ADDED: %u\n:FROM: %l\n:END:\n\n%i%?\n\n"
+	 :empty-lines 1)))
 
 ;; bind Org agendas view
 (global-set-key "\C-ca" 'org-agenda)
@@ -382,10 +359,10 @@
 
 ;; Octave mode settings
 (add-hook 'octave-mode-hook
-          (lambda ()
-            (abbrev-mode 1)
-            (auto-fill-mode 1)
-            (if (eq window-system 'x)
+	  (lambda ()
+	    (abbrev-mode 1)
+	    (auto-fill-mode 1)
+	    (if (eq window-system 'x)
 		(font-lock-mode 1))))
 
 ;; imenu
@@ -422,3 +399,5 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
+
+(defalias 'list-buffers 'ibuffer-other-window)
