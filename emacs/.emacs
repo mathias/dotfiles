@@ -220,6 +220,12 @@
   ;; This is your old M-x.
   (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command))
 
+(use-package try)
+
+(use-package which-key
+  :config
+  (which-key-mode))
+
 ;;;; setup emacs itself
 
 (setq user-full-name "Matt Gauger")
