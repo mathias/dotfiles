@@ -417,3 +417,8 @@
       (comment-region (line-beginning-position) (line-end-position)))))
 
 (global-set-key (kbd "M-;") 'my-comment-dwim)
+
+;; ido setup
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
