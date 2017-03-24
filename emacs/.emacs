@@ -55,11 +55,12 @@
 (use-package clojure-mode
   :defer t
   :init
-  (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
-  ;;;; recognize boot script files using shebang:
-  (add-to-list 'magic-mode-alist '(".* boot" . clojure-mode))
-  ;;;; Hoplon dev
-  (add-to-list 'auto-mode-alist '("\\cljs.hl\\'" . clojure-mode)))
+  (progn
+    (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
+    ;; recognize boot script files using shebang:
+    (add-to-list 'magic-mode-alist '(".* boot" . clojure-mode))
+    ;; Hoplon dev
+    (add-to-list 'auto-mode-alist '("\\cljs.hl\\'" . clojure-mode))))
 
 (use-package coffee-mode
   :defer t)
@@ -67,8 +68,9 @@
 (use-package cyberpunk-theme
   :defer nil
   :init
-  (load-theme 'cyberpunk t)
-  (enable-theme 'cyberpunk))
+  (progn
+    (load-theme 'cyberpunk t)
+    (enable-theme 'cyberpunk)))
 
 (use-package elixir-mode :defer t)
 
@@ -85,42 +87,46 @@
 (use-package keyfreq
   :defer nil
   :config
-  (if (not (fboundp 'reduce))
-      (defalias 'reduce 'cl-reduce))
-  (keyfreq-mode 1)
-  (keyfreq-autosave-mode 1))
+  (progn
+    (if (not (fboundp 'reduce))
+	(defalias 'reduce 'cl-reduce))
+    (keyfreq-mode 1)
+    (keyfreq-autosave-mode 1)))
 
 (use-package magit
   :defer nil)
 
 (use-package markdown-mode
   :init
-  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+  (progn
+    (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+    (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode)))
   :config
-  (visual-line-mode t)
-  (flyspell-mode t))
+  (progn
+    (visual-line-mode t)
+    (flyspell-mode t)))
 
 ;; highlight matching parentheses
 (use-package mic-paren
   :defer nil
   :config
-  (setq paren-highlight-offscreen t)
-  (setq paren-match-face 'highlight)
-  (paren-activate))
+  (progn
+    (setq paren-highlight-offscreen t)
+    (setq paren-match-face 'highlight)
+    (paren-activate)))
 
 (use-package org
   :defer t
   :mode ("\\.org\\'" . org-mode)
   :config
-  (visual-line-mode t)
-  (flyspell-mode t)
-  (setq org-drill-maximum-duration 25))
+  (progn
+    (visual-line-mode t)
+    (flyspell-mode t)
+    (setq org-drill-maximum-duration 25)))
 
 (use-package org-journal
   :defer t
-  :mode ("\\.org\\'" . org-mode)
-  :config)
+  :mode ("\\.org\\'" . org-mode))
 
 (use-package org-plus-contrib
   :defer t
@@ -134,14 +140,18 @@
 (use-package paredit
   :defer t
   :init
-  (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
-  (add-hook 'clojure-mode-hook          #'enable-paredit-mode)
-  (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-  (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
-  (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-  (add-hook 'scheme-mode-hook           #'enable-paredit-mode))
+  (progn
+    (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+    (add-hook 'clojure-mode-hook          #'enable-paredit-mode)
+    (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+    (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+    (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+    (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+    (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+    (add-hook 'scheme-mode-hook           #'enable-paredit-mode))
+  :bind (:map paredit-mode-map
+	      ("M-)" . paredit-forward-slurp-sexp)
+	      ("M-(" . paredit-wrap-round)))
 
 (use-package rainbow-delimiters
   :config
@@ -154,21 +164,23 @@
 (use-package slime
   :defer t
   :config
-  (require 'slime-autoloads)
-  (setq inferior-lisp-program "/usr/local/bin/sbcl")
-  (setq slime-contribs '(slime-fancy)))
+  (progn
+    (require 'slime-autoloads)
+    (setq inferior-lisp-program "/usr/local/bin/sbcl")
+    (setq slime-contribs '(slime-fancy))))
 
 (use-package smex
   :defer t
   :config
-  ;; Can be omitted. This might cause a (minimal) delay when Smex is auto-initialized on its first run:
-  (smex-initialize)
+  (progn
+    ;; Can be omitted. This might cause a (minimal) delay when Smex is auto-initialized on its first run:
+    (smex-initialize)
 
-  ;; remap M-x
-  (global-set-key (kbd "M-x") 'smex)
-  (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-  ;; This is your old M-x.
-  (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command))
+    ;; remap M-x
+    (global-set-key (kbd "M-x") 'smex)
+    (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+    ;; This is your old M-x.
+    (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)))
 
 (use-package try)
 
