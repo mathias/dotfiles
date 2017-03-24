@@ -27,40 +27,6 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-;; (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
-;; (add-to-list 'package-pinned-packages '(mic-paren . "melpa") t)
-;; (add-to-list 'package-pinned-packages '(keyfreq . "melpa") t)
-;; (add-to-list 'package-pinned-packages '(git-link . "melpa") t)
-;; (add-to-list 'package-pinned-packages '(elm-mode . "melpa-stable") t)
-
-;; ;; package list
-;; (dolist (p '(ag
-;;	     cider
-;;	     cl-lib
-;;	     clojure-mode
-;;	     coffee-mode
-;;	     cyberpunk-theme
-;;	     elixir-mode
-;;	     elm-mode
-;;	     git-link
-;;	     highlight-symbol
-;;	     htmlize
-;;	     keyfreq
-;;	     magit
-;;	     markdown-mode
-;;	     mic-paren
-;;	     org
-;;	     org-journal
-;;	     org-plus-contrib
-;;	     org-pomodoro
-;;	     paredit
-;;	     rainbow-delimiters
-;;	     slamhound
-;;	     slime)
-;;	   smex)
-;;   (when (not (package-installed-p p))
-;;     (package-install p)))
-
 ;; use-package like http://cestlaz.github.io
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
