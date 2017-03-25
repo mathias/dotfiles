@@ -65,6 +65,8 @@
 (use-package coffee-mode
   :defer t)
 
+(use-package counsel)
+
 (use-package cyberpunk-theme
   :defer nil
   :init
