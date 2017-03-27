@@ -33,6 +33,9 @@
   (package-install 'use-package))
 
 (eval-when-compile
+  (if (version< emacs-version "24.4")
+    (require 'cl)
+    (require 'cl-lib))
   (require 'use-package))
 
 (require 'bind-key)
@@ -49,8 +52,6 @@
   :config
    ;; hide special buffers when using Cider
   (setq nrepl-hide-special-buffers t))
-
-(use-package cl-lib)
 
 (use-package clojure-mode
   :defer t
