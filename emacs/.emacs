@@ -205,6 +205,14 @@
   :config
   (which-key-mode))
 
+(use-package writegood-mode
+  :init
+  (progn
+    (add-to-list 'auto-mode-alist '("\\.markdown\\'" . writegood-mode))
+    (add-to-list 'auto-mode-alist '("\\.md\\'" . writegood-mode))
+    (add-to-list 'auto-mode-alist '("\\.txt\\'" . writegood-mode)))
+  :bind (("C-c g" . writegood-mode)))
+
 ;;;; setup emacs itself
 
 (setq user-full-name "Matt Gauger")
