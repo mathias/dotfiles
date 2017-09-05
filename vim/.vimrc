@@ -74,7 +74,7 @@ Bundle 'leshill/vim-json'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'pangloss/vim-javascript'
+"Bundle 'pangloss/vim-javascript'
 Bundle 'reedes/vim-wordy'
 Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdcommenter'
@@ -99,6 +99,11 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/Gundo'
+
+" Testing out:
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'joukevandermaas/vim-ember-hbs'
+Bundle 'AndrewRadev/ember_tools.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -415,7 +420,7 @@ iabbrev rdebug require 'ruby-debug'; Debugger.start; Debugger.settings[:autoeval
 au BufNewFile,BufRead *.js.coffee set filetype=coffee
 
 " Match .es6 files as JavaScript
-au BufNewFile,BufRead *.es6 set filetype=javascript
+"au BufNewFile,BufRead *.es6 set filetype=javascript
 
 " Match .md files as Markdown, not Modula-2
 au BufNewFile,BufRead *.md set filetype=markdown
@@ -432,6 +437,7 @@ au BufNewFile,BufRead *.hbs set filetype=html
 " Set syntastic to passive for html
 let g:syntastic_mode_map = { 'passive_filetypes': ['html'] }
 "let g:syntastic_javascript_checkers = ['standard'] " Only for CLI plugins
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Elixir files
 au BufNewFile,BufRead *.ex set filetype=elixir
