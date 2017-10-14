@@ -48,6 +48,11 @@
   ;; color highlights in search
   (setq ag-highlight-search t))
 
+(use-package auto-complete
+  :init
+  (ac-config-default)
+  (global-auto-complete-mode t))
+
 (use-package cider
   :config
    ;; hide special buffers when using Cider
@@ -87,6 +92,14 @@
   :defer t
   :mode ("\\.org\\'" . org-mode))
 
+(use-package ivy
+  :diminish (ivy-mode)
+  :bind (("C-x b" . ivy-switch-buffer))
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-display-style 'fancy))
+
 (use-package keyfreq
   :defer nil
   :config
@@ -100,6 +113,7 @@
   :defer nil)
 
 (use-package markdown-mode
+  :mode ("\\.md\\'" . markdown-mode)
   :init
   (progn
     (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
