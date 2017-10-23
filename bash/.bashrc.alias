@@ -85,5 +85,15 @@ function les {
   fi
 }
 
+# Tail large files or show directory:
+function tails {
+  if [ -d "$1" ]
+  then
+    ls -al "$1"
+  else
+    tail "$1"
+  fi
+}
+
 # org mode git stuff
 alias gorg='pushd ~/dev/org/; git add . && git commit -m "Checkpoint: $(date +"%a, %d %b %Y")"; popd'
