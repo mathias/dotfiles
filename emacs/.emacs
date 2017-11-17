@@ -323,7 +323,12 @@
 	("f" "Fact to drill/study - ML plan"
 	 entry (file+headline (lambda () "~/dev/org/drill.org") "Facts")
 	 "** Fact:        :drill:\n:PROPERTIES:\n:DATE_ADDED: %u\n:FROM: %l\n:END:\n\n%i%?\n\n"
-	 :empty-lines 1)))
+	 :empty-lines 1)
+	("a" "annotate.mattgauger.com link"
+	 entry (file (lambda () "~/dev/mathias/annotate.mattgauger.com/index.org"))
+	 "* %? %U\n\n%i"
+	 :empty-lines 1
+	 :prepend 1)))
 
 ;; bind Org agendas view
 (global-set-key "\C-ca" 'org-agenda)
