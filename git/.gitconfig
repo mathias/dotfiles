@@ -27,6 +27,6 @@
 [push]
   default = simple
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [core]
 	excludesfile = /Users/mgauger/.gitignore_global

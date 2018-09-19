@@ -81,6 +81,7 @@
     (enable-theme 'cyberpunk)))
 
 (use-package elixir-mode :defer t)
+(use-package alchemist :defer t)
 
 (use-package elm-mode :defer t)
 
@@ -422,4 +423,13 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
+;; elixir mode setup
+;; Create a buffer-local hook to run elixir-format on save, only when we enable elixir-mode.
+(add-hook 'elixir-mode-hook
+          (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
+
+
 (defalias 'list-buffers 'ibuffer-other-window)
+;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
+(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+;; ## end of OPAM user-setup addition for emacs / base ## keep this line
