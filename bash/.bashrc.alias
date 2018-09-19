@@ -97,3 +97,6 @@ function tails {
 
 # org mode git stuff
 alias gorg='pushd ~/dev/org/; git add . && git commit -m "Checkpoint: $(date +"%a, %d %b %Y")"; popd'
+
+# emacs
+alias "e."="e ."
