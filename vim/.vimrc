@@ -52,12 +52,12 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
+Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'digitaltoad/vim-jade'
-Bundle 'edsono/vim-matchit'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'godlygeek/tabular'
 Bundle 'int3/vim-extradite'
@@ -76,6 +76,7 @@ Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 "Bundle 'pangloss/vim-javascript'
 Bundle 'reedes/vim-wordy'
+Bundle 'rhysd/vim-crystal'
 Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
@@ -93,6 +94,7 @@ Bundle 'tpope/vim-pathogen'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-rhubarb'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
@@ -104,6 +106,7 @@ Bundle 'vim-scripts/Gundo'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'joukevandermaas/vim-ember-hbs'
 Bundle 'AndrewRadev/ember_tools.vim'
+Bundle 'leafgarland/typescript-vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -432,7 +435,7 @@ au BufNewFile,BufRead *.scss set filetype=sass
 au BufNewFile,BufRead *.slim set filetype=slim
 
 " .hbs files are Handlebars Templates -- treat like HTML
-au BufNewFile,BufRead *.hbs set filetype=html
+au BufNewFile,BufRead *.hbs set filetype=handlebars
 
 " Set syntastic to passive for html
 let g:syntastic_mode_map = { 'passive_filetypes': ['html'] }
@@ -449,12 +452,6 @@ au BufNewFile,BufRead mix.lock set filetype=elixir
 " => Rails.vim commands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-autocmd User Rails Rnavcommand decorator app/decorators -suffix=_decorator.rb
-autocmd User Rails Rnavcommand steps spec/acceptance/steps -suffix=_steps.rb
-autocmd User Rails Rnavcommand accept spec/acceptance -suffix=.feature
-autocmd User Rails Rnavcommand factory spec/factories -suffix=_factory.rb
-autocmd User Rails Rnavcommand sass app/assets/stylesheets -suffix=.sass,.scss -default=partials/_page
-autocmd User Rails Rnavcommand coffee app/assets/javascripts -suffix=.coffee
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

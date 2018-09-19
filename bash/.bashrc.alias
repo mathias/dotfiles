@@ -3,6 +3,7 @@ alias gap='git add -p'
 alias gd='git diff'
 alias gst='git status'
 alias gca='git commit --amend --reset-author -C HEAD'
+alias gcb='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 
 function gitcontribs {
   git log --stat --author $(git config --get user.email) | \
