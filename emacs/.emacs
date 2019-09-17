@@ -223,6 +223,11 @@
   :config
   (which-key-mode))
 
+;; do the right thing to kill with C-w when no active region:
+(use-package whole-line-or-region
+  :config
+  (whole-line-or-region-global-mode))
+
 (use-package writegood-mode
   :init
   (progn
