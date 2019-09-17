@@ -81,6 +81,7 @@
     (enable-theme 'cyberpunk)))
 
 (use-package elixir-mode :defer t)
+
 (use-package alchemist :defer t)
 
 (use-package elm-mode :defer t)
