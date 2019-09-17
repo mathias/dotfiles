@@ -383,6 +383,9 @@
 (global-set-key "\C-x\C-n" `other-window)
 (global-set-key "\C-x\C-p" `other-window-backward)
 
+;; From mastering emacs, quick window switch (faster than C-x o)
+(global-set-key (kbd "M-o") 'other-window)
+
 ;; Octave mode settings
 (add-hook 'octave-mode-hook
 	  (lambda ()
