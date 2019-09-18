@@ -429,6 +429,9 @@
 
 (global-set-key (kbd "M-;") 'my-comment-dwim)
 
+;; Hippie expand to replace dabbrev
+(global-set-key [remap dabbrev-expand] 'hippie-expand)
+
 ;; ido setup
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
