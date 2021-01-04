@@ -41,13 +41,17 @@ set autoread
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
 " My Bundles here:
 "
@@ -74,7 +78,6 @@ Bundle 'leshill/vim-json'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'nelstrom/vim-textobj-rubyblock'
-"Bundle 'pangloss/vim-javascript'
 Bundle 'reedes/vim-wordy'
 Bundle 'rhysd/vim-crystal'
 Bundle 'rking/ag.vim'
@@ -103,11 +106,15 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/Gundo'
 
 " Testing out:
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'joukevandermaas/vim-ember-hbs'
-Bundle 'AndrewRadev/ember_tools.vim'
-Bundle 'leafgarland/typescript-vim'
-Bundle 'slashmili/alchemist.vim'
+" Bundle 'jelera/vim-javascript-syntax'
+" Bundle 'joukevandermaas/vim-ember-hbs'
+" Bundle 'AndrewRadev/ember_tools.vim'
+" Bundle 'leafgarland/typescript-vim'
+" Bundle 'slashmili/alchemist.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
