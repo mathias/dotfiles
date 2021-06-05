@@ -42,8 +42,12 @@ set autoread
 " => Vundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
@@ -55,33 +59,25 @@ Bundle 'gmarik/vundle'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'digitaltoad/vim-jade'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'godlygeek/tabular'
 Bundle 'int3/vim-extradite'
 Bundle 'isRuslan/vim-es6'
 Bundle 'jceb/vim-orgmode'
-Bundle 'jgdavey/tslime.vim'
 Bundle 'jgdavey/vim-blockle'
 Bundle 'jgdavey/vim-turbux'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'justbrettjones/vim-codeschool'
 Bundle 'kana/vim-textobj-user'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'nelstrom/vim-textobj-rubyblock'
-"Bundle 'pangloss/vim-javascript'
 Bundle 'reedes/vim-wordy'
-Bundle 'rhysd/vim-crystal'
 Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'slim-template/vim-slim'
 Bundle 'stephpy/vim-yaml'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-cucumber'
@@ -103,11 +99,13 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/Gundo'
 
 " Testing out:
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'joukevandermaas/vim-ember-hbs'
-Bundle 'AndrewRadev/ember_tools.vim'
-Bundle 'leafgarland/typescript-vim'
 Bundle 'slashmili/alchemist.vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'leafgarland/typescript-vim'
+Bundle 'peitalin/vim-jsx-typescript'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
