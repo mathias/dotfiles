@@ -46,13 +46,7 @@ function dictag {
 
 # ruby dev stuff:
 alias be="bundle exec"
-alias binstubs="bundle --binstubs --standalone"
-alias brake="be rake"
-alias brails="be rails s"
-alias rervm="cd ../ && cd -"
-alias rubies='rvm list'
 alias rdtp="rake db:test:prepare"
-alias surplus="gem list | ag ','"
 
 # python:
 alias py='python'
