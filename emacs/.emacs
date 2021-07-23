@@ -143,7 +143,8 @@
   (progn
     (visual-line-mode t)
     (flyspell-mode t)
-    (setq org-drill-maximum-duration 25)))
+    (setq org-drill-maximum-duration 25)
+    (add-to-list 'org-modules 'org-tempo)))
 
 (use-package org-journal
   :defer t
@@ -177,10 +178,6 @@
 (use-package rainbow-delimiters
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
-
-(use-package slamhound
-  :defer t
-  :mode ("\\.clj\\'" . clojure-mode))
 
 (use-package slime
   :defer t
@@ -445,5 +442,6 @@
 
 (defalias 'list-buffers 'ibuffer-other-window)
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
-(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+;;(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
