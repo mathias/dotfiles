@@ -7,6 +7,8 @@
 
 ;; No splash screen please
 (setq inhibit-startup-screen t)
+;; No audible bell
+(setq visible-bell t)
 
 ;;;; Load packages from Marmalade and Melpa
 (require 'package)
@@ -81,6 +83,8 @@
   (progn
     (load-theme 'cyberpunk t)
     (enable-theme 'cyberpunk)))
+
+(use-package diminish)
 
 (use-package elixir-mode :defer t)
 
@@ -240,6 +244,9 @@
 
 (setq custom-file "~/.emacs.d/custom.el")
 
+;; Revert Dired and other buffers
+(setq global-auto-revert-non-file-buffers t)
+
 ;; Autorevert files (mandatory if working with VCS like git)
 (global-auto-revert-mode t)
 
@@ -372,7 +379,6 @@
 
 ;; org TODO list items clocking
 (setq org-log-done 'time)
-
 
 ;; Window movement commands
 ;; from: Writing GNU Emacs Extensions by Bob Glickstein
