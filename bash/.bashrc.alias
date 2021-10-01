@@ -1,9 +1,6 @@
 # git
 alias gap='git add -p'
-alias gd='git diff'
 alias gst='git status'
-alias gca='git commit --amend --reset-author -C HEAD'
-alias gcb='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 
 function gitcontribs {
   git log --stat --author $(git config --get user.email) | \
@@ -27,17 +24,13 @@ function gitparents {
 }
 
 # system admin
-alias c=clear
 alias ducks='du -cks * | sort -rn'
 alias duchs='du -hs * | sort -h'
-alias flushdns="dscacheutil -flushcache"
 alias hist="history | grep $1"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias kill_screenshare="killall NetAuthAgent"
 alias psack="psag"
 alias psag="ps aux | ag"
 alias ack=ag
-alias unpair='pair -u'
 alias vimhosts="sudo vim /etc/hosts"
 
 function dictag {
@@ -47,31 +40,16 @@ function dictag {
 # ruby dev stuff:
 alias be="bundle exec"
 alias binstubs="bundle --binstubs --standalone"
-alias brake="be rake"
-alias brails="be rails s"
-alias rervm="cd ../ && cd -"
-alias rubies='rvm list'
 alias rdtp="rake db:test:prepare"
-alias surplus="gem list | ag ','"
 
 # python:
 alias py='python'
 
 # nginx, db's, etc.
-alias start_nginx='sudo /usr/local/nginx/sbin/nginx'
 alias start_postgres="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias stop_postgres="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias pgup="start_postgres"
 alias pgdown="stop_postgres"
-alias start_mysql="mysql.server start"
-alias stop_mysql="mysql.server stop"
-alias mysqlup="start_mysql"
-alias mysqldown="stop_mysql"
-
-# ios simulator
-alias iphone='open ~/bin/iphone'
-
-alias lk='echo "Displaying in less pager..." && lein do deps :tree, ancient, ancient :plugins, kibit, bikeshed | less'
 
 # image optimization
 alias imageopt='imageOptim -a -q -d'
