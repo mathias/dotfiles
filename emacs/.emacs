@@ -7,6 +7,8 @@
 
 ;; No splash screen please
 (setq inhibit-startup-screen t)
+;; No audible bell
+(setq visible-bell t)
 
 ;;;; Load packages from Marmalade and Melpa
 (require 'package)
@@ -82,6 +84,8 @@
     (load-theme 'cyberpunk t)
     (enable-theme 'cyberpunk)))
 
+(use-package diminish)
+
 (use-package elixir-mode :defer t)
 
 (use-package alchemist :defer t)
@@ -143,7 +147,8 @@
   (progn
     (visual-line-mode t)
     (flyspell-mode t)
-    (setq org-drill-maximum-duration 25)))
+    (setq org-drill-maximum-duration 25)
+    (add-to-list 'org-modules 'org-tempo)))
 
 (use-package org-journal
   :defer t
@@ -177,10 +182,6 @@
 (use-package rainbow-delimiters
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
-
-(use-package slamhound
-  :defer t
-  :mode ("\\.clj\\'" . clojure-mode))
 
 (use-package slime
   :defer t
@@ -242,6 +243,9 @@
 (setq user-mail-address "matt.gauger@gmail.com")
 
 (setq custom-file "~/.emacs.d/custom.el")
+
+;; Revert Dired and other buffers
+(setq global-auto-revert-non-file-buffers t)
 
 ;; Autorevert files (mandatory if working with VCS like git)
 (global-auto-revert-mode t)
@@ -376,7 +380,6 @@
 ;; org TODO list items clocking
 (setq org-log-done 'time)
 
-
 ;; Window movement commands
 ;; from: Writing GNU Emacs Extensions by Bob Glickstein
 
@@ -445,5 +448,6 @@
 
 (defalias 'list-buffers 'ibuffer-other-window)
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
-(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+;;(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
