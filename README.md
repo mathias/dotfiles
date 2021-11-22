@@ -75,7 +75,7 @@ Bugs
 
 I can't guarantee this will work for you. These are my own config files and highly personalized. As noted below in the license, there is no warranty.
 
-Copyright (c) 2012 Matt Gauger
+Copyright (c) 2012, 2021 Matt Gauger
 
 MIT License
 
