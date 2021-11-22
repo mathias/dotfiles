@@ -18,15 +18,5 @@
   fe = fetch -p
   fepull = !"git fetch -p && git pull"
   cah = commit --amend -CHEAD
-
-[user]
-  name = Matt Gauger
-  email = matt.gauger@gmail.com
 [merge]
   summary = false
-[push]
-  default = simple
-[credential]
-  helper = osxkeychain
-[core]
-	excludesfile = /Users/mgauger/.gitignore_global

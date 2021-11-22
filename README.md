@@ -5,6 +5,8 @@ The directory layout of this repo is inspired by [Zach Holman's excellent dotfil
 
 My [vim config](https://github.com/mathias/dotfiles/blob/master/vim/.vimrc) is heavily inspired by the structure of [@begriff's vim config](https://github.com/begriffs/dotfiles/blob/c05413b1976f8aed1051883bb8dfa588cd8e119a/.vimrc) but I don't use leader commands, so I used the basic structure while adding my own config.
 
+This now uses [`stow`](https://www.gnu.org/software/stow/) to help manage dotfiles in `$HOME`.
+
 Organization
 ------------
 
@@ -43,7 +45,16 @@ Frequently packages in emacs will get out of date or will not be able to be upda
 
 ### git/
 
-The important file in `git/` is the `.gitconfig` file which prepares some of my git aliases.
+The important file in `git/` is the `.gitconfig-aliases` file which prepares some of my git aliases.
+
+To have it be sourced, add this to `~/.gitconfig`:
+
+```
+[include]
+	path = ~/.gitconfig-aliases
+```
+
+After running `stow git` in this directory. (Likely, `~/.dotfiles`)
 
 ### tmux/
 
