@@ -54,7 +54,7 @@ To have it be sourced, add this to `~/.gitconfig`:
 	path = ~/.gitconfig-aliases
 ```
 
-After running `stow git` in this directory. (Likely, `~/.dotfiles`)
+After running `stow git` in this directory. (Likely, `~/.dotfiles`) Local setup of git user, email, etc., is likely done by initial setup.
 
 ### tmux/
 
