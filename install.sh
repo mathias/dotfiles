@@ -35,6 +35,8 @@ if [[ "$CODESPACES" = "true" ]]; then
   git config --global url.https://github.com/.insteadOf git@github.com:
 fi
 
+git config --global include.path ~/.gitconfig-aliases
+
 # Backup common existing files
 for f in .bashrc .bash_profile .bash_logout; do
     if [ -e ~/$f ]; then
