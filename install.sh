@@ -14,8 +14,6 @@ if [[ -z $DOTFILES ]]; then
   DOTFILES=$HOME/.dotfiles
 fi
 
-pushd $DOTFILES
-
 if [[ "$CODESPACES" = "true" ]]; then
   rm ~/.bashrc
   sudo apt-get install -y stow tmux exuberant-ctags
@@ -37,11 +35,12 @@ if [[ "$CODESPACES" = "true" ]]; then
   git config --global url.https://github.com/.insteadOf git@github.com:
 fi
 
-# Dotfiles symlinking
-for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
-do
-    stow -vt ~ -D $folder
-    stow -vt ~ $folder
+# Backup common existing files
+for f in .bashrc .bash_profile .bash_logout; do
+    if [ -e ~/$f ]; then
+        mv ~/$f ~/$f.bak
+    fi
 done
 
-popd
+# Stow dotfiles
+stow --target="$HOME" --stow bash git pry psql ssh tmux
