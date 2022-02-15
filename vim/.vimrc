@@ -182,7 +182,11 @@ syntax on
 filetype off
 filetype on
 
-colorscheme codeschool
+try
+  colorscheme codeschool
+catch /^Vim\%((\a\+)\)\=:E185/
+  " deal with it
+endtry
 set background=dark
 
 augroup vimrc
