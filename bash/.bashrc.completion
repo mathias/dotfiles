@@ -1,4 +1,7 @@
-which brew > /dev/null 2>&1
-if [[ $? -eq 0 ]]; then
-  [ ! -f `brew --prefix`/etc/bash_completion ] || . `brew --prefix`/etc/bash_completion
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
 fi

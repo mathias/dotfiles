@@ -6,6 +6,15 @@ exec > >(tee -i $HOME/dotfiles_install.log)
 exec 2>&1
 set -x
 
+if [[ -z $STOW_FOLDERS ]]; then
+  STOW_FOLDERS="bash,git,pry,psql,ssh,tmux"
+fi
+
+if [[ -z $DOTFILES ]]; then
+  DOTFILES=$HOME/.dotfiles
+fi
+
+pushd $DOTFILES
 
 if [[ "$CODESPACES" = "true" ]]; then
   rm ~/.bashrc
@@ -22,3 +31,17 @@ if [[ ! -d "$HOME/.vim/bundle/Vundle.vim" ]]; then
 fi
 
 vim +PluginInstall +qa
+
+if [[ "$CODESPACES" = "true" ]]; then
+  # Default to HTTPS for GitHub access
+  git config --global url.https://github.com/.insteadOf git@github.com:
+fi
+
+# Dotfiles symlinking
+for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
+do
+    stow -vt ~ -D $folder
+    stow -vt ~ $folder
+done
+
+popd
