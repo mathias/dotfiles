@@ -43,4 +43,4 @@ for f in .bashrc .bash_profile .bash_logout; do
 done
 
 # Stow dotfiles
-stow --target="$HOME" --stow bash git pry psql ssh tmux
+stow --target="$HOME" --stow bash git pry psql tmux vim
