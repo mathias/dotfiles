@@ -18,5 +18,8 @@
   fe = fetch -p
   fepull = !"git fetch -p && git pull"
   cah = commit --amend -CHEAD
+  main = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
+  com = !"git checkout $(git main)"
+  rom = !"git fetch; git rebase origin/$(git main)"
 [merge]
   summary = false
