@@ -46,66 +46,84 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+"Bundle 'gmarik/vundle'
 
 " My Bundles here:
 "
 " original repos on github
-Bundle 'AndrewRadev/splitjoin.vim'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'godlygeek/tabular'
-Bundle 'int3/vim-extradite'
+"Bundle 'AndrewRadev/splitjoin.vim'
+"Bundle 'Lokaltog/vim-powerline'
+"Bundle 'airblade/vim-gitgutter'
+"Bundle 'elixir-lang/vim-elixir'
+"Bundle 'godlygeek/tabular'
+"Bundle 'int3/vim-extradite'
 "Bundle 'isRuslan/vim-es6'
-Bundle 'jceb/vim-orgmode'
-Bundle 'jgdavey/vim-blockle'
-Bundle 'jgdavey/vim-turbux'
-Bundle 'junegunn/vim-easy-align'
-Bundle 'justbrettjones/vim-codeschool'
-Bundle 'kana/vim-textobj-user'
+"Bundle 'jceb/vim-orgmode'
+"Bundle 'jgdavey/vim-blockle'
+"Bundle 'jgdavey/vim-turbux'
+"Bundle 'junegunn/vim-easy-align'
+"Bundle 'justbrettjones/vim-codeschool'
+"Bundle 'kana/vim-textobj-user'
 "Bundle 'leshill/vim-json'
-Bundle 'majutsushi/tagbar'
-Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'reedes/vim-wordy'
-Bundle 'rking/ag.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'stephpy/vim-yaml'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-pathogen'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-rhubarb'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-vividchalk'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'vim-scripts/Gundo'
+"Bundle 'majutsushi/tagbar'
+"Bundle 'michaeljsmith/vim-indent-object'
+"Bundle 'nelstrom/vim-textobj-rubyblock'
+"Bundle 'reedes/vim-wordy'
+"Bundle 'rking/ag.vim'
+"Bundle 'scrooloose/nerdcommenter'
+"Bundle 'scrooloose/nerdtree'
+"Bundle 'scrooloose/syntastic'
+"Bundle 'stephpy/vim-yaml'
+"Bundle 'tpope/vim-abolish'
+"Bundle 'tpope/vim-cucumber'
+"Bundle 'tpope/vim-endwise'
+"Bundle 'tpope/vim-fugitive'
+"Bundle 'tpope/vim-git'
+"Bundle 'tpope/vim-haml'
+"Bundle 'tpope/vim-markdown'
+"Bundle 'tpope/vim-pathogen'
+"Bundle 'tpope/vim-rails'
+"Bundle 'tpope/vim-rake'
+"Bundle 'tpope/vim-repeat'
+"Bundle 'tpope/vim-rhubarb'
+"Bundle 'tpope/vim-speeddating'
+"Bundle 'tpope/vim-surround'
+"Bundle 'tpope/vim-unimpaired'
+"Bundle 'tpope/vim-vividchalk'
+"Bundle 'vim-ruby/vim-ruby'
+"Bundle 'vim-scripts/Gundo'
 
 " Testing out:
-Bundle 'slashmili/alchemist.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'leafgarland/typescript-vim'
-Bundle 'peitalin/vim-jsx-typescript'
+"Bundle 'slashmili/alchemist.vim'
+"Bundle 'pangloss/vim-javascript'
+"Bundle 'leafgarland/typescript-vim'
+"Bundle 'peitalin/vim-jsx-typescript'
 
-call vundle#end()            " required
+"call vundle#end()            " required
 filetype plugin indent on    " required
+
+" vim-plug:
+" Plugins will be downloaded under the specified directory.
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+
+" Declare the list of plugins.
+Plug 'Lokaltog/vim-powerline'
+Plug 'airblade/vim-gitgutter'
+Plug 'justbrettjones/vim-codeschool'
+Plug 'junegunn/seoul256.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface

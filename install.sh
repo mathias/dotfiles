@@ -19,11 +19,16 @@ else
   exit 1
 fi
 
-if [[ ! -d "$HOME/.vim/bundle/Vundle.vim" ]]; then
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-fi
+#if [[ ! -d "$HOME/.vim/bundle/Vundle.vim" ]]; then
+  #git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+#fi
 
-vim +PluginInstall +qall
+if [[ ! -d "$HOME/.vim/autoload/plug.vim" ]]; then
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+#vim +PluginInstall +qall
+vim -Es -u $HOME/.vimrc -c "PlugInstall | qa"
 
 if [[ "$CODESPACES" = "true" ]]; then
   # Default to HTTPS for GitHub access
