@@ -10,12 +10,7 @@ if [[ -z $STOW_FOLDERS ]]; then
   STOW_FOLDERS="bash,git,pry,psql,ssh,tmux"
 fi
 
-if [[ -z $DOTFILES ]]; then
-  DOTFILES=$HOME/.dotfiles
-fi
-
 if [[ "$CODESPACES" = "true" ]]; then
-  rm ~/.bashrc
   sudo apt-get install -y stow tmux exuberant-ctags
 elif [[ "$(uname)" = "Darwin" ]]; then
   brew install stow
