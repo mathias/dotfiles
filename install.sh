@@ -19,6 +19,24 @@ else
   exit 1
 fi
 
+# Backup common existing files
+for f in .bashrc .bash_profile .bash_logout; do
+    if [ -e ~/$f ]; then
+        mv ~/$f ~/$f.bak
+    fi
+done
+
+# Stow dotfiles
+stow --target="$HOME" --stow bash git pry psql tmux vim
+
+
+if [[ "$CODESPACES" = "true" ]]; then
+  # Default to HTTPS for GitHub access
+  git config --global url.https://github.com/.insteadOf git@github.com:
+fi
+
+git config --global include.path ~/.gitconfig-aliases
+
 #if [[ ! -d "$HOME/.vim/bundle/Vundle.vim" ]]; then
   #git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 #fi
@@ -30,19 +48,3 @@ fi
 #vim +PluginInstall +qall
 vim -Es -u $HOME/.vimrc -c "PlugInstall | qa"
 
-if [[ "$CODESPACES" = "true" ]]; then
-  # Default to HTTPS for GitHub access
-  git config --global url.https://github.com/.insteadOf git@github.com:
-fi
-
-git config --global include.path ~/.gitconfig-aliases
-
-# Backup common existing files
-for f in .bashrc .bash_profile .bash_logout; do
-    if [ -e ~/$f ]; then
-        mv ~/$f ~/$f.bak
-    fi
-done
-
-# Stow dotfiles
-stow --target="$HOME" --stow bash git pry psql tmux vim
