@@ -37,6 +37,11 @@ fi
 
 git config --global include.path ~/.gitconfig-aliases
 
+# Completion setup
+if [[ "$CODESPACES" = "true" ]]; then
+  curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
+fi
+
 #if [[ ! -d "$HOME/.vim/bundle/Vundle.vim" ]]; then
   #git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 #fi
