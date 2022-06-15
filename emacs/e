@@ -1,10 +1,12 @@
 #!/bin/bash
 
 SERVICE='Emacs'
+SERVER=$(which emacs)
+CLIENT=$(which emacsclient)
 
 if [[ -z $(ps ax | grep -v grep | grep $SERVICE) ]]
 then
-  /usr/local/bin/emacs --daemon
+  $SERVER --daemon
 fi
 
-/usr/local/bin/emacsclient -c -n $1
+$CLIENT -c -n $1
