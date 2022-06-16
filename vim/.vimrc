@@ -121,6 +121,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
+Plug 'NLKNguyen/papercolor-theme'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -200,12 +201,13 @@ syntax on
 filetype off
 filetype on
 
-try
-  colorscheme codeschool
-catch /^Vim\%((\a\+)\)\=:E185/
-  " deal with it
-endtry
+" try
+"   colorscheme codeschool
+" catch /^Vim\%((\a\+)\)\=:E185/
+"   " deal with it
+" endtry
 set background=dark
+colorscheme papercolor
 
 augroup vimrc
   autocmd!
