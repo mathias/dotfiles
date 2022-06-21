@@ -74,6 +74,11 @@ Inside `vim/` you'll find files to set up vim, naturally:
 * MacOS window mgmt: Raycast built in functionality.
   * Formerly: [Rectangle](https://github.com/rxhanson/Rectangle) (before that: Spectacle, and before that, Phoenix + [my literate coding config](https://github.com/mathias/phoenix-config))
 
+#### Linux laptop
+
+* install/upgrade: vim, emacs, git, tmux, htop, s-tui, tlp
+* Firefox
+* [grasp](https://github.com/karlicoss/grasp)
 
 To Use
 ------
