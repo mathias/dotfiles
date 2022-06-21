@@ -72,8 +72,14 @@ Inside `vim/` you'll find files to set up vim, naturally:
 
 ### Other software:
 
+#### MacOS
+
 * Homebrew
-* MacOS window mgmt: [Rectangle](https://github.com/rxhanson/Rectangle) (formerly: Spectacle, and before that, Phoenix + [my literate coding config](https://github.com/mathias/phoenix-config))
+* [Raycast](https://www.raycast.com/)
+* https://monitorcontrol.app/
+* 1Password
+* MacOS window mgmt: Raycast built in functionality.
+  * Formerly: [Rectangle](https://github.com/rxhanson/Rectangle) (before that: Spectacle, and before that, Phoenix + [my literate coding config](https://github.com/mathias/phoenix-config))
 
 
 To Use
