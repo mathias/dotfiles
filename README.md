@@ -23,12 +23,7 @@ Inside `bash/` is a my bash config scripts:
 
 ### emacs/
 
-I went back to using my own `.emacs` file:
-
-```bash
-ln -s $PWD/emacs/.emacs ~/.emacs
-mkdir -p ~/.emacs.d
-```
+I went back to using my own `.emacs` file. 
 
 I launch emacs with a convenient little script called `e`. Install it with:
 
@@ -37,7 +32,7 @@ ln -s $PWD/emacs/e ~/bin/e
 chmod +x ~/bin/e
 ```
 
-The script checks if there is an emacs server running. If there isn't, it starts one up. Then it connects an emacsclient to it with the requested file.
+The script checks if there is an emacs server running. If there isn't, it starts one up. Then it connects an `emacsclient` to it with the requested file.
 
 #### Tip: Update emacs packages by blowing them away
 
@@ -58,7 +53,7 @@ After running `stow git` in this directory. (Likely, `~/.dotfiles`) Local setup 
 
 ### tmux/
 
-Contains a .tmux.conf file that sets up tmux. Very basic config at this point.
+Contains a `.tmux.conf` file that sets up tmux. Very basic config at this point.
 
 ### vim/
 
@@ -66,9 +61,7 @@ Inside `vim/` you'll find files to set up vim, naturally:
 
 * `.vimrc` is the main vim config file. I am using [Vundle](https://github.com/VundleVim/Vundle.vim), so all of the vim bundles that I depend on are listed in the 'Vundle' section in `.vimrc`.
 * `.vimrc.local` is for local vim config and is omitted.
-* After symlinking the vim files into place, you must:
-  * Follow the [Vundle](https://github.com/VundleVim/Vundle.vim) install instructions.
-  * Install the bundles with `:BundleInstall` in vim.
+* If you are not running the whole `install.sh` script, after `stow`ing the vim config into place, check out the [commands to install vim-plug and plugins with it](https://github.com/mathias/dotfiles/blob/master/install.sh) in the `install.sh` script.
 
 ### Other software:
 
