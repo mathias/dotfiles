@@ -36,12 +36,6 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(eval-when-compile
-  (if (version< emacs-version "24.4")
-    (require 'cl)
-    (require 'cl-lib))
-  (require 'use-package))
-
 (require 'bind-key)
 
 ;; Always try to install packages (rather than having to pass :ensure t to every package:
@@ -52,61 +46,67 @@
   ;; color highlights in search
   (setq ag-highlight-search t))
 
-(use-package auto-complete
-  :init
-  (ac-config-default)
-  (global-auto-complete-mode t))
-
-(use-package cider
-  :config
-   ;; hide special buffers when using Cider
-  (setq nrepl-hide-special-buffers t))
-
-(use-package clojure-mode
-  :defer t
-  :init
-  (progn
-    (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
-    ;; recognize boot script files using shebang:
-    (add-to-list 'magic-mode-alist '(".* boot" . clojure-mode))
-    ;; Hoplon dev
-    (add-to-list 'auto-mode-alist '("\\cljs.hl\\'" . clojure-mode))))
-
-(use-package coffee-mode
-  :defer t)
-
-(use-package counsel)
-
-(use-package cyberpunk-theme
-  :defer nil
-  :init
-  (progn
-    (load-theme 'cyberpunk t)
-    (enable-theme 'cyberpunk)))
-
-(use-package diminish)
-
-(use-package elixir-mode :defer t)
-
-(use-package alchemist :defer t)
-
-(use-package elm-mode :defer t)
-
-(use-package git-link :defer t)
-
-(use-package highlight-symbol :defer t)
-
 (use-package htmlize
   :defer t
   :mode ("\\.org\\'" . org-mode))
 
 (use-package ivy
-  :diminish (ivy-mode)
-  :bind (("C-x b" . ivy-switch-buffer))
+  :diminish ;; diminish the mode name in the mode list
+  :bind (("C-s" . swiper)
+	 :map ivy-minibuffer-map
+	 ("TAB" . ivy-alt-done)
+	 ("C-l" . ivy-alt-done)
+	 ("C-j" . ivy-next-line)
+	 ("C-k" . ivy-previous-line)
+	 :map ivy-switch-buffer-map
+	 ("C-k" . ivy-previous-line)
+	 ("C-l" . ivy-done)
+	 ("C-d" . ivy-switch-buffer-kill)
+	 :map ivy-reverse-i-search-map
+	 ("C-k" . ivy-previous-line)
+	 ("C-d" . ivy-reverse-i-search-kill))
   :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-display-style 'fancy))
+  (ivy-mode 1))
+
+(global-set-key (kbd "C-M-j") 'counsel-switch-buffer)
+
+(use-package mood-line
+  :config
+  (mood-line-mode 1))
+
+(use-package doom-themes
+  :init (load-theme 'doom-dracula t))
+
+(use-package which-key
+  :init (which-key-mode)
+  :diminish which-key-mode
+  :config (setq which-key-idle-delay 0.3))
+
+(use-package ivy-rich
+  :init (ivy-rich-mode 1))
+
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+	 ("C-x b" . counsel-ibuffer)
+	 ("C-x C-f" . counsel-find-file)
+	 ("C-M-j" . 'counsel-switch-buffer)
+         :map minibuffer-local-map
+         ("C-r" . 'counsel-minibuffer-history))
+  :custom
+  (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
+  :config
+  (counsel-mode 1))
+
+;; replacement for built-in help:
+(use-package helpful
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key] . helpful-key))
 
 (use-package keyfreq
   :defer nil
@@ -116,9 +116,6 @@
 	(defalias 'reduce 'cl-reduce))
     (keyfreq-mode 1)
     (keyfreq-autosave-mode 1)))
-
-(use-package magit
-  :defer nil)
 
 (use-package markdown-mode
   :mode ("\\.md\\'" . markdown-mode)
@@ -183,41 +180,6 @@
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
-(use-package slime
-  :defer t
-  :config
-  (progn
-    (require 'slime-autoloads)
-    (setq inferior-lisp-program "/usr/local/bin/sbcl")
-    (setq slime-contribs '(slime-fancy))))
-
-(use-package smex
-  :defer t
-  :config
-  (progn
-    ;; Can be omitted. This might cause a (minimal) delay when Smex is auto-initialized on its first run:
-    (smex-initialize)
-
-    ;; remap M-x
-    (global-set-key (kbd "M-x") 'smex)
-    (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-    ;; This is your old M-x.
-    (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)))
-
-(use-package swiper
-  :bind (("C-s" . swiper)
-	 ("C-r" . swiper)
-	 ("C-c C-r" . ivy-resume)
-	 ("M-x" . counsel-M-x)
-	 ("C-x C-f" . counsel-find-file)
-	 ("C-c k" . counsel-ag))
-  :config
-  (progn
-    (ivy-mode 1)
-    (setq ivy-use-virtual-buffers t)
-    (setq enable-recursive-minibuffers t)
-    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
-
 (use-package try)
 
 (use-package which-key
@@ -236,6 +198,9 @@
     (add-to-list 'auto-mode-alist '("\\.md\\'" . writegood-mode))
     (add-to-list 'auto-mode-alist '("\\.txt\\'" . writegood-mode)))
   :bind (("C-c g" . writegood-mode)))
+
+(use-package ripgrep
+  :bind ("C-x C-g" . 'ripgrep-regexp))
 
 ;;;; setup emacs itself
 
