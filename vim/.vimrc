@@ -121,6 +121,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
+Plug 'jremmen/vim-ripgrep'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
