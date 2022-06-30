@@ -23,7 +23,7 @@ Inside `bash/` is a my bash config scripts:
 
 ### emacs/
 
-I went back to using my own `.emacs` file. 
+Config in the `.emacs` file.
 
 I launch emacs with a convenient little script called `e`. Install it with:
 
