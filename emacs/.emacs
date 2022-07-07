@@ -18,13 +18,13 @@
       (normal-top-level-add-subdirs-to-load-path)))
 
 (add-to-list 'package-archives
-	     '("gnu" . "http://elpa.gnu.org/packages/"))
+       '("gnu" . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/") t)
+       '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
-	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+       '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives
-	     '("org" . "http://orgmode.org/elpa/") t)
+       '("org" . "http://orgmode.org/elpa/") t)
 
 (package-initialize)
 
@@ -50,25 +50,6 @@
   :defer t
   :mode ("\\.org\\'" . org-mode))
 
-(use-package ivy
-  :diminish ;; diminish the mode name in the mode list
-  :bind (("C-s" . swiper)
-	 :map ivy-minibuffer-map
-	 ("TAB" . ivy-alt-done)
-	 ("C-l" . ivy-alt-done)
-	 ("C-j" . ivy-next-line)
-	 ("C-k" . ivy-previous-line)
-	 :map ivy-switch-buffer-map
-	 ("C-k" . ivy-previous-line)
-	 ("C-l" . ivy-done)
-	 ("C-d" . ivy-switch-buffer-kill)
-	 :map ivy-reverse-i-search-map
-	 ("C-k" . ivy-previous-line)
-	 ("C-d" . ivy-reverse-i-search-kill))
-  :config
-  (ivy-mode 1))
-
-(global-set-key (kbd "C-M-j") 'counsel-switch-buffer)
 
 (use-package mood-line
   :config
@@ -87,15 +68,32 @@
 
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
-	 ("C-x b" . counsel-ibuffer)
-	 ("C-x C-f" . counsel-find-file)
-	 ("C-M-j" . 'counsel-switch-buffer)
+   ("C-x b" . counsel-ibuffer)
+   ;;("C-x C-f" . counsel-find-file)
+   ("C-M-j" . 'counsel-switch-buffer)
          :map minibuffer-local-map
          ("C-r" . 'counsel-minibuffer-history))
   :custom
   (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
   :config
   (counsel-mode 1))
+(use-package ivy
+  :diminish ;; diminish the mode name in the mode list
+  :bind (("C-s" . swiper)
+   :map ivy-minibuffer-map
+   ("TAB" . ivy-alt-done)
+   ("C-l" . ivy-alt-done)
+   ("C-j" . ivy-next-line)
+   ("C-k" . ivy-previous-line)
+   :map ivy-switch-buffer-map
+   ("C-k" . ivy-previous-line)
+   ("C-l" . ivy-done)
+   ("C-d" . ivy-switch-buffer-kill)
+   :map ivy-reverse-i-search-map
+   ("C-k" . ivy-previous-line)
+   ("C-d" . ivy-reverse-i-search-kill))
+  :config
+  (ivy-mode 1))
 
 ;; replacement for built-in help:
 (use-package helpful
@@ -151,9 +149,9 @@
   :defer t
   :mode ("\\.org\\'" . org-mode))
 
-(use-package org-plus-contrib
-  :defer t
-  :mode ("\\.org\\'" . org-mode))
+;; (use-package org-plus-contrib
+;;   :defer t
+;;   :mode ("\\.org\\'" . org-mode))
 
 (use-package org-pomodoro
   :defer t
@@ -173,12 +171,26 @@
     (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
     (add-hook 'scheme-mode-hook           #'enable-paredit-mode))
   :bind (:map paredit-mode-map
-	      ("M-)" . paredit-forward-slurp-sexp)
-	      ("M-(" . paredit-wrap-round)))
+        ("M-)" . paredit-forward-slurp-sexp)
+        ("M-(" . paredit-wrap-round)))
 
 (use-package rainbow-delimiters
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+
+(use-package swiper
+  :bind (("C-s" . swiper)
+        ("C-r" . swiper)
+        ("C-c C-r" . ivy-resume)
+        ("M-x" . counsel-M-x)
+        ("C-x C-f" . counsel-find-file)
+        ("C-c k" . counsel-ag))
+  :config
+  (progn
+    (ivy-mode 1)
+    (setq ivy-use-virtual-buffers t)
+    (setq enable-recursive-minibuffers t)
+    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
 
 (use-package try)
 
