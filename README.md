@@ -1,7 +1,7 @@
 mathias/dotfiles
 ================
 
-The directory layout of this repo is inspired by [Zach Holman's excellent dotfiles](https://github.com/holman/dotfiles) repo, even though I don't use any of his actual config. You can read about why having a good set of dotfiles is important on [Zach's blog](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
+Everyone needs a dotfiles repo these days.
 
 My [vim config](https://github.com/mathias/dotfiles/blob/master/vim/.vimrc) is heavily inspired by the structure of [@begriff's vim config](https://github.com/begriffs/dotfiles/blob/c05413b1976f8aed1051883bb8dfa588cd8e119a/.vimrc) but I don't use leader commands, so I used the basic structure while adding my own config.
 
@@ -90,7 +90,7 @@ Bugs
 
 I can't guarantee this will work for you. These are my own config files and highly personalized. As noted below in the license, there is no warranty.
 
-Copyright (c) 2012, 2021 Matt Gauger
+Copyright (c) 2022 Matt Gauger
 
 MIT License
 
