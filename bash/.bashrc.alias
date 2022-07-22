@@ -26,7 +26,7 @@ function gitparents {
 # system admin
 alias ducks='du -cks * | sort -rn'
 alias duchs='du -hs * | sort -h'
-alias hist="history | grep $1"
+alias hist="rg $1 ~/.bash_history"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias psack="psag"
 alias psag="ps aux | ag"
