@@ -29,10 +29,12 @@ done
 # Stow dotfiles
 stow --target="$HOME" --stow bash git pry psql tmux vim
 
-
 if [[ "$CODESPACES" = "true" ]]; then
   # Default to HTTPS for GitHub access
   git config --global url.https://github.com/.insteadOf git@github.com:
+
+  # We don't have Mac's pbcopy on Codespaces, replace with echo in gitconfig:
+  sed -i 's/pbcopy/echo/g' git/.gitconfig-aliases
 fi
 
 git config --global include.path ~/.gitconfig-aliases
