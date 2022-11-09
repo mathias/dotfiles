@@ -32,18 +32,22 @@ stow --target="$HOME" --stow bash git pry psql tmux vim
 if [[ "$CODESPACES" = "true" ]]; then
   # Default to HTTPS for GitHub access
   git config --global url.https://github.com/.insteadOf git@github.com:
+
+  # We don't have Mac's pbcopy on Codespaces, replace with echo in gitconfig:
+  sed -i 's/pbcopy/echo/g' git/.gitconfig-aliases
 fi
 
 git config --global include.path ~/.gitconfig-aliases
 
-#if [[ ! -d "$HOME/.vim/bundle/Vundle.vim" ]]; then
-  #git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-#fi
+# Completion setup
+if [[ "$CODESPACES" = "true" ]]; then
+  curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
+fi
 
 if [[ ! -d "$HOME/.vim/autoload/plug.vim" ]]; then
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
-#vim +PluginInstall +qall
+
 vim -Es -u $HOME/.vimrc -c "PlugInstall | qa"
 

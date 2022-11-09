@@ -31,3 +31,4 @@ export CLICOLOR LSCOLORS
 [ ! -f "$HOME/.bashrc.completion" ] || . "$HOME/.bashrc.completion"
 [ ! -f "$HOME/.bashrc.gnupg" ] || . "$HOME/.bashrc.gnupg"
 [ ! -f "$HOME/.bashrc.paths" ] || . "$HOME/.bashrc.paths"
+[ ! -f "$HOME/.bash_git" ] || . "$HOME/.bash_git"

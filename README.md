@@ -1,7 +1,7 @@
 mathias/dotfiles
 ================
 
-The directory layout of this repo is inspired by [Zach Holman's excellent dotfiles](https://github.com/holman/dotfiles) repo, even though I don't use any of his actual config. You can read about why having a good set of dotfiles is important on [Zach's blog](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
+Everyone needs a dotfiles repo these days.
 
 My [vim config](https://github.com/mathias/dotfiles/blob/master/vim/.vimrc) is heavily inspired by the structure of [@begriff's vim config](https://github.com/begriffs/dotfiles/blob/c05413b1976f8aed1051883bb8dfa588cd8e119a/.vimrc) but I don't use leader commands, so I used the basic structure while adding my own config.
 
@@ -23,12 +23,7 @@ Inside `bash/` is a my bash config scripts:
 
 ### emacs/
 
-I went back to using my own `.emacs` file:
-
-```bash
-ln -s $PWD/emacs/.emacs ~/.emacs
-mkdir -p ~/.emacs.d
-```
+Config in the `.emacs` file.
 
 I launch emacs with a convenient little script called `e`. Install it with:
 
@@ -37,7 +32,7 @@ ln -s $PWD/emacs/e ~/bin/e
 chmod +x ~/bin/e
 ```
 
-The script checks if there is an emacs server running. If there isn't, it starts one up. Then it connects an emacsclient to it with the requested file.
+The script checks if there is an emacs server running. If there isn't, it starts one up. Then it connects an `emacsclient` to it with the requested file.
 
 #### Tip: Update emacs packages by blowing them away
 
@@ -58,7 +53,7 @@ After running `stow git` in this directory. (Likely, `~/.dotfiles`) Local setup 
 
 ### tmux/
 
-Contains a .tmux.conf file that sets up tmux. Very basic config at this point.
+Contains a `.tmux.conf` file that sets up tmux. Very basic config at this point.
 
 ### vim/
 
@@ -66,15 +61,24 @@ Inside `vim/` you'll find files to set up vim, naturally:
 
 * `.vimrc` is the main vim config file. I am using [Vundle](https://github.com/VundleVim/Vundle.vim), so all of the vim bundles that I depend on are listed in the 'Vundle' section in `.vimrc`.
 * `.vimrc.local` is for local vim config and is omitted.
-* After symlinking the vim files into place, you must:
-  * Follow the [Vundle](https://github.com/VundleVim/Vundle.vim) install instructions.
-  * Install the bundles with `:BundleInstall` in vim.
+* If you are not running the whole `install.sh` script, after `stow`ing the vim config into place, check out the [commands to install vim-plug and plugins with it](https://github.com/mathias/dotfiles/blob/master/install.sh) in the `install.sh` script.
 
 ### Other software:
 
-* Homebrew
-* MacOS window mgmt: [Rectangle](https://github.com/rxhanson/Rectangle) (formerly: Spectacle, and before that, Phoenix + [my literate coding config](https://github.com/mathias/phoenix-config))
+#### MacOS
 
+* Homebrew
+* [Raycast](https://www.raycast.com/)
+* https://monitorcontrol.app/
+* 1Password
+* MacOS window mgmt: Raycast built in functionality.
+  * Formerly: [Rectangle](https://github.com/rxhanson/Rectangle) (before that: Spectacle, and before that, Phoenix + [my literate coding config](https://github.com/mathias/phoenix-config))
+
+#### Linux laptop
+
+* install/upgrade: vim, emacs, git, tmux, htop, s-tui, tlp
+* Firefox
+* [grasp](https://github.com/karlicoss/grasp)
 
 To Use
 ------
@@ -86,7 +90,7 @@ Bugs
 
 I can't guarantee this will work for you. These are my own config files and highly personalized. As noted below in the license, there is no warranty.
 
-Copyright (c) 2012, 2021 Matt Gauger
+Copyright (c) 2022 Matt Gauger
 
 MIT License
 
