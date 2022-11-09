@@ -11,6 +11,8 @@ if [[ -z $STOW_FOLDERS ]]; then
 fi
 
 if [[ "$CODESPACES" = "true" ]]; then
+  echo '📦️ Installing a few packages…'
+
   sudo apt-get install -y stow tmux exuberant-ctags
 elif [[ "$(uname)" = "Darwin" ]]; then
   brew install stow
