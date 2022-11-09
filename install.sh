@@ -29,7 +29,6 @@ done
 # Stow dotfiles
 stow --target="$HOME" --stow bash git pry psql tmux vim
 
-
 if [[ "$CODESPACES" = "true" ]]; then
   # Default to HTTPS for GitHub access
   git config --global url.https://github.com/.insteadOf git@github.com:
