@@ -7,7 +7,7 @@ exec 2>&1
 set -x
 
 if [[ -z $STOW_FOLDERS ]]; then
-  STOW_FOLDERS="bash,git,pry,psql,ssh,tmux"
+  STOW_FOLDERS="bash,git,inputrc,pry,psql,ssh,tmux"
 fi
 
 if [[ "$CODESPACES" = "true" ]]; then
@@ -29,7 +29,7 @@ for f in .bashrc .bash_profile .bash_logout; do
 done
 
 # Stow dotfiles
-stow --target="$HOME" --stow bash git pry psql tmux vim
+stow --target="$HOME" --stow bash git inputrc pry psql tmux vim
 
 if [[ "$CODESPACES" = "true" ]]; then
   # Default to HTTPS for GitHub access
