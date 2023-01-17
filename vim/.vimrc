@@ -113,15 +113,16 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 " Declare the list of plugins.
 Plug 'Lokaltog/vim-powerline'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
-Plug 'justbrettjones/vim-codeschool'
+Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/seoul256.vim'
+Plug 'justbrettjones/vim-codeschool'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
-Plug 'jremmen/vim-ripgrep'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -201,12 +202,13 @@ syntax on
 filetype off
 filetype on
 
-try
-  colorscheme codeschool
-catch /^Vim\%((\a\+)\)\=:E185/
-  " deal with it
-endtry
+" try
+"   colorscheme codeschool
+" catch /^Vim\%((\a\+)\)\=:E185/
+"   " deal with it
+" endtry
 set background=dark
+colorscheme papercolor
 
 augroup vimrc
   autocmd!
