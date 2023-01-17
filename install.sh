@@ -7,7 +7,7 @@ exec 2>&1
 set -x
 
 if [[ -z $STOW_FOLDERS ]]; then
-  STOW_FOLDERS="bash,git,pry,psql,ssh,tmux"
+  STOW_FOLDERS="bash,git,inputrc,pry,psql,ssh,tmux"
 fi
 
 if [[ "$CODESPACES" = "true" ]]; then
@@ -51,5 +51,6 @@ if [[ ! -d "$HOME/.vim/autoload/plug.vim" ]]; then
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-vim -Es -u $HOME/.vimrc -c "PlugInstall | qa"
+#vim -Es -u $HOME/.vimrc -c "PlugInstall | qa"
+vim -Es -u $HOME/.vimrc +PlugInstall +exit +exit
 
