@@ -23,3 +23,7 @@
   rom = !"git fetch; git rebase origin/$(git main)"
 [merge]
   summary = false
+[init]
+  defaultBranch = main
+[remote]
+  pushDefault = origin
