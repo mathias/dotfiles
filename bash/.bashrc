@@ -26,6 +26,7 @@ export CLICOLOR LSCOLORS
 
 [ ! -f "$HOME/.bashrc.alias" ] || . "$HOME/.bashrc.alias"
 [ ! -f "$HOME/.bashrc.alias.local" ] || . "$HOME/.bashrc.alias.local"
+[ ! -f "$HOME/.bashrc.functions" ] || . "$HOME/.bashrc.functions"
 [ ! -f "$HOME/.bashrc.local" ] || . "$HOME/.bashrc.local"
 [ ! -f "$HOME/.bashrc.prompt" ] || . "$HOME/.bashrc.prompt"
 [ ! -f "$HOME/.bashrc.completion" ] || . "$HOME/.bashrc.completion"
