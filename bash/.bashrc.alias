@@ -2,27 +2,6 @@
 alias gap='git add -p'
 alias gst='git status'
 
-function gitcontribs {
-  git log --stat --author $(git config --get user.email) | \
-  awk -F',' '/files? changed/ {
-    files += $1
-    insertions += $2
-    deletions += $3
-    print
-  }
-  END {
-      print "Files Changed: " files
-      print "Insertions: " insertions
-      print "Deletions: " deletions
-      print "Lines changed: " insertions + deletions
-
-  }'
-}
-
-function gitparents {
- git rev-list --parents $1 | ag $2
-}
-
 # system admin
 alias ducks='du -cks * | sort -rn'
 alias duchs='du -hs * | sort -h'
@@ -32,10 +11,6 @@ alias psack="psag"
 alias psag="ps aux | rg"
 alias ack=ag
 alias vimhosts="sudo vim /etc/hosts"
-
-function dictag {
-  rg --no-numbers "$1" /usr/share/dict/words
-}
 
 # ruby dev stuff:
 alias be="bundle exec"
@@ -53,26 +28,6 @@ alias pgdown="stop_postgres"
 
 # image optimization
 alias imageopt='imageOptim -a -q -d'
-
-# Better ls/less combination:
-function les {
-  if [ -d "$1" ]
-  then
-    ls -al "$1"
-  else
-    less "$1"
-  fi
-}
-
-# Tail large files or show directory:
-function tails {
-  if [ -d "$1" ]
-  then
-    ls -al "$1"
-  else
-    tail "$1"
-  fi
-}
 
 # org mode git stuff
 alias gorg='pushd ~/dev/org/; git add . && git commit -m "Checkpoint: $(date +"%a, %d %b %Y")"; popd'

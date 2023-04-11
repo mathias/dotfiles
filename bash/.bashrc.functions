@@ -29,3 +29,44 @@ backoff() {
 
   return $exitCode
 }
+
+# Better ls/less combination:
+function les {
+  if [ -d "$1" ]
+  then
+    ls -al "$1"
+  else
+    less "$1"
+  fi
+}
+
+# Tail large files or show directory:
+function tails {
+  if [ -d "$1" ]
+  then
+    ls -al "$1"
+  else
+    tail "$1"
+  fi
+}
+
+function gitparents {
+ git rev-list --parents $1 | ag $2
+}
+
+function gitcontribs {
+  git log --stat --author $(git config --get user.email) | \
+  awk -F',' '/files? changed/ {
+    files += $1
+    insertions += $2
+    deletions += $3
+    print
+  }
+  END {
+      print "Files Changed: " files
+      print "Insertions: " insertions
+      print "Deletions: " deletions
+      print "Lines changed: " insertions + deletions
+
+  }'
+}
