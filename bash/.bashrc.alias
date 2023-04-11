@@ -29,12 +29,12 @@ alias duchs='du -hs * | sort -h'
 alias hist="rg $1 ~/.bash_history"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias psack="psag"
-alias psag="ps aux | ag"
+alias psag="ps aux | rg"
 alias ack=ag
 alias vimhosts="sudo vim /etc/hosts"
 
 function dictag {
-  ag --no-numbers "$1" /usr/share/dict/words
+  rg --no-numbers "$1" /usr/share/dict/words
 }
 
 # ruby dev stuff:
