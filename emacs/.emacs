@@ -50,7 +50,6 @@
   :defer t
   :mode ("\\.org\\'" . org-mode))
 
-
 (use-package mood-line
   :config
   (mood-line-mode 1))
