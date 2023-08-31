@@ -6,6 +6,8 @@ exec > >(tee -i $HOME/dotfiles_install.log)
 exec 2>&1
 set -x
 
+echo "=== Beginning installing dotfiles on $(date)."
+
 if [[ -z $STOW_FOLDERS ]]; then
   STOW_FOLDERS="bash,git,inputrc,pry,psql,ssh,tmux"
 fi
@@ -58,3 +60,5 @@ vim -Es -u $HOME/.vimrc +PlugInstall +exit +exit
 if [[ "$CODESPACES" = "true" ]]; then
   echo 'y' | sudo unminimize
 fi
+
+echo "=== Completed installing dotfiles on $(date)."
