@@ -54,3 +54,7 @@ fi
 #vim -Es -u $HOME/.vimrc -c "PlugInstall | qa"
 vim -Es -u $HOME/.vimrc +PlugInstall +exit +exit
 
+# Man pages are necessary -- these install them on Codespaces
+if [[ "$CODESPACES" = "true" ]]; then
+  echo 'y' | sudo unminimize
+fi
