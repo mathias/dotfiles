@@ -13,7 +13,7 @@ fi
 if [[ "$CODESPACES" = "true" ]]; then
   echo '📦️ Installing a few packages…'
 
-  sudo apt-get install -y stow tmux exuberant-ctags
+  sudo apt-get install -y stow tmux exuberant-ctags man-db doc-base
 elif [[ "$(uname)" = "Darwin" ]]; then
   brew install stow
 else
