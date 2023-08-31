@@ -58,7 +58,7 @@ vim -Es -u $HOME/.vimrc +PlugInstall +exit +exit
 
 # Man pages are necessary -- these install them on Codespaces
 if [[ "$CODESPACES" = "true" ]]; then
-  echo 'y' | sudo unminimize
+  printf 'y' | sudo unminimize
 fi
 
 echo "=== Completed installing dotfiles on $(date)."
