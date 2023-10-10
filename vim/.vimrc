@@ -202,13 +202,12 @@ syntax on
 filetype off
 filetype on
 
-" try
-"   colorscheme codeschool
-" catch /^Vim\%((\a\+)\)\=:E185/
-"   " deal with it
-" endtry
 set background=dark
-colorscheme papercolor
+try
+  colorscheme PaperColor
+catch /^Vim\%((\a\+)\)\=:E185/
+  " deal with it
+endtry
 
 augroup vimrc
   autocmd!
