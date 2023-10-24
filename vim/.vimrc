@@ -1,6 +1,6 @@
 " Sections:
 "   -> General
-"   -> Vundle
+"   -> Plugs / Libraries
 "   -> vim user interface
 "   -> Colors and Fonts
 "   -> Files and backups
@@ -39,7 +39,7 @@ filetype indent on
 set autoread
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vundle
+" => Plugs / Libraries
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible              " be iMproved, required
@@ -118,6 +118,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/seoul256.vim'
 Plug 'justbrettjones/vim-codeschool'
+Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
