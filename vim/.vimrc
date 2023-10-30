@@ -378,6 +378,8 @@ endfunction
 
 " If nerd tree is closed, find current file, if open, close it
 map <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
+" Same but fix for Ctrl-S stopping tmux terminal:
+map <silent> <C-S-e> <ESC>:call ToggleFindNerd()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tags
