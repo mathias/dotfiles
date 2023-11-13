@@ -115,6 +115,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'Lokaltog/vim-powerline'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-gitgutter'
+Plug 'godlygeek/tabular'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/seoul256.vim'
 Plug 'justbrettjones/vim-codeschool'
