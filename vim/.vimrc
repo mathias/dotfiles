@@ -124,6 +124,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-rhubarb'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -377,8 +378,6 @@ function! ToggleFindNerd()
 endfunction
 
 " If nerd tree is closed, find current file, if open, close it
-map <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
-" Same but fix for Ctrl-S stopping tmux terminal:
 map <silent> <C-S-e> <ESC>:call ToggleFindNerd()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -518,3 +517,6 @@ for tool in s:opam_packages
     call s:opam_configuration[tool]()
   endif
 endfor
+
+" Trying something for ripgrep searching the word under cursor
+:nmap <C-s> :Rg <cword><cr>
