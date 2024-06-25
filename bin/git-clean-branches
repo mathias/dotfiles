@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Cleanup the branches.
+# Ref: https://stackoverflow.com/a/33548037/2558252
+
+set -e
+
+# Remove all local branch removed from remote.
+git fetch -p
+
+# List and remove all local branch not found on the remote.
+for branch in $(
+    git for-each-ref --format '%(refname) %(upstream:track)' refs/heads \
+        | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'
+); do
+    git branch -D "$branch"
+done
