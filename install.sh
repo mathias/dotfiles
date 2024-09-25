@@ -16,7 +16,7 @@ if [ "$CODESPACES" = "true" ] || [ "$(uname)" = "Linux" ]; then
   echo '📦️ Installing a few packages…'
 
   sudo apt-get update
-  sudo apt-get install -y stow tmux exuberant-ctags man-db doc-base
+  sudo apt-get install -y stow tmux exuberant-ctags
 elif [[ "$(uname)" = "Darwin" ]]; then
   brew install stow
 else
@@ -58,6 +58,7 @@ vim -Es -u "$HOME/.vimrc +PlugInstall +exit +exit"
 
 # Man pages are necessary -- these install them on Codespaces
 if [[ "$CODESPACES" = "true" ]]; then
+  sudo apt install --ignore-missing man-db doc-base
   printf 'y' | sudo unminimize
 fi
 
