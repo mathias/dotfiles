@@ -2,7 +2,7 @@
 
 # Inspired by https://github.com/georgebrock/dotfiles/blob/a9af0fb751c96eb65fc7b8aa1312a37b8bc12558/install.sh
 
-exec > >(tee -i $HOME/dotfiles_install.log)
+exec > >(tee -i "$HOME/dotfiles_install.log")
 exec 2>&1
 set -x
 
@@ -12,9 +12,10 @@ if [[ -z $STOW_FOLDERS ]]; then
   STOW_FOLDERS="bash,git,inputrc,pry,psql,ssh,tmux"
 fi
 
-if [[ "$CODESPACES" = "true" ]]; then
+if [ "$CODESPACES" = "true" ] || [ "$(uname)" = "Linux" ]; then
   echo '📦️ Installing a few packages…'
 
+  sudo apt-get update
   sudo apt-get install -y stow tmux exuberant-ctags man-db doc-base
 elif [[ "$(uname)" = "Darwin" ]]; then
   brew install stow
@@ -53,8 +54,7 @@ if [[ ! -d "$HOME/.vim/autoload/plug.vim" ]]; then
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-#vim -Es -u $HOME/.vimrc -c "PlugInstall | qa"
-vim -Es -u $HOME/.vimrc +PlugInstall +exit +exit
+vim -Es -u "$HOME/.vimrc +PlugInstall +exit +exit"
 
 # Man pages are necessary -- these install them on Codespaces
 if [[ "$CODESPACES" = "true" ]]; then
