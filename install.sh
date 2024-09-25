@@ -58,6 +58,7 @@ vim -Es -u "$HOME/.vimrc +PlugInstall +exit +exit"
 
 # Man pages are necessary -- these install them on Codespaces
 if [[ "$CODESPACES" = "true" ]]; then
+  echo "🚀 Codespaces specific manpage setup"
   sudo apt install --ignore-missing man-db doc-base
   printf 'y' | sudo unminimize
 fi
