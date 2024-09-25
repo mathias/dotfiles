@@ -31,7 +31,7 @@ for f in .bashrc .bash_profile; do
     fi
 done
 
-echo "# Stow dotfiles"
+echo "🎁 Stow dotfiles"
 stow --target="$HOME" --stow bash git inputrc pry psql tmux vim
 
 if [[ "$CODESPACES" = "true" ]]; then
