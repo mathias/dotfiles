@@ -15,7 +15,7 @@ fi
 if [ "$CODESPACES" = "true" ] || [ "$(uname)" = "Linux" ]; then
   echo '📦️ Installing a few packages…'
 
-  sudo apt-get update
+  $(sudo apt-get update) && echo "Updated apt"
   sudo apt-get install -y stow tmux exuberant-ctags
 elif [[ "$(uname)" = "Darwin" ]]; then
   brew install stow
