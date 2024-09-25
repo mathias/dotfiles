@@ -25,13 +25,13 @@ else
 fi
 
 # Backup common existing files
-for f in .bashrc .bash_profile .bash_logout; do
+for f in .bashrc .bash_profile; do
     if [ -e ~/$f ]; then
         mv ~/$f ~/$f.bak
     fi
 done
 
-# Stow dotfiles
+echo "# Stow dotfiles"
 stow --target="$HOME" --stow bash git inputrc pry psql tmux vim
 
 if [[ "$CODESPACES" = "true" ]]; then
@@ -44,7 +44,7 @@ fi
 
 git config --global include.path ~/.gitconfig-aliases
 
-# Completion setup
+# Git prompt/completion setup
 if [[ "$CODESPACES" = "true" ]]; then
   curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
 fi
