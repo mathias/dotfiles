@@ -54,7 +54,7 @@ if [[ ! -d "$HOME/.vim/autoload/plug.vim" ]]; then
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-vim -Es -u "$HOME/.vimrc +PlugInstall +exit +exit"
+vim -Es -u "$HOME/.vimrc +PlugInstall +exit"
 
 # Man pages are necessary -- these install them on Codespaces
 if [[ "$CODESPACES" = "true" ]]; then
