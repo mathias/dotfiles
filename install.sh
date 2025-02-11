@@ -6,6 +6,8 @@ exec > >(tee -i "$HOME/dotfiles_install.log")
 exec 2>&1
 set -x
 
+echo "Running in $(pwd)\n"
+
 echo "=== Beginning installing dotfiles on $(date)."
 
 if [[ -z $STOW_FOLDERS ]]; then
