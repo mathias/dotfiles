@@ -10,15 +10,11 @@ echo "Running in $(pwd)\n"
 
 echo "=== Beginning installing dotfiles on $(date)."
 
-if [[ -z $STOW_FOLDERS ]]; then
-  STOW_FOLDERS="bash,git,inputrc,pry,psql,ssh,tmux"
-fi
-
 if [ "$CODESPACES" = "true" ] || [ "$(uname)" = "Linux" ]; then
   echo '📦️ Installing a few packages…'
 
   $(sudo apt-get update) && echo "Updated apt"
-  sudo apt-get install --yes stow tmux vim exuberant-ctags
+  sudo apt-get install --yes neovim stow tmux vim exuberant-ctags
 elif [[ "$(uname)" = "Darwin" ]]; then
   brew install stow
 else
@@ -34,7 +30,7 @@ for f in .bashrc .bash_profile; do
 done
 
 echo "🎁 Stow dotfiles"
-stow --target="$HOME" --stow bash git inputrc pry psql tmux vim
+stow --target="$HOME" --stow bash git inputrc nvim pry psql tmux vim
 
 if [[ "$CODESPACES" = "true" ]]; then
   # Default to HTTPS for GitHub access
