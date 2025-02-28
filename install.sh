@@ -6,17 +6,17 @@ exec > >(tee -i "$HOME/dotfiles_install.log")
 exec 2>&1
 set -x
 
-echo "Running in $(pwd)\n"
+printf "Running in %s\n" $(pwd)
 
 echo "=== Beginning installing dotfiles on $(date)."
 
 if [ "$CODESPACES" = "true" ] || [ "$(uname)" = "Linux" ]; then
   echo '📦️ Installing a few packages…'
 
-  $(sudo apt-get update) && echo "Updated apt"
+  sudo apt-get update && echo "Updated apt"
   sudo apt-get install --yes neovim stow tmux vim exuberant-ctags
 elif [[ "$(uname)" = "Darwin" ]]; then
-  brew install stow
+  brew install stow rust-analyzer
 else
   >&2 echo "error: Unknown system"
   exit 1
@@ -30,7 +30,14 @@ for f in .bashrc .bash_profile; do
 done
 
 echo "🎁 Stow dotfiles"
-stow --target="$HOME" --stow bash git inputrc nvim pry psql tmux vim
+stow --target="$HOME" --stow bash git inputrc pry psql tmux vim
+
+export XDG_CONFIG_HOME="$HOME/.config"
+if [ ! -d "$XDG_CONFIG_HOME" ] || [ ! -d "$XDG_CONFIG_HOME/nvim" ]; then
+	echo "Creating nvim config dir"
+    mkdir -p "$XDG_CONFIG_HOME/nvim"
+fi
+stow -v --target="$XDG_CONFIG_HOME/nvim" --stow nvim
 
 if [[ "$CODESPACES" = "true" ]]; then
   # Default to HTTPS for GitHub access
