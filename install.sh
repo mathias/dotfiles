@@ -6,7 +6,7 @@ exec > >(tee -i "$HOME/dotfiles_install.log")
 exec 2>&1
 set -x
 
-printf "Running in %s\n" $(pwd)
+printf "Running in %s\n" "$(pwd)"
 
 echo "=== Beginning installing dotfiles on $(date)."
 
