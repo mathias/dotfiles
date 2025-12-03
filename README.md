@@ -21,8 +21,9 @@ Inside `bash/` is a my bash config scripts:
 * `.bashrc.prompt` exists purely to set up the bash prompt.
 * `.bashrc.completion` is loaded last and sets up all bash completion features.
 
-
 Note: New MacOS comes with `zsh` by default. To switch back to bash, use `chsh -s /bin/bash` and it should work.
+
+Finally, clone this into place, creating directories as needed, to help manage repos: https://github.com/jdx/gh (it is sourced already in `.bashrc.completion`)
 
 #### Common errors
 
@@ -30,7 +31,6 @@ Note: New MacOS comes with `zsh` by default. To switch back to bash, use `chsh -
 ```
 curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
 ```
-
 
 ### emacs/
 
@@ -94,10 +94,12 @@ git clone https://github.com/mathias/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOM
 * MacOS window mgmt: Raycast built in functionality.
   * Formerly: [Rectangle](https://github.com/rxhanson/Rectangle) (before that: Spectacle, and before that, Phoenix + [my literate coding config](https://github.com/mathias/phoenix-config))
 * Elgato Control Center for key light: https://www.elgato.com/us/en/s/downloads
+* https://github.com/jdx/gh
 
 #### Linux laptop
 
 * install/upgrade: vim, emacs, git, tmux, htop, s-tui, tlp, neovim
+* https://github.com/jdx/gh
 * Firefox
 * [grasp](https://github.com/karlicoss/grasp)
 
