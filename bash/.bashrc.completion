@@ -5,3 +5,6 @@ then
   autoload -Uz compinit
   compinit
 fi
+
+source ~/src/github.com/jdxcode/gh/bash/gh.bash
+source ~/src/github.com/jdxcode/gh/completions/gh.bash

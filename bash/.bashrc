@@ -2,6 +2,7 @@
 
 # Store 100,000 history entries
 export HISTSIZE=100000
+export HISTFILESIZE=100000
 # Don't store duplicates
 export HISTCONTROL=erasedups
 # Append to history file

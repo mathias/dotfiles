@@ -21,6 +21,17 @@ Inside `bash/` is a my bash config scripts:
 * `.bashrc.prompt` exists purely to set up the bash prompt.
 * `.bashrc.completion` is loaded last and sets up all bash completion features.
 
+
+Note: New MacOS comes with `zsh` by default. To switch back to bash, use `chsh -s /bin/bash` and it should work.
+
+#### Common errors
+
+* `__git_ps1: command not found` -- fix with:
+```
+curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
+```
+
+
 ### emacs/
 
 Config in the `.emacs` file.
@@ -42,11 +53,11 @@ Frequently packages in emacs will get out of date or will not be able to be upda
 
 The important file in `git/` is the `.gitconfig-aliases` file which prepares some of my git aliases.
 
-To have it be sourced, add this to `~/.gitconfig`:
+To have it be sourced, ~add this to `~/.gitconfig`:~ -- this gets added automatically by `install.sh`:
 
 ```
 [include]
-	path = ~/.gitconfig-aliases
+    path = ~/.gitconfig-aliases
 ```
 
 After running `stow git` in this directory. (Likely, `~/.dotfiles`) Local setup of git user, email, etc., is likely done by initial setup.
@@ -63,20 +74,30 @@ Inside `vim/` you'll find files to set up vim, naturally:
 * `.vimrc.local` is for local vim config and is omitted.
 * If you are not running the whole `install.sh` script, after `stow`ing the vim config into place, check out the [commands to install vim-plug and plugins with it](https://github.com/mathias/dotfiles/blob/master/install.sh) in the `install.sh` script.
 
+**Update 2025-12-03:** I use neovim now. Setup as follows:
+
+1. Install `neovim` (brew, apt, etc)
+2. Clone my kickstart.vim config into place:
+```
+git clone https://github.com/mathias/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+```
+
 ### Other software:
 
 #### MacOS
 
+* iterm 2
 * Homebrew
 * [Raycast](https://www.raycast.com/)
 * https://monitorcontrol.app/
 * 1Password
 * MacOS window mgmt: Raycast built in functionality.
   * Formerly: [Rectangle](https://github.com/rxhanson/Rectangle) (before that: Spectacle, and before that, Phoenix + [my literate coding config](https://github.com/mathias/phoenix-config))
+* Elgato Control Center for key light: https://www.elgato.com/us/en/s/downloads
 
 #### Linux laptop
 
-* install/upgrade: vim, emacs, git, tmux, htop, s-tui, tlp
+* install/upgrade: vim, emacs, git, tmux, htop, s-tui, tlp, neovim
 * Firefox
 * [grasp](https://github.com/karlicoss/grasp)
 
@@ -90,7 +111,7 @@ Bugs
 
 I can't guarantee this will work for you. These are my own config files and highly personalized. As noted below in the license, there is no warranty.
 
-Copyright (c) 2022 Matt Gauger
+Copyright (c) 2025 Matt Gauger
 
 MIT License
 
