@@ -45,9 +45,9 @@ chmod +x ~/bin/e
 
 The script checks if there is an emacs server running. If there isn't, it starts one up. Then it connects an `emacsclient` to it with the requested file.
 
-#### Tip: Update emacs packages by blowing them away
+#### Common problems: Package sig not trusted
 
-Frequently packages in emacs will get out of date or will not be able to be updated from MELPA anymore because the installed version is no longer available. In this case, it should be safe to blow away the directories in `~/.emacs.d/elpa`. The only thing I haven't confirmed is that doing this does not lose `keyfreq`'s history.
+emacs uses GPG to sign package repos, and if your version of emacs is too old, it won't trust the newer key on MELPA, etc. This is best fixed by upgrading your version of emacs, rather than doing something hacky like disabling package sig checks.
 
 ### git/
 
@@ -95,6 +95,7 @@ git clone https://github.com/mathias/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOM
   * Formerly: [Rectangle](https://github.com/rxhanson/Rectangle) (before that: Spectacle, and before that, Phoenix + [my literate coding config](https://github.com/mathias/phoenix-config))
 * Elgato Control Center for key light: https://www.elgato.com/us/en/s/downloads
 * https://github.com/jdx/gh
+* https://emacsformacos.com/ for GUI Emacs
 
 #### Linux laptop
 
