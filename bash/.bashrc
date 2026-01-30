@@ -8,7 +8,7 @@ export HISTCONTROL=erasedups
 # Append to history file
 shopt -s histappend
 
-VISUAL=vim
+VISUAL=nvim
 EDITOR="$VISUAL"
 LESS="FRX"
 RI="--format ansi -T"
