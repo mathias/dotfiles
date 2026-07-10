@@ -11,7 +11,7 @@
   lg = log --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   lol = log --graph --oneline --decorate
   lop = log -p
-  put = push origin HEAD
+  put = push -u origin HEAD
   sha = !"git rev-parse HEAD | tr -d \"\n\" | pbcopy"
   bn = !"git name-rev HEAD --name-only | tr -d \"\n\" | pbcopy"
   fml = !"git fetch && git reset --hard origin/master"
