@@ -6,4 +6,4 @@ if [ ! -d "$DEST" ];
 then
   mkdir -p $DEST
 fi
-mv $HOME/Desktop/Screen\ Shot*.png $DEST
+mv $HOME/Desktop/Screen*.png $DEST

@@ -1,9 +1,14 @@
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+#if type brew &>/dev/null
+#then
+  #FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-  autoload -Uz compinit
-  compinit
+  #autoload -Uz compinit
+  #compinit
+#fi
+
+if [ -f ~/.git-completion.bash ]; then
+  set -o posix
+  source ~/.git-completion.bash
 fi
 
 source ~/src/github.com/jdxcode/gh/bash/gh.bash
