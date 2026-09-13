@@ -32,7 +32,7 @@ alias pgdown="stop_postgres"
 alias imageopt='imageOptim -a -q -d'
 
 # org mode git stuff
-alias gorg='pushd ~/dev/org/; git add . && git commit -m "Checkpoint: $(date +"%a, %d %b %Y")"; popd'
+alias gorg='pushd ~/org/personal/; git add . && git commit -m "Checkpoint: $(date +"%a, %d %b %Y")"; popd'
 
 # emacs
 alias "e."="e ."

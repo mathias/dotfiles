@@ -127,6 +127,11 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rhubarb'
 
+" Testing out:
+Plug 'davidbeckingsale/writegood.vim'
+
+
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -379,7 +384,7 @@ function! ToggleFindNerd()
 endfunction
 
 " If nerd tree is closed, find current file, if open, close it
-map <silent> <C-S-e> <ESC>:call ToggleFindNerd()<CR>
+map <silent> <C-S-n> <ESC>:call ToggleFindNerd()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tags
