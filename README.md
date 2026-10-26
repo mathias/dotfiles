@@ -92,8 +92,6 @@ git clone https://github.com/mathias/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOM
 * https://monitorcontrol.app/
 * 1Password
 * MacOS window mgmt: Raycast built in functionality.
-  * Formerly: [Rectangle](https://github.com/rxhanson/Rectangle) (before that: Spectacle, and before that, Phoenix + [my literate coding config](https://github.com/mathias/phoenix-config))
-* Elgato Control Center for key light: https://www.elgato.com/us/en/s/downloads
 * https://github.com/jdx/gh
 * https://emacsformacos.com/ for GUI Emacs
 
@@ -101,7 +99,7 @@ git clone https://github.com/mathias/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOM
 
 * install/upgrade: vim, emacs, git, tmux, htop, s-tui, tlp, neovim
 * https://github.com/jdx/gh
-* Firefox
+* LibreWolf
 * [grasp](https://github.com/karlicoss/grasp)
 
 To Use
@@ -114,7 +112,7 @@ Bugs
 
 I can't guarantee this will work for you. These are my own config files and highly personalized. As noted below in the license, there is no warranty.
 
-Copyright (c) 2025 Matt Gauger
+Copyright (c) 2026 Matt Gauger
 
 MIT License
 
